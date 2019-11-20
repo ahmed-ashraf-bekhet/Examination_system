@@ -1,0 +1,55 @@
+// user => me
+- Login(username,password,rememberMe,isTeacher)
+- ForgetPassword(userEmail)
+- GetInfo(userID)
+- UpdateProfile(user)
+- Add(user) *
+- Delete(userID) * 
+
+// student => magdy
+- GetDepartmentStudents(deptID)
+- GetExamStudents(examID)???
+
+// course => ashraf
+- GetCourse(courseID)
+- GetDepartmentCourses(deptID)
+- GetTeacherCourses(teacherID) => stored
+- GetStudentCourses(studentID)
+- GetStudentCoursesGrades(studentID) => stored
+- Delete(courseID) *
+- Update(course) *
+- Add(course) *
+- JoinCourse(studentID,courseID)
+
+// department => magdy
+- GetDepartment(deptID)
+- GetAll()
+- Delete(deptID) *
+- Update(department) *
+- Add(department) *
+- JoinDepartment(studentID,deptID)
+
+// question => 8anam
+- GetCourseQuestions(courseID)
+- Add(question)
+- Delete(questionID)
+- Update(question)
+- GetTypes()
+
+// topic => islam
+- GetCourseTopics(courseID) => stored
+- Add(topic)
+- delete(topicID)
+- updateTopic(topicID)
+
+// exam => me
+- GetCourseExams(courseID)
+- CorrectExam(examID)
+- GetExam(examID) => stored
+- GetModelAnswer()
+- Delete(examID)
+- Add(exam)
+
+
+// MODIFICATION 
+add 2 colmuns in ERD exam numOfMCQ / NumOfTrue-False 
