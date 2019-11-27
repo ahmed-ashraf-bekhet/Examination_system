@@ -49,7 +49,3 @@
 - GetModelAnswer()
 - Delete(examID)
 - Add(exam)
-
-
-// MODIFICATION 
-add 2 colmuns in ERD exam numOfMCQ / NumOfTrue-False 
