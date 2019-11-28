@@ -1,0 +1,20 @@
+// connect to exsisting repo
+- git init
+- git remote add origin "https://github.com/AhmedMajied/Examination_system.git"
+- git pull origin master
+
+// you are now on master branch and want to create your own branch
+- git checkout -b "Branch_Name" => example: Course_APIs
+
+// after finishing your changes and want to push
+- git add .
+- git commit -m "name your commit"
+- git checkout master
+- git pull origin master
+- git checkout "your branch name" => example Course_APIs
+- git merege master
+- git add .
+- git commit -m "name your commit"
+- git push origin "your branch name" 
+
+// then go to Github website repo and click on "pull request button"
