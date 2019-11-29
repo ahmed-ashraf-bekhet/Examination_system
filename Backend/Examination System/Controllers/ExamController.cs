@@ -39,7 +39,7 @@ namespace Examination_System.Controllers
 
             try
             {
-                studentID = Int32.Parse(Request.Headers.GetValues("userID").FirstOrDefault());
+                studentID = Int32.Parse(Request.Headers.GetCookies("userID").FirstOrDefault()["userID"].Value);
             }
             catch(Exception e)
             {
@@ -70,11 +70,12 @@ namespace Examination_System.Controllers
 
             try
             {
-                userTypeID = Int32.Parse(Request.Headers.GetValues("userTypeID").FirstOrDefault());
-                userID = Int32.Parse(Request.Headers.GetValues("userID").FirstOrDefault());
+                userTypeID = Int32.Parse(Request.Headers.GetCookies("userTypeID").FirstOrDefault()["userTypeID"].Value);
+                userID = Int32.Parse(Request.Headers.GetCookies("userID").FirstOrDefault()["userID"].Value);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Console.WriteLine(e);
                 return Unauthorized();
             }
 
@@ -134,7 +135,6 @@ namespace Examination_System.Controllers
             }
             base.Dispose(disposing);
         }
-
     }
 
     public class StudentExam
