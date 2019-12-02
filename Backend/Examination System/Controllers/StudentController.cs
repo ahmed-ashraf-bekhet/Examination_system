@@ -84,6 +84,23 @@ namespace Examination_System.Controllers
             return Created("", new { id = student.ID });
         }
 
+        [HttpGet]
+        [Route("test/test")]
+        public IHttpActionResult test()
+        {
+            
+            try
+            {
+                var x = Request.Headers.GetCookies("userID");
+                return Ok(x);
+            }catch(Exception e)
+            {
+                return Ok(e);
+            }
+
+
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
