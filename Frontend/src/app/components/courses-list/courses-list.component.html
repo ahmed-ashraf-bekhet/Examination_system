@@ -1,0 +1,22 @@
+<!-- course list -->
+<div class="row justify-content-center">
+    <div class="col-lg-4 col-sm-6 mb-5" *ngFor="let course of courses">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+            <img class="card-img-top rounded-0" src="../../../assets/images/courses/course-1.jpg" alt="course image">
+            <div class="card-body">
+                <ul class="list-inline mb-2">
+                    <li class="list-inline-item"><a class="text-color"
+                            [routerLink]="['/departments',course.DepartmentID]">{{course.DepartmentName}}</a></li>
+                </ul>
+                <a [routerLink]="['/courses',course.ID]">
+                    <h4 class="card-title">{{course.Name}}</h4>
+                </a>
+                <p class="card-text mb-4"> {{course.Description}}</p>
+                <div class="text-center">
+                    <a [routerLink]="['/courses',course.ID]" class="btn btn-primary btn-sm ">Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /course list -->

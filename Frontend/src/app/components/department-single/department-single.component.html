@@ -1,0 +1,85 @@
+<app-secondary-header title="Our Departments >" [minor_title]="department.Name"></app-secondary-header>
+
+<section class="section-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <!-- department image -->
+                <img src="../../../assets/images/courses/course-single.jpg" class="img-fluid w-100">
+            </div>
+        </div>
+
+        <!-- department info -->
+        <div class="row align-items-center mb-5">
+            <div class="col-xl-3 col-lg-4 col-12 mb-4 mb-xl-0">
+                <h2>{{department.Name}}</h2>
+            </div>
+            <div class="col-xl-5 col-lg-8 col-12">
+                <ul class="list-inline text-xl-center">
+                    <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-book text-primary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0">COURSES</h6>
+                                <p class="mb-0">{{getCoursesNumber()}}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-alarm-clock text-primary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0">Teachers</h6>
+                                <p class="mb-0">{{getTeachersNumber()}}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-wallet text-primary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0">Students</h6>
+                                <p class="mb-0">{{getStudentsNumber()}}</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-5 text-xl-right mb-4 mb-xl-0">
+                <a href="#" class="btn btn-primary">Update</a>
+            </div>
+
+            <div class="col-lg-2 col-7 text-xl-right mb-4 mb-xl-0">
+                <a href="#" class="btn btn-primary">Delete</a>
+            </div>
+
+            <!-- border -->
+            <div class="col-12 mt-4">
+                <div class="border-bottom border-primary"></div>
+            </div>
+        </div>
+
+        <!-- department details -->
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h3>About Department</h3>
+                <p>{{department.Description}}</p>
+            </div>
+        </div>
+
+        <!-- related courses -->
+        <app-see-all-header title="Courses" link="/courses"></app-see-all-header>
+        <app-courses-list courses_number=0 [deptID]="departmentID"></app-courses-list>
+
+        <!-- mobile see all button -->
+        <div class="row">
+            <div class="col-12 text-center">
+                <a routerLink="/courses" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">see all</a>
+            </div>
+        </div>
+        <!-- /related courses -->
+
+        <div>some teachers</div>
+    </div>
+</section>

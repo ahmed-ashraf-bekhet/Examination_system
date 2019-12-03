@@ -1,0 +1,84 @@
+<app-secondary-header title="Our Courses >" [minor_title]="course.Name"></app-secondary-header>
+
+<section class="section-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <!-- course image -->
+                <img src="../../../assets/images/courses/course-single.jpg" class="img-fluid w-100">
+            </div>
+        </div>
+
+        <!-- course info -->
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-8 col-md-6 col-12 mb-4 mb-xl-0">
+                <h2>{{course.Name}}</h2>
+            </div>
+
+            <!-- Buttons -->
+            <div class="col-lg-2 col-md-3 col-5 text-md-right mb-4 mb-xl-0">
+                <a href="#" class="btn btn-primary">Update</a>
+            </div>
+            <div class="col-lg-2 col-md-3 col-7 text-md-right text-left mb-4 mb-xl-0">
+                <a href="#" class="btn btn-primary">Delete</a>
+            </div>
+
+            <div class="col-lg-3 col-5 mt-4 mb-4 mb-xl-0">
+                <a href="#" class="btn btn-primary">Questions</a>
+            </div>
+            <div class="col-lg-3 col-7 text-lg-right mt-4 mb-4 mb-xl-0">
+                <a href="#" class="btn btn-primary">Create Question</a>
+            </div>
+            <div class="col-lg-3 col-5 mt-4 mb-4 mb-xl-0">
+                <a href="#" class="btn btn-primary">Generate Exam</a>
+            </div>
+            <div class="col-lg-3 col-7 mt-4 mb-4 mb-xl-0 text-lg-right">
+                <a href="#" class="btn btn-primary">Exams</a>
+            </div>
+
+            <!-- border -->
+            <div class="col-12 mt-4">
+                <div class="border-bottom border-primary"></div>
+            </div>
+        </div>
+
+        <!-- course details -->
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h3>About Course</h3>
+                <p>{{course.Description}}</p>
+            </div>
+            
+            <!-- teacher -->
+            <div class="col-12">
+                <h5 class="mb-3">Teacher</h5>
+                <div class="d-flex justify-content-between align-items-center flex-wrap">
+                    <div class="media mb-2 mb-sm-0">
+                        <img class="mr-4 img-fluid" src="../../../assets/images/teacher.jpg" alt="Teacher image">
+                        <div class="media-body">
+                            <a [routerLink] = "['/teachers/3']">
+                                <h4 class="card-title">Sam Somrat</h4>
+                            </a>
+                            <p>Bio</p>
+                        </div>
+                    </div>
+                    <div class="social-link">
+                        <h6 class="d-none d-sm-block">Social Link</h6>
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><a class="d-inline-block text-light p-1" href="#"><i
+                                        class="ti-facebook"></i></a></li>
+                            <li class="list-inline-item"><a class="d-inline-block text-light p-1" href="#"><i
+                                        class="ti-twitter-alt"></i></a></li>
+                            <li class="list-inline-item"><a class="d-inline-block text-light p-1" href="#"><i
+                                        class="ti-linkedin"></i></a></li>
+                            <li class="list-inline-item"><a class="d-inline-block text-light p-1" href="#"><i
+                                        class="ti-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-bottom border-primary mt-4"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /section -->

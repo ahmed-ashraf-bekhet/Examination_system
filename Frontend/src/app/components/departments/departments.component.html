@@ -1,0 +1,24 @@
+<app-secondary-header title="Our Departments"></app-secondary-header>
+
+<!-- department list -->
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-sm-6 mb-5" *ngFor="let department of departments">
+                <div class="card p-0 border-primary rounded-0 hover-shadow">
+                    <img class="card-img-top rounded-0" src="../../../assets/images/courses/course-1.jpg" alt="department image">
+                    <div class="card-body">
+                        <a [routerLink]="['/departments',department.ID]">
+                            <h4 class="card-title">{{department.Name}}</h4>
+                        </a>
+                        <p class="card-text mb-4"> {{department.Description}}</p>
+                        <div class="text-center">
+                            <a [routerLink]="['/departments',department.ID]" class="btn btn-primary btn-sm ">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /department list -->

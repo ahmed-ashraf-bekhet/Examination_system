@@ -1,0 +1,17 @@
+<app-slider></app-slider>
+<app-banner-feature></app-banner-feature>
+
+<!-- courses -->
+<section class="section-sm">
+    <div class="container">
+        <app-see-all-header title = "Courses" link = "/courses"></app-see-all-header>
+        <app-courses-list [courses_number] = "courses_number"></app-courses-list>
+        <!-- mobile see all button -->
+        <div class="row">
+            <div class="col-12 text-center">
+                <a routerLink = "/courses" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">see all</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /courses -->
