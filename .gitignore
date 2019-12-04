@@ -9,6 +9,8 @@
 
 # dependencies
 Frontend/node_modules
+Backend/.vs
+
 
 # profiling files
 Frontend/chrome-profiler-events*.json

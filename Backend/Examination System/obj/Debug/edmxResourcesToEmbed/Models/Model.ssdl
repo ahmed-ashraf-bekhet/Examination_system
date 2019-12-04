@@ -5,7 +5,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Body" Type="nvarchar" MaxLength="200" />
+    <Property Name="Body" Type="nvarchar(max)" />
     <Property Name="QuestionID" Type="int" />
   </EntityType>
   <EntityType Name="Courses">
@@ -13,10 +13,11 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="Description" Type="nvarchar" MaxLength="700" />
     <Property Name="DepartmentID" Type="int" />
     <Property Name="InstructorID" Type="int" />
+    <Property Name="Photo" Type="varchar" MaxLength="1000" />
   </EntityType>
   <EntityType Name="Courses_Students">
     <Key>
@@ -32,14 +33,15 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Photo" Type="varchar" MaxLength="1000" />
   </EntityType>
   <EntityType Name="Exams">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Title" Type="nvarchar" MaxLength="200" />
+    <Property Name="Title" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="Duration" Type="int" />
     <Property Name="CreationDateTime" Type="datetime" />
     <Property Name="CourseID" Type="int" />
@@ -59,9 +61,9 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="200" />
-    <Property Name="Username" Type="nvarchar" MaxLength="200" />
-    <Property Name="Password" Type="nvarchar" MaxLength="100" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="DepartmentID" Type="int" />
     <Property Name="IsAdmin" Type="bit" />
     <Property Name="Photo" Type="varchar" MaxLength="500" />
@@ -79,7 +81,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Body" Type="nvarchar" MaxLength="500" />
+    <Property Name="Body" Type="nvarchar" MaxLength="500" Nullable="false" />
     <Property Name="CourseID" Type="int" />
     <Property Name="TypeID" Type="int" />
     <Property Name="Right_AnswerID" Type="int" />
@@ -89,9 +91,9 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="200" />
-    <Property Name="Username" Type="nvarchar" MaxLength="200" />
-    <Property Name="Password" Type="nvarchar" MaxLength="200" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="DepartmentID" Type="int" />
     <Property Name="Photo" Type="varchar" MaxLength="500" />
   </EntityType>
@@ -122,7 +124,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="CourseID" Type="int" />
   </EntityType>
   <Association Name="FK_Answers_Questions">

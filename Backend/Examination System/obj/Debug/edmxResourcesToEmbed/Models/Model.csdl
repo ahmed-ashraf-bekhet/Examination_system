@@ -5,7 +5,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Body" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="QuestionID" Type="Int32" />
     <NavigationProperty Name="Question" Relationship="Self.FK_Answers_Questions" FromRole="Answers" ToRole="Questions" />
     <NavigationProperty Name="Students_Exams_Answers" Relationship="Self.FK_Students_Exams_Answers_Answers" FromRole="Answers" ToRole="Students_Exams_Answers" />
@@ -15,7 +15,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="700" FixedLength="false" Unicode="true" />
     <Property Name="DepartmentID" Type="Int32" />
     <Property Name="InstructorID" Type="Int32" />
@@ -25,6 +25,7 @@
     <NavigationProperty Name="Exams" Relationship="Self.FK_Exams_Courses" FromRole="Courses" ToRole="Exams" />
     <NavigationProperty Name="Questions" Relationship="Self.FK_Questions_Courses" FromRole="Courses" ToRole="Questions" />
     <NavigationProperty Name="Topics" Relationship="Self.FK_Topics_Courses" FromRole="Courses" ToRole="Topics" />
+    <Property Name="Photo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Courses_Students">
     <Key>
@@ -42,17 +43,18 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Courses" Relationship="Self.FK_Courses_Departments" FromRole="Departments" ToRole="Courses" />
     <NavigationProperty Name="Instructors" Relationship="Self.FK_Instructors_Departments" FromRole="Departments" ToRole="Instructors" />
     <NavigationProperty Name="Students" Relationship="Self.FK_Students_Departments1" FromRole="Departments" ToRole="Students" />
+    <Property Name="Photo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Exam">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Duration" Type="Int32" />
     <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
     <Property Name="CourseID" Type="Int32" />
@@ -67,9 +69,9 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Username" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DepartmentID" Type="Int32" />
     <Property Name="IsAdmin" Type="Boolean" />
     <Property Name="Photo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
@@ -90,7 +92,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Body" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Body" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="CourseID" Type="Int32" />
     <Property Name="TypeID" Type="Int32" />
     <Property Name="Right_AnswerID" Type="Int32" />
@@ -105,9 +107,9 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Username" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DepartmentID" Type="Int32" />
     <Property Name="Photo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Courses_Students" Relationship="Self.FK_Courses_Students_Students" FromRole="Students" ToRole="Courses_Students" />
@@ -145,7 +147,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="CourseID" Type="Int32" />
     <NavigationProperty Name="Cours" Relationship="Self.FK_Topics_Courses" FromRole="Topics" ToRole="Courses" />
   </EntityType>
