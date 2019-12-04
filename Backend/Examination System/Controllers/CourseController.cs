@@ -16,35 +16,39 @@ namespace Examination_System.Controllers
     {
         private DBEntities db = new DBEntities();
 
-        // GET: api/Cours
+        // GET: api/Course
         public IHttpActionResult GetCourses()
         {
-            var c = db.Courses.Select(cc => new { cc.ID, cc.Name, cc.Description, deptname = cc.Department.Name, intructorName = cc.Instructor.Name });
+            var c = db.Courses.Select(cc => new { cc.ID, cc.Name, cc.Description, cc.DepartmentID, deptname = cc.Department.Name, cc.Photo });
             return Ok(c);
         }
 
-        // GET: api/Cours/5
+        // GET: api/Course/5
         [ResponseType(typeof(Course))]
-        public IHttpActionResult GetCours(int id)
+        public IHttpActionResult GetCourse(int id)
         {
-            Course cours = db.Courses.Find(id);
-            if (cours == null)
+            var course = db.Courses.Where(c=>c.ID == id).Select(c=>new { c.ID, c.Name, c.Description, deptname = c.Department.Name, c.Photo,
+                instructorID = c.Instructor.ID, instructorName = c.Instructor.Name, instructorPhoto = c.Instructor.Photo, instructorBio = c.Instructor.Bio });
+            if (course == null)
             {
                 return BadRequest();
             }
 
-            return Ok(cours);
+            return Ok(course);
         }
+
         [Route("api/GetDepartmentCourses/{id}")]
         public IHttpActionResult GetDepartmentCourses(int id)
         {
-            Department dept = db.Departments.FirstOrDefault(c => c.ID == id);
-            if (dept == null)
+            var courses = db.Courses.Where(c=>c.DepartmentID == id).Select(cc => new { cc.ID, cc.Name, cc.Description, cc.DepartmentID, deptname = cc.Department.Name, cc.Photo });
+            
+            if (courses == null)
             {
                 return BadRequest();
             }
-            return Ok(new { deptName = dept.Name, course_names = dept.Courses.Select(c => c.Name) });
+            return Ok(courses);
         }
+
         [Route("api/GetInstructorCourses/{id}")]
         public IHttpActionResult GetINstructorCourses(int id)
         {
@@ -55,6 +59,7 @@ namespace Examination_System.Controllers
             }
             return Ok(new { instructorName = inst.Name, course_names = inst.Courses.Select(c => c.Name) });
         }
+
         [Route("api/GetStudentCourses/{id}")]
         public IHttpActionResult GetStudentCourses(int id)//???
         {
@@ -65,6 +70,7 @@ namespace Examination_System.Controllers
             }
             return Ok(new { st.Name, courses_name = st.Courses_Students.Select(c => c.Cours.Name) });
         }
+
         [Route("api/GetStudentCourses/{id}")]
         public IHttpActionResult GetStudentCoursesGrade(int id)//???
         {
@@ -75,6 +81,7 @@ namespace Examination_System.Controllers
             }
             return Ok(new { st.Name, courses_name = st.Courses_Students.Select(c => c.Grade) });
         }
+
         // PUT: api/Cours/5
         [ResponseType(typeof(void))]
         [HttpPut]

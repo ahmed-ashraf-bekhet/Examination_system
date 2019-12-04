@@ -28,6 +28,7 @@ namespace Examination_System.Models
         public string Description { get; set; }
         public Nullable<int> DepartmentID { get; set; }
         public Nullable<int> InstructorID { get; set; }
+        public string Photo { get; set; }
     
         public virtual Department Department { get; set; }
         public virtual Instructor Instructor { get; set; }

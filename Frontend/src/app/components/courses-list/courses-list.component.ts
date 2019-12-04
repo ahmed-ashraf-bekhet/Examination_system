@@ -18,14 +18,14 @@ export class CoursesListComponent implements OnInit {
     if(this.deptID)
       this.getDepartmentCourses(this.deptID);
     else
-    this.getAllCourses();
+      this.getAllCourses();
   }
 
   getAllCourses(){
     this.courseService.getAllCourses().subscribe(
       (data) => {
         this.courses = data ;
-
+        
         if(this.courses_number > 0)
           this.courses = this.courses.slice(0,this.courses_number) 
       },
@@ -39,6 +39,7 @@ export class CoursesListComponent implements OnInit {
     this.courseService.getDepartmentCourses(deptID).subscribe(
       (data)=>{
         this.courses = data;
+        console.log(this.courses+"aaaa")
       },
       (error)=>{
         console.log(error);

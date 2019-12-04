@@ -10,15 +10,15 @@ export class CourseService {
   constructor(private myHttp: HttpClient) { }
 
   getAllCourses(){
-    return this.myHttp.get("http://localhost:1600/courses");
+    return this.myHttp.get("http://localhost:54345/api/Course");
   }
 
   getDepartmentCourses(ID:number){
-    return this.myHttp.get(`http://localhost:1600/courses?DepartmentID=${ID}`);
+    return this.myHttp.get(`http://localhost:54345/api/GetDepartmentCourses/${ID}`);
   }
 
   getCourse(ID:number){
-    return this.myHttp.get(`http://localhost:1600/courses?ID=${ID}`)
+    return this.myHttp.get(`http://localhost:54345/api/Course/${ID}`)
   }
 
   test(){

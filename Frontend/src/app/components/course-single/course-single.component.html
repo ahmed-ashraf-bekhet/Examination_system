@@ -56,10 +56,10 @@
                     <div class="media mb-2 mb-sm-0">
                         <img class="mr-4 img-fluid" src="../../../assets/images/teacher.jpg" alt="Teacher image">
                         <div class="media-body">
-                            <a [routerLink] = "['/teachers/3']">
-                                <h4 class="card-title">Sam Somrat</h4>
+                            <a [routerLink] = "['/teachers',course.instructorID]">
+                                <h4 class="card-title">{{course.instructorName}}</h4>
                             </a>
-                            <p>Bio</p>
+                            <p>{{course.instructorBio}}</p>
                         </div>
                     </div>
                     <div class="social-link">
