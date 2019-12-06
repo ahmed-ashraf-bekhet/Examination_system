@@ -39,7 +39,7 @@ namespace Examination_System.Controllers
 
             try
             {
-                studentID = Int32.Parse(Request.Headers.GetCookies("userID").FirstOrDefault()["userID"].Value);
+                studentID = Int32.Parse(Request.Headers.GetValues("userID").FirstOrDefault());
             }
             catch(Exception e)
             {
@@ -54,7 +54,7 @@ namespace Examination_System.Controllers
 
         [HttpPost]
         [Route("api/exam/studentAnswers")]
-        public IHttpActionResult GetStudentAnswers(StudentExam studentExam)
+        public IHttpActionResult GetStudentAnswers(StudentExamViewModel studentExam)
         {
             var studentAnswers = db.get_student_answers(studentExam.ExamID, studentExam.StudentID);
             return Ok(studentAnswers);
@@ -70,8 +70,8 @@ namespace Examination_System.Controllers
 
             try
             {
-                userTypeID = Int32.Parse(Request.Headers.GetCookies("userTypeID").FirstOrDefault()["userTypeID"].Value);
-                userID = Int32.Parse(Request.Headers.GetCookies("userID").FirstOrDefault()["userID"].Value);
+                userTypeID = Int32.Parse(Request.Headers.GetValues("userTypeID").FirstOrDefault());
+                userID = Int32.Parse(Request.Headers.GetValues("userID").FirstOrDefault());
             }
             catch (Exception e)
             {
@@ -137,7 +137,7 @@ namespace Examination_System.Controllers
         }
     }
 
-    public class StudentExam
+    public class StudentExamViewModel
     {
         public int ExamID { get; set; }
         public int StudentID { get; set; }

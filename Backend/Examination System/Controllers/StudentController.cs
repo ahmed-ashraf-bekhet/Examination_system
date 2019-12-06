@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Examination_System.Models;
@@ -88,17 +90,21 @@ namespace Examination_System.Controllers
         [Route("test/test")]
         public IHttpActionResult test()
         {
-            
             try
             {
-                var x = Request.Headers.GetCookies("userID");
-                return Ok(x);
+
+
+                //HttpPostedFile image = HttpContext.Current.Request.Files[0];
+                //Utility.SaveImage(image, "Teachers");
+
+                var x = Int32.Parse(Request.Headers.GetValues("userID").FirstOrDefault());
+                var y = Request.Headers.GetValues("userTypeID");
+                return Ok(new { x,y});
             }catch(Exception e)
             {
-                return Ok(e);
+                Console.WriteLine(e);
+                return Unauthorized();
             }
-
-
         }
 
         protected override void Dispose(bool disposing)

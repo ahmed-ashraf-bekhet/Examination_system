@@ -39,7 +39,6 @@ export class CoursesListComponent implements OnInit {
     this.courseService.getDepartmentCourses(deptID).subscribe(
       (data)=>{
         this.courses = data;
-        console.log(this.courses+"aaaa")
       },
       (error)=>{
         console.log(error);

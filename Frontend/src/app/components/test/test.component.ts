@@ -9,19 +9,28 @@ import { CourseService } from '../../services/course.service';
 })
 export class TestComponent implements OnInit {
 
+  image:File;
+
   constructor(private cookie:CookieService,private myService:CourseService) { }
 
   ngOnInit() {
   }
 
   send():void{
-    this.cookie.set('userID','1');
-    this.cookie.set('userTypeID','1');
-
-    this.myService.test().subscribe(
+    this.myService.test(this.image).subscribe(
       (data)=>{console.log(data)},
       (err)=>{console.log(err)}
     )
   }
 
+  processFile(imageInput: any){
+    const file:File = imageInput.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener('load', (event: any) => {
+      this.image = file;
+    });
+
+    reader.readAsDataURL(file);
+  }
 }
