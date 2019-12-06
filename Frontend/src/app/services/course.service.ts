@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { HttpClient} from '@angular/common/http';
 
 export class CourseService {
 
-  constructor(private myHttp: HttpClient) { }
+  constructor(private myHttp: HttpClient, private authService: AuthService) { }
 
   getAllCourses(){
     return this.myHttp.get("http://localhost:54345/api/Course");
@@ -21,8 +22,21 @@ export class CourseService {
     return this.myHttp.get(`http://localhost:54345/api/Course/${ID}`)
   }
 
-  test(){
-    return this.myHttp.get("http://localhost:54345/test/test")
+  test(image: File){
+    const formData = new FormData();
+    formData.append('image', image);
+    
+    const httpOptions = {
+      headers: new HttpHeaders(this.authService.getCookie())
+    };
+
+    var course = {
+      Name:"aa",
+      Description: "55",
+      image: image
+    }
+    
+    return this.myHttp.get("http://localhost:54345/test/test",httpOptions)
   }
 
 }
