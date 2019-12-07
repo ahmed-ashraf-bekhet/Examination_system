@@ -13,7 +13,8 @@ namespace Examination_System.Models
     
     public partial class get_student_answers_Result
     {
-        public string Body { get; set; }
-        public string Body1 { get; set; }
+        public string Question { get; set; }
+        public string Answer { get; set; }
+        public string Right_Answer { get; set; }
     }
 }

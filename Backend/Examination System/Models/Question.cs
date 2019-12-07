@@ -30,7 +30,7 @@ namespace Examination_System.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Answer> Answers { get; set; }
-        public virtual Course Cours { get; set; }
+        public virtual Cours Cours { get; set; }
         public virtual Question_Types Question_Types { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Students_Exams_Answers> Students_Exams_Answers { get; set; }

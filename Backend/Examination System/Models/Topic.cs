@@ -18,6 +18,6 @@ namespace Examination_System.Models
         public string Name { get; set; }
         public Nullable<int> CourseID { get; set; }
     
-        public virtual Course Cours { get; set; }
+        public virtual Cours Cours { get; set; }
     }
 }

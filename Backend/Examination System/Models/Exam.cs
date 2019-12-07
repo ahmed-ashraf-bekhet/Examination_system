@@ -29,7 +29,7 @@ namespace Examination_System.Models
         public Nullable<int> TFQuestionsNumber { get; set; }
         public Nullable<int> MCQQuestionsNumber { get; set; }
     
-        public virtual Course Cours { get; set; }
+        public virtual Cours Cours { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Students_Exams_Answers> Students_Exams_Answers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
