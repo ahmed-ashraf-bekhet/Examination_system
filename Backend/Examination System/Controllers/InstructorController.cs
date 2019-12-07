@@ -16,6 +16,15 @@ namespace Examination_System.Controllers
     {
         private DBEntities db = new DBEntities();
 
+        // GET: api/Instructor
+        [HttpGet]
+        public IHttpActionResult GetInstructors()
+        {
+            var instructors = db.Instructors.Select(i => new { i.ID, i.Name, i.Photo, i.DepartmentID, deptName = i.Department.Name});
+            
+            return Ok(instructors);
+        }
+
         // GET: api/Instructor/5
         [HttpGet]
         public IHttpActionResult GetInstructor(int id)
@@ -25,6 +34,18 @@ namespace Examination_System.Controllers
                 return NotFound();
 
             return Ok(instructor);
+        }
+
+        [Route("api/GetDepartmentInstructors/{id}")]
+        public IHttpActionResult GetDepartmentTeachers(int id)
+        {
+            var instructors = db.Instructors.Where(i => i.DepartmentID == id).Select(i => new { i.ID, i.Name, i.DepartmentID, deptName = i.Department.Name, i.Photo });
+
+            if (instructors == null)
+            {
+                return BadRequest();
+            }
+            return Ok(instructors);
         }
 
         [HttpPost]
