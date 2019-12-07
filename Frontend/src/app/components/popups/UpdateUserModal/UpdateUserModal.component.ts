@@ -3,8 +3,8 @@ import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-pop-ups',
-  templateUrl: './pop-ups.component.html',
-  styleUrls: ['./pop-ups.component.css']
+  templateUrl: './UpdateUserModal.component.html',
+  styleUrls: ['./UpdateUserModal.component.css']
 })
 export class UpdateUserModalComponent implements OnInit {
   @Input() student

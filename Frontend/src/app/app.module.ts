@@ -26,13 +26,12 @@ import { CourseService } from './services/course.service';
 import { UserService } from './services/user.service';
 import { TestComponent } from './components/test/test.component';
 import { CookieService } from 'ngx-cookie-service';
-<<<<<<< HEAD
+
 import { StudentComponent } from './components/student/student.component';
 import { UpdateUserModalComponent } from './components/popups/UpdateUserModal/UpdateUserModal.component';
-=======
 import { AboutComponent } from './components/about/about.component';
 import { TeachersListComponent } from './components/teachers-list/teachers-list.component';
->>>>>>> master
+
 
 const AppRoutes = [
   { path: '', component: HomeComponent },
@@ -68,13 +67,13 @@ const AppRoutes = [
     TeachersComponent,
     TeacherSingleComponent,
     TestComponent,
-<<<<<<< HEAD
+
     StudentComponent,
-    UpdateUserModalComponent
-=======
+    UpdateUserModalComponent,
+
     AboutComponent,
     TeachersListComponent
->>>>>>> master
+
   ],
   imports: [
     BrowserModule,
