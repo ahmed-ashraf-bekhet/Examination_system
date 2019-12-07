@@ -17,7 +17,7 @@ namespace Examination_System.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Instructor()
         {
-            this.Courses = new HashSet<Course>();
+            this.Courses = new HashSet<Cours>();
         }
     
         public int ID { get; set; }
@@ -30,7 +30,7 @@ namespace Examination_System.Models
         public string Bio { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Course> Courses { get; set; }
+        public virtual ICollection<Cours> Courses { get; set; }
         public virtual Department Department { get; set; }
     }
 }

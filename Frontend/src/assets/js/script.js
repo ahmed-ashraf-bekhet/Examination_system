@@ -2,7 +2,7 @@
     'use strict';
 
     // Sticky Menu
-    $(window).scroll(function () {
+    /*$(window).scroll(function () {
         if ($('header').offset().top > 10) {
             $('.top-header').addClass('hide');
             $('.navigation').addClass('nav-bg');
@@ -11,7 +11,7 @@
             $('.navigation').removeClass('nav-bg');
         }
     });
-
+*/
     // Background-images
     $('[data-background]').each(function () {
         $(this).css({

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetget_student_answers" targetNamespace="http://tempuri.org/DataSetget_student_answers.xsd" xmlns:mstns="http://tempuri.org/DataSetget_student_answers.xsd" xmlns="http://tempuri.org/DataSetget_student_answers.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetget_student_answers" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetget_student_answers" msprop:Generator_UserDSName="DataSetget_student_answers">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Student_x0020_Answers" msprop:Generator_TableClassName="Student_AnswersDataTable" msprop:Generator_TableVarName="tableStudent_Answers" msprop:Generator_RowChangedName="Student_AnswersRowChanged" msprop:Generator_TablePropName="Student_Answers" msprop:Generator_RowDeletingName="Student_AnswersRowDeleting" msprop:Generator_RowChangingName="Student_AnswersRowChanging" msprop:Generator_RowEvHandlerName="Student_AnswersRowChangeEventHandler" msprop:Generator_RowDeletedName="Student_AnswersRowDeleted" msprop:Generator_RowClassName="Student_AnswersRow" msprop:Generator_UserTableName="Student Answers" msprop:Generator_RowEvArgName="Student_AnswersRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Question" msprop:Generator_ColumnVarNameInTable="columnQuestion" msprop:Generator_ColumnPropNameInRow="Question" msprop:Generator_ColumnPropNameInTable="QuestionColumn" msprop:Generator_UserColumnName="Question" type="xs:string" minOccurs="0" />
+              <xs:element name="Answer" msprop:Generator_ColumnVarNameInTable="columnAnswer" msprop:Generator_ColumnPropNameInRow="Answer" msprop:Generator_ColumnPropNameInTable="AnswerColumn" msprop:Generator_UserColumnName="Answer" type="xs:string" minOccurs="0" />
+              <xs:element name="Right_Answer" msprop:Generator_ColumnVarNameInTable="columnRight_Answer" msprop:Generator_ColumnPropNameInRow="Right_Answer" msprop:Generator_ColumnPropNameInTable="Right_AnswerColumn" msprop:Generator_UserColumnName="Right_Answer" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

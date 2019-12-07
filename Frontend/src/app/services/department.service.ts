@@ -9,22 +9,22 @@ export class DepartmentService {
   constructor(private myHttp: HttpClient) { }
 
   getAllDepartments(){
-    return this.myHttp.get("http://localhost:1600/courses");
+    return this.myHttp.get("http://localhost:54345/api/Department");
   }
 
-  getDepartment(ID:number){
-    return this.myHttp.get(`http://localhost:1600/courses?ID=${ID}`)
+  getDepartment(DepartmentID:number){
+    return this.myHttp.get(`http://localhost:54345/api/Department/${DepartmentID}`);
   }
 
   getStudentsNumber(DepartmentID:number){
-    return 50;
+    return this.myHttp.get(`http://localhost:54345/api/getStudentsNumber/${DepartmentID}`);
   }
 
   getTeachersNumber(DepartmentID:number){
-    return 8;
+    return this.myHttp.get(`http://localhost:54345/api/getInstructorsNumber/${DepartmentID}`);
   }
 
   getCoursesNumber(DepartmentID:number){
-    return 4;
+    return this.myHttp.get(`http://localhost:54345/api/getCoursesNumber/${DepartmentID}`);
   }
 }

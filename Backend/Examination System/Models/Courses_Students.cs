@@ -18,7 +18,7 @@ namespace Examination_System.Models
         public int StudentID { get; set; }
         public Nullable<int> Grade { get; set; }
     
-        public virtual Course Cours { get; set; }
+        public virtual Cours Cours { get; set; }
         public virtual Student Student { get; set; }
     }
 }
