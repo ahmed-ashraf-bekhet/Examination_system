@@ -15,5 +15,6 @@ namespace Examination_System.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
+        public string Photo { get; set; }
     }
 }

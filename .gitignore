@@ -10,6 +10,8 @@
 # dependencies
 Frontend/node_modules
 Backend/.vs
+Backend/Examination System/bin
+Backend/Examination System/obj
 
 
 # profiling files

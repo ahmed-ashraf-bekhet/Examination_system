@@ -37,12 +37,6 @@ export class CourseService {
     const httpOptions = {
       headers: new HttpHeaders(this.authService.getCookie())
     };
-
-    var course = {
-      Name:"aa",
-      Description: "55",
-      image: image
-    }
     
     return this.myHttp.get("http://localhost:54345/test/test",httpOptions)
   }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBEntities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Answers">
           <Key>
             <PropertyRef Name="ID" />
@@ -542,7 +542,7 @@
           <Parameter Name="courseid" Type="int" Mode="In" />
           <Parameter Name="topicid" Type="int" Mode="In" />
         </Function>
-        <EntityContainer Name="DBModelStoreContainer">
+        <EntityContainer Name="DBEntitiesStoreContainer">
           <EntitySet Name="Answers" EntityType="Self.Answers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Courses_Students" EntityType="Self.Courses_Students" Schema="dbo" store:Type="Tables" />
@@ -628,7 +628,7 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DBEntities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Answer">
           <Key>
             <PropertyRef Name="ID" />
@@ -639,7 +639,7 @@
           <NavigationProperty Name="Question" Relationship="Self.FK_Answers_Questions" FromRole="Answers" ToRole="Questions" />
           <NavigationProperty Name="Students_Exams_Answers" Relationship="Self.FK_Students_Exams_Answers_Answers" FromRole="Answers" ToRole="Students_Exams_Answers" />
         </EntityType>
-        <EntityType Name="Course">
+        <EntityType Name="Cours">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -648,13 +648,13 @@
           <Property Name="Description" Type="String" MaxLength="700" FixedLength="false" Unicode="true" />
           <Property Name="DepartmentID" Type="Int32" />
           <Property Name="InstructorID" Type="Int32" />
+          <Property Name="Photo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Department" Relationship="Self.FK_Courses_Departments" FromRole="Courses" ToRole="Departments" />
           <NavigationProperty Name="Instructor" Relationship="Self.FK_Courses_Instructors" FromRole="Courses" ToRole="Instructors" />
           <NavigationProperty Name="Courses_Students" Relationship="Self.FK_Courses_Students_Courses" FromRole="Courses" ToRole="Courses_Students" />
           <NavigationProperty Name="Exams" Relationship="Self.FK_Exams_Courses" FromRole="Courses" ToRole="Exams" />
           <NavigationProperty Name="Questions" Relationship="Self.FK_Questions_Courses" FromRole="Courses" ToRole="Questions" />
           <NavigationProperty Name="Topics" Relationship="Self.FK_Topics_Courses" FromRole="Courses" ToRole="Topics" />
-          <Property Name="Photo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Courses_Students">
           <Key>
@@ -673,10 +673,10 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Photo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Courses" Relationship="Self.FK_Courses_Departments" FromRole="Departments" ToRole="Courses" />
           <NavigationProperty Name="Instructors" Relationship="Self.FK_Instructors_Departments" FromRole="Departments" ToRole="Instructors" />
           <NavigationProperty Name="Students" Relationship="Self.FK_Students_Departments1" FromRole="Departments" ToRole="Students" />
-          <Property Name="Photo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Exam">
           <Key>
@@ -810,7 +810,7 @@
           <End Role="Departments" Type="Self.Department" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Courses" Type="DBModel.Course" Multiplicity="*" />
+          <End Role="Courses" Type="Self.Cours" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Departments">
               <PropertyRef Name="ID" />
@@ -822,7 +822,7 @@
         </Association>
         <Association Name="FK_Courses_Instructors">
           <End Role="Instructors" Type="Self.Instructor" Multiplicity="0..1" />
-          <End Role="Courses" Type="DBModel.Course" Multiplicity="*" />
+          <End Role="Courses" Type="Self.Cours" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Instructors">
               <PropertyRef Name="ID" />
@@ -833,7 +833,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Courses_Students_Courses">
-          <End Role="Courses" Type="DBModel.Course" Multiplicity="1">
+          <End Role="Courses" Type="Self.Cours" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Courses_Students" Type="Self.Courses_Students" Multiplicity="*" />
@@ -847,7 +847,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Exams_Courses">
-          <End Role="Courses" Type="DBModel.Course" Multiplicity="0..1">
+          <End Role="Courses" Type="Self.Cours" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Exams" Type="Self.Exam" Multiplicity="*" />
@@ -861,7 +861,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Questions_Courses">
-          <End Role="Courses" Type="DBModel.Course" Multiplicity="0..1">
+          <End Role="Courses" Type="Self.Cours" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Questions" Type="Self.Question" Multiplicity="*" />
@@ -875,7 +875,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Topics_Courses">
-          <End Role="Courses" Type="DBModel.Course" Multiplicity="0..1">
+          <End Role="Courses" Type="Self.Cours" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Topics" Type="Self.Topic" Multiplicity="*" />
@@ -984,9 +984,9 @@
           <End Role="Exams" Type="Self.Exam" Multiplicity="*" />
           <End Role="Questions" Type="Self.Question" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ExaminationSystemDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Answers" EntityType="Self.Answer" />
-          <EntitySet Name="Courses" EntityType="DBModel.Course" />
+          <EntitySet Name="Courses" EntityType="Self.Cours" />
           <EntitySet Name="Courses_Students" EntityType="Self.Courses_Students" />
           <EntitySet Name="Departments" EntityType="Self.Department" />
           <EntitySet Name="Exams" EntityType="Self.Exam" />
@@ -1108,43 +1108,43 @@
             <Parameter Name="duration" Mode="In" Type="Int32" />
             <Parameter Name="title" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="get_Courses_by_departmentid" ReturnType="Collection(DBModel.get_Courses_by_departmentid_Result)">
+          <FunctionImport Name="get_Courses_by_departmentid" ReturnType="Collection(DBEntities.get_Courses_by_departmentid_Result)">
           <Parameter Name="departmentid" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="get_Courses_by_instructorid" ReturnType="Collection(DBModel.get_Courses_by_instructorid_Result)">
+          <FunctionImport Name="get_Courses_by_instructorid" ReturnType="Collection(DBEntities.get_Courses_by_instructorid_Result)">
           <Parameter Name="instructorid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="get_courses_students" ReturnType="Collection(Int32)">
             <Parameter Name="courseid" Mode="In" Type="Int32" />
             <Parameter Name="studentid" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="get_courses_students_by_StudentID" ReturnType="Collection(Int32)">
+          <FunctionImport Name="get_courses_students_by_StudentID" ReturnType="Collection(DBEntities.get_courses_students_by_StudentID_Result)">
           <Parameter Name="studentid" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="get_courses_students_number_by_instructorid" ReturnType="Collection(DBModel.get_courses_students_number_by_instructorid_Result)">
+          <FunctionImport Name="get_courses_students_number_by_instructorid" ReturnType="Collection(DBEntities.get_courses_students_number_by_instructorid_Result)">
           <Parameter Name="instructorid" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="get_department" ReturnType="Collection(DBModel.get_department_Result)" />
-          <FunctionImport Name="get_exams" ReturnType="Collection(DBModel.get_exams_Result)" />
-          <FunctionImport Name="get_exams_questions" ReturnType="Collection(DBModel.get_exams_questions_Result)" />
-          <FunctionImport Name="get_questions_by_ExamID" ReturnType="Collection(DBModel.get_questions_by_ExamID_Result)">
+          <FunctionImport Name="get_department" ReturnType="Collection(DBEntities.get_department_Result)" />
+          <FunctionImport Name="get_exams" ReturnType="Collection(DBEntities.get_exams_Result)" />
+          <FunctionImport Name="get_exams_questions" ReturnType="Collection(DBEntities.get_exams_questions_Result)" />
+          <FunctionImport Name="get_questions_by_ExamID" ReturnType="Collection(DBEntities.get_questions_by_ExamID_Result)">
           <Parameter Name="exam_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="get_questionsTypes" ReturnType="Collection(DBModel.get_questionsTypes_Result)" />
-          <FunctionImport Name="get_student_answers" ReturnType="Collection(DBModel.get_student_answers_Result)">
+          <FunctionImport Name="get_questionsTypes" ReturnType="Collection(DBEntities.get_questionsTypes_Result)" />
+          <FunctionImport Name="get_student_answers" ReturnType="Collection(DBEntities.get_student_answers_Result)">
             <Parameter Name="exam_id" Mode="In" Type="Int32" />
             <Parameter Name="student_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="get_student_info_by_departmentid" ReturnType="Collection(DBModel.get_student_info_by_departmentid_Result)">
+          <FunctionImport Name="get_student_info_by_departmentid" ReturnType="Collection(DBEntities.get_student_info_by_departmentid_Result)">
           <Parameter Name="departmentid" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="get_Students_by_departmentid" ReturnType="Collection(DBModel.get_Students_by_departmentid_Result)">
+          <FunctionImport Name="get_Students_by_departmentid" ReturnType="Collection(DBEntities.get_Students_by_departmentid_Result)">
           <Parameter Name="departmentid" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="get_Students_by_studentid" ReturnType="Collection(DBModel.get_Students_by_studentid_Result)">
+          <FunctionImport Name="get_Students_by_studentid" ReturnType="Collection(DBEntities.get_Students_by_studentid_Result)">
           <Parameter Name="studentid" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="get_topics_by_courseid" ReturnType="Collection(DBModel.get_topics_by_courseid_Result)">
+          <FunctionImport Name="get_topics_by_courseid" ReturnType="Collection(DBEntities.get_topics_by_courseid_Result)">
           <Parameter Name="courseid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="insert_Course">
@@ -1195,11 +1195,11 @@
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition">
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(DBEntities.sp_helpdiagramdefinition_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams">
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(DBEntities.sp_helpdiagrams_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1247,31 +1247,36 @@
         </EntityContainer>
         <ComplexType Name="get_Courses_by_departmentid_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
-          <Property Type="Int32" Name="Duration" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
           <Property Type="String" Name="Description" Nullable="true" MaxLength="700" />
           <Property Type="Int32" Name="DepartmentID" Nullable="true" />
           <Property Type="Int32" Name="InstructorID" Nullable="true" />
+          <Property Type="String" Name="Photo" Nullable="true" MaxLength="1000" />
         </ComplexType>
         <ComplexType Name="get_Courses_by_instructorid_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
-          <Property Type="Int32" Name="Duration" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
           <Property Type="String" Name="Description" Nullable="true" MaxLength="700" />
           <Property Type="Int32" Name="DepartmentID" Nullable="true" />
           <Property Type="Int32" Name="InstructorID" Nullable="true" />
+          <Property Type="String" Name="Photo" Nullable="true" MaxLength="1000" />
+        </ComplexType>
+        <ComplexType Name="get_courses_students_by_StudentID_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="Grade" Nullable="true" />
         </ComplexType>
         <ComplexType Name="get_courses_students_number_by_instructorid_Result">
-          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
           <Property Type="Int32" Name="Number_of_Student" Nullable="true" />
         </ComplexType>
         <ComplexType Name="get_department_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Photo" Nullable="true" MaxLength="1000" />
         </ComplexType>
         <ComplexType Name="get_exams_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Title" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="200" />
           <Property Type="Int32" Name="Duration" Nullable="true" />
           <Property Type="DateTime" Name="CreationDateTime" Nullable="true" Precision="23" />
           <Property Type="Int32" Name="CourseID" Nullable="true" />
@@ -1284,7 +1289,7 @@
         </ComplexType>
         <ComplexType Name="get_questions_by_ExamID_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Body" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Body" Nullable="false" MaxLength="500" />
           <Property Type="Int32" Name="CourseID" Nullable="true" />
           <Property Type="Int32" Name="TypeID" Nullable="true" />
           <Property Type="Int32" Name="Right_AnswerID" Nullable="true" />
@@ -1296,43 +1301,55 @@
           <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
         </ComplexType>
         <ComplexType Name="get_student_answers_Result">
-          <Property Type="String" Name="Body" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="Body1" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Question" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="Answer" Nullable="true" />
+          <Property Type="String" Name="Right_Answer" Nullable="true" />
         </ComplexType>
         <ComplexType Name="get_student_info_by_departmentid_Result">
-          <Property Type="String" Name="name" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="Username" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="Department" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Department" Nullable="false" MaxLength="200" />
         </ComplexType>
         <ComplexType Name="get_Students_by_departmentid_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="Username" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="200" />
           <Property Type="Int32" Name="DepartmentID" Nullable="true" />
           <Property Type="String" Name="Photo" Nullable="true" MaxLength="500" />
         </ComplexType>
         <ComplexType Name="get_Students_by_studentid_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="Username" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="200" />
           <Property Type="Int32" Name="DepartmentID" Nullable="true" />
           <Property Type="String" Name="Photo" Nullable="true" MaxLength="500" />
         </ComplexType>
         <ComplexType Name="get_topics_by_courseid_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
           <Property Type="Int32" Name="CourseID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="DBEntities">
+        <EntityContainerMapping StorageEntityContainer="DBEntitiesStoreContainer" CdmEntityContainer="ExaminationSystemDBEntities">
           <EntitySetMapping Name="Answers">
-            <EntityTypeMapping TypeName="DBModel.Answer">
+            <EntityTypeMapping TypeName="DBEntities.Answer">
               <MappingFragment StoreEntitySet="Answers">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Body" ColumnName="Body" />
@@ -1341,19 +1358,19 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Courses">
-            <EntityTypeMapping TypeName="DBModel.Course">
+            <EntityTypeMapping TypeName="DBEntities.Cours">
               <MappingFragment StoreEntitySet="Courses">
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
                 <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Courses_Students">
-            <EntityTypeMapping TypeName="DBModel.Courses_Students">
+            <EntityTypeMapping TypeName="DBEntities.Courses_Students">
               <MappingFragment StoreEntitySet="Courses_Students">
                 <ScalarProperty Name="CourseID" ColumnName="CourseID" />
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
@@ -1362,16 +1379,16 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Departments">
-            <EntityTypeMapping TypeName="DBModel.Department">
+            <EntityTypeMapping TypeName="DBEntities.Department">
               <MappingFragment StoreEntitySet="Departments">
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Exams">
-            <EntityTypeMapping TypeName="DBModel.Exam">
+            <EntityTypeMapping TypeName="DBEntities.Exam">
               <MappingFragment StoreEntitySet="Exams">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -1384,7 +1401,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Instructors">
-            <EntityTypeMapping TypeName="DBModel.Instructor">
+            <EntityTypeMapping TypeName="DBEntities.Instructor">
               <MappingFragment StoreEntitySet="Instructors">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1398,7 +1415,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Question_Types">
-            <EntityTypeMapping TypeName="DBModel.Question_Types">
+            <EntityTypeMapping TypeName="DBEntities.Question_Types">
               <MappingFragment StoreEntitySet="Question_Types">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1406,7 +1423,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Questions">
-            <EntityTypeMapping TypeName="DBModel.Question">
+            <EntityTypeMapping TypeName="DBEntities.Question">
               <MappingFragment StoreEntitySet="Questions">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Body" ColumnName="Body" />
@@ -1417,7 +1434,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="DBModel.Student">
+            <EntityTypeMapping TypeName="DBEntities.Student">
               <MappingFragment StoreEntitySet="Students">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1429,7 +1446,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Students_Exams_Answers">
-            <EntityTypeMapping TypeName="DBModel.Students_Exams_Answers">
+            <EntityTypeMapping TypeName="DBEntities.Students_Exams_Answers">
               <MappingFragment StoreEntitySet="Students_Exams_Answers">
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
@@ -1440,7 +1457,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="DBModel.sysdiagram">
+            <EntityTypeMapping TypeName="DBEntities.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1451,7 +1468,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Topics">
-            <EntityTypeMapping TypeName="DBModel.Topic">
+            <EntityTypeMapping TypeName="DBEntities.Topic">
               <MappingFragment StoreEntitySet="Topics">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1459,7 +1476,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Exams_Questions" TypeName="DBModel.Exams_Questions" StoreEntitySet="Exams_Questions">
+          <AssociationSetMapping Name="Exams_Questions" TypeName="DBEntities.Exams_Questions" StoreEntitySet="Exams_Questions">
             <EndProperty Name="Exams">
               <ScalarProperty Name="ID" ColumnName="ExamID" />
             </EndProperty>
@@ -1467,64 +1484,72 @@
               <ScalarProperty Name="ID" ColumnName="QuestionID" />
             </EndProperty>
           </AssociationSetMapping>
-          <FunctionImportMapping FunctionImportName="correct_exam" FunctionName="DBModel.Store.correct_exam" />
-          <FunctionImportMapping FunctionImportName="delete_answer" FunctionName="DBModel.Store.delete_answer" />
-          <FunctionImportMapping FunctionImportName="delete_Courses" FunctionName="DBModel.Store.delete_Courses" />
-          <FunctionImportMapping FunctionImportName="delete_courses_students" FunctionName="DBModel.Store.delete_courses_students" />
-          <FunctionImportMapping FunctionImportName="delete_department" FunctionName="DBModel.Store.delete_department" />
-          <FunctionImportMapping FunctionImportName="delete_exams" FunctionName="DBModel.Store.delete_exams" />
-          <FunctionImportMapping FunctionImportName="delete_instructor" FunctionName="DBModel.Store.delete_instructor" />
-          <FunctionImportMapping FunctionImportName="delete_question" FunctionName="DBModel.Store.delete_question" />
-          <FunctionImportMapping FunctionImportName="delete_questionsTypes" FunctionName="DBModel.Store.delete_questionsTypes" />
-          <FunctionImportMapping FunctionImportName="delete_Students" FunctionName="DBModel.Store.delete_Students" />
-          <FunctionImportMapping FunctionImportName="delete_students_exams_answers" FunctionName="DBModel.Store.delete_students_exams_answers" />
-          <FunctionImportMapping FunctionImportName="delete_topics" FunctionName="DBModel.Store.delete_topics" />
-          <FunctionImportMapping FunctionImportName="generate_exam" FunctionName="DBModel.Store.generate_exam" />
-          <FunctionImportMapping FunctionImportName="get_Courses_by_departmentid" FunctionName="DBModel.Store.get_Courses_by_departmentid">
+          <FunctionImportMapping FunctionImportName="correct_exam" FunctionName="DBEntities.Store.correct_exam" />
+          <FunctionImportMapping FunctionImportName="delete_answer" FunctionName="DBEntities.Store.delete_answer" />
+          <FunctionImportMapping FunctionImportName="delete_Courses" FunctionName="DBEntities.Store.delete_Courses" />
+          <FunctionImportMapping FunctionImportName="delete_courses_students" FunctionName="DBEntities.Store.delete_courses_students" />
+          <FunctionImportMapping FunctionImportName="delete_department" FunctionName="DBEntities.Store.delete_department" />
+          <FunctionImportMapping FunctionImportName="delete_exams" FunctionName="DBEntities.Store.delete_exams" />
+          <FunctionImportMapping FunctionImportName="delete_instructor" FunctionName="DBEntities.Store.delete_instructor" />
+          <FunctionImportMapping FunctionImportName="delete_question" FunctionName="DBEntities.Store.delete_question" />
+          <FunctionImportMapping FunctionImportName="delete_questionsTypes" FunctionName="DBEntities.Store.delete_questionsTypes" />
+          <FunctionImportMapping FunctionImportName="delete_Students" FunctionName="DBEntities.Store.delete_Students" />
+          <FunctionImportMapping FunctionImportName="delete_students_exams_answers" FunctionName="DBEntities.Store.delete_students_exams_answers" />
+          <FunctionImportMapping FunctionImportName="delete_topics" FunctionName="DBEntities.Store.delete_topics" />
+          <FunctionImportMapping FunctionImportName="generate_exam" FunctionName="DBEntities.Store.generate_exam" />
+          <FunctionImportMapping FunctionImportName="get_Courses_by_departmentid" FunctionName="DBEntities.Store.get_Courses_by_departmentid">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DBModel.get_Courses_by_departmentid_Result">
+              <ComplexTypeMapping TypeName="DBEntities.get_Courses_by_departmentid_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Duration" ColumnName="Duration" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
                 <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_Courses_by_instructorid" FunctionName="DBModel.Store.get_Courses_by_instructorid">
+          <FunctionImportMapping FunctionImportName="get_Courses_by_instructorid" FunctionName="DBEntities.Store.get_Courses_by_instructorid">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DBModel.get_Courses_by_instructorid_Result">
+              <ComplexTypeMapping TypeName="DBEntities.get_Courses_by_instructorid_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Duration" ColumnName="Duration" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
                 <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_courses_students" FunctionName="DBModel.Store.get_courses_students" />
-          <FunctionImportMapping FunctionImportName="get_courses_students_by_StudentID" FunctionName="DBModel.Store.get_courses_students_by_StudentID" />
-          <FunctionImportMapping FunctionImportName="get_courses_students_number_by_instructorid" FunctionName="DBModel.Store.get_courses_students_number_by_instructorid">
+          <FunctionImportMapping FunctionImportName="get_courses_students" FunctionName="DBEntities.Store.get_courses_students" />
+          <FunctionImportMapping FunctionImportName="get_courses_students_by_StudentID" FunctionName="DBEntities.Store.get_courses_students_by_StudentID">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DBModel.get_courses_students_number_by_instructorid_Result">
+              <ComplexTypeMapping TypeName="DBEntities.get_courses_students_by_StudentID_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_courses_students_number_by_instructorid" FunctionName="DBEntities.Store.get_courses_students_number_by_instructorid">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBEntities.get_courses_students_number_by_instructorid_Result">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Number_of_Student" ColumnName="Number of Student" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_department" FunctionName="DBModel.Store.get_department">
+          <FunctionImportMapping FunctionImportName="get_department" FunctionName="DBEntities.Store.get_department">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DBModel.get_department_Result">
+              <ComplexTypeMapping TypeName="DBEntities.get_department_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_exams" FunctionName="DBModel.Store.get_exams">
+          <FunctionImportMapping FunctionImportName="get_exams" FunctionName="DBEntities.Store.get_exams">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DBModel.get_exams_Result">
+              <ComplexTypeMapping TypeName="DBEntities.get_exams_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Duration" ColumnName="Duration" />
@@ -1535,17 +1560,17 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_exams_questions" FunctionName="DBModel.Store.get_exams_questions">
+          <FunctionImportMapping FunctionImportName="get_exams_questions" FunctionName="DBEntities.Store.get_exams_questions">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DBModel.get_exams_questions_Result">
+              <ComplexTypeMapping TypeName="DBEntities.get_exams_questions_Result">
                 <ScalarProperty Name="ExamID" ColumnName="ExamID" />
                 <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_questions_by_ExamID" FunctionName="DBModel.Store.get_questions_by_ExamID">
+          <FunctionImportMapping FunctionImportName="get_questions_by_ExamID" FunctionName="DBEntities.Store.get_questions_by_ExamID">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DBModel.get_questions_by_ExamID_Result">
+              <ComplexTypeMapping TypeName="DBEntities.get_questions_by_ExamID_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Body" ColumnName="Body" />
                 <ScalarProperty Name="CourseID" ColumnName="CourseID" />
@@ -1556,34 +1581,35 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_questionsTypes" FunctionName="DBModel.Store.get_questionsTypes">
+          <FunctionImportMapping FunctionImportName="get_questionsTypes" FunctionName="DBEntities.Store.get_questionsTypes">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DBModel.get_questionsTypes_Result">
+              <ComplexTypeMapping TypeName="DBEntities.get_questionsTypes_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_student_answers" FunctionName="DBModel.Store.get_student_answers">
+          <FunctionImportMapping FunctionImportName="get_student_answers" FunctionName="DBEntities.Store.get_student_answers">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DBModel.get_student_answers_Result">
-                <ScalarProperty Name="Body" ColumnName="Body" />
-                <ScalarProperty Name="Body1" ColumnName="Body1" />
+              <ComplexTypeMapping TypeName="DBEntities.get_student_answers_Result">
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Right_Answer" ColumnName="Right_Answer" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_student_info_by_departmentid" FunctionName="DBModel.Store.get_student_info_by_departmentid">
+          <FunctionImportMapping FunctionImportName="get_student_info_by_departmentid" FunctionName="DBEntities.Store.get_student_info_by_departmentid">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DBModel.get_student_info_by_departmentid_Result">
+              <ComplexTypeMapping TypeName="DBEntities.get_student_info_by_departmentid_Result">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Department" ColumnName="Department" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_Students_by_departmentid" FunctionName="DBModel.Store.get_Students_by_departmentid">
+          <FunctionImportMapping FunctionImportName="get_Students_by_departmentid" FunctionName="DBEntities.Store.get_Students_by_departmentid">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DBModel.get_Students_by_departmentid_Result">
+              <ComplexTypeMapping TypeName="DBEntities.get_Students_by_departmentid_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
@@ -1593,9 +1619,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_Students_by_studentid" FunctionName="DBModel.Store.get_Students_by_studentid">
+          <FunctionImportMapping FunctionImportName="get_Students_by_studentid" FunctionName="DBEntities.Store.get_Students_by_studentid">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DBModel.get_Students_by_studentid_Result">
+              <ComplexTypeMapping TypeName="DBEntities.get_Students_by_studentid_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
@@ -1605,36 +1631,53 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_topics_by_courseid" FunctionName="DBModel.Store.get_topics_by_courseid">
+          <FunctionImportMapping FunctionImportName="get_topics_by_courseid" FunctionName="DBEntities.Store.get_topics_by_courseid">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DBModel.get_topics_by_courseid_Result">
+              <ComplexTypeMapping TypeName="DBEntities.get_topics_by_courseid_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CourseID" ColumnName="CourseID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="insert_Course" FunctionName="DBModel.Store.insert_Course" />
-          <FunctionImportMapping FunctionImportName="insert_courses_students" FunctionName="DBModel.Store.insert_courses_students" />
-          <FunctionImportMapping FunctionImportName="insert_department" FunctionName="DBModel.Store.insert_department" />
-          <FunctionImportMapping FunctionImportName="insert_exam" FunctionName="DBModel.Store.insert_exam" />
-          <FunctionImportMapping FunctionImportName="insert_questionsTypes" FunctionName="DBModel.Store.insert_questionsTypes" />
-          <FunctionImportMapping FunctionImportName="insert_Student" FunctionName="DBModel.Store.insert_Student" />
-          <FunctionImportMapping FunctionImportName="insert_topic" FunctionName="DBModel.Store.insert_topic" />
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="DBModel.Store.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="DBModel.Store.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="DBModel.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="DBModel.Store.sp_helpdiagramdefinition" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="DBModel.Store.sp_helpdiagrams" />
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DBModel.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DBModel.Store.sp_upgraddiagrams" />
-          <FunctionImportMapping FunctionImportName="update_Courses" FunctionName="DBModel.Store.update_Courses" />
-          <FunctionImportMapping FunctionImportName="update_courses_students" FunctionName="DBModel.Store.update_courses_students" />
-          <FunctionImportMapping FunctionImportName="update_department" FunctionName="DBModel.Store.update_department" />
-          <FunctionImportMapping FunctionImportName="update_exam" FunctionName="DBModel.Store.update_exam" />
-          <FunctionImportMapping FunctionImportName="update_questionsTypes" FunctionName="DBModel.Store.update_questionsTypes" />
-          <FunctionImportMapping FunctionImportName="update_Student" FunctionName="DBModel.Store.update_Student" />
-          <FunctionImportMapping FunctionImportName="update_topic" FunctionName="DBModel.Store.update_topic" />
+          <FunctionImportMapping FunctionImportName="insert_Course" FunctionName="DBEntities.Store.insert_Course" />
+          <FunctionImportMapping FunctionImportName="insert_courses_students" FunctionName="DBEntities.Store.insert_courses_students" />
+          <FunctionImportMapping FunctionImportName="insert_department" FunctionName="DBEntities.Store.insert_department" />
+          <FunctionImportMapping FunctionImportName="insert_exam" FunctionName="DBEntities.Store.insert_exam" />
+          <FunctionImportMapping FunctionImportName="insert_questionsTypes" FunctionName="DBEntities.Store.insert_questionsTypes" />
+          <FunctionImportMapping FunctionImportName="insert_Student" FunctionName="DBEntities.Store.insert_Student" />
+          <FunctionImportMapping FunctionImportName="insert_topic" FunctionName="DBEntities.Store.insert_topic" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="DBEntities.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="DBEntities.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="DBEntities.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="DBEntities.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBEntities.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="DBEntities.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBEntities.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DBEntities.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DBEntities.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="update_Courses" FunctionName="DBEntities.Store.update_Courses" />
+          <FunctionImportMapping FunctionImportName="update_courses_students" FunctionName="DBEntities.Store.update_courses_students" />
+          <FunctionImportMapping FunctionImportName="update_department" FunctionName="DBEntities.Store.update_department" />
+          <FunctionImportMapping FunctionImportName="update_exam" FunctionName="DBEntities.Store.update_exam" />
+          <FunctionImportMapping FunctionImportName="update_questionsTypes" FunctionName="DBEntities.Store.update_questionsTypes" />
+          <FunctionImportMapping FunctionImportName="update_Student" FunctionName="DBEntities.Store.update_Student" />
+          <FunctionImportMapping FunctionImportName="update_topic" FunctionName="DBEntities.Store.update_topic" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

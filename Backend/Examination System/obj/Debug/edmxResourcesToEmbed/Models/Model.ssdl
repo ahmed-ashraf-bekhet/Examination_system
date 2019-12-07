@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="DBEntities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Answers">
     <Key>
       <PropertyRef Name="ID" />
@@ -537,7 +537,7 @@
     <Parameter Name="courseid" Type="int" Mode="In" />
     <Parameter Name="topicid" Type="int" Mode="In" />
   </Function>
-  <EntityContainer Name="DBModelStoreContainer">
+  <EntityContainer Name="DBEntitiesStoreContainer">
     <EntitySet Name="Answers" EntityType="Self.Answers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Courses_Students" EntityType="Self.Courses_Students" Schema="dbo" store:Type="Tables" />

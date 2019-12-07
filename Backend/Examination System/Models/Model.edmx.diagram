@@ -4,35 +4,35 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="31a9ce5e9e0f4d868da14458b6473cf3" Name="Diagram1">
-        <EntityTypeShape EntityType="DBModel.Answer" Width="1.5" PointX="12" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Course" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Courses_Students" Width="1.5" PointX="10.5" PointY="15.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Department" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Exam" Width="1.5" PointX="7.5" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Instructor" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Question_Types" Width="1.5" PointX="7.5" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Question" Width="1.5" PointX="9.75" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Student" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Students_Exams_Answers" Width="1.5" PointX="13" PointY="14.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Topic" Width="1.5" PointX="7.5" PointY="17.375" IsExpanded="true" />
-        <AssociationConnector Association="DBModel.FK_Answers_Questions" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Students_Exams_Answers_Answers" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Courses_Departments" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Courses_Instructors" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Courses_Students_Courses" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Exams_Courses" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Questions_Courses" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Topics_Courses" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Courses_Students_Students" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Instructors_Departments" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Students_Departments1" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Students_Exams_Answers_Exams" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Questions_Question_Types" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Students_Exams_Answers_Questions" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Students_Exams_Answers_Students" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.Exams_Questions" ManuallyRouted="false" />
+      <Diagram DiagramId="0af76d379fce473a80e628667fe07c0c" Name="Diagram1">
+        <EntityTypeShape EntityType="DBEntities.Answer" Width="1.5" PointX="12" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEntities.Cours" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEntities.Courses_Students" Width="1.5" PointX="10.5" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEntities.Department" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEntities.Exam" Width="1.5" PointX="7.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEntities.Instructor" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEntities.Question_Types" Width="1.5" PointX="7.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEntities.Question" Width="1.5" PointX="9.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEntities.Student" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEntities.Students_Exams_Answers" Width="1.5" PointX="13" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEntities.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEntities.Topic" Width="1.5" PointX="7.5" PointY="17.375" IsExpanded="true" />
+        <AssociationConnector Association="DBEntities.FK_Answers_Questions" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEntities.FK_Students_Exams_Answers_Answers" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEntities.FK_Courses_Departments" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEntities.FK_Courses_Instructors" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEntities.FK_Courses_Students_Courses" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEntities.FK_Exams_Courses" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEntities.FK_Questions_Courses" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEntities.FK_Topics_Courses" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEntities.FK_Courses_Students_Students" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEntities.FK_Instructors_Departments" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEntities.FK_Students_Departments1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEntities.FK_Students_Exams_Answers_Exams" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEntities.FK_Questions_Question_Types" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEntities.FK_Students_Exams_Answers_Questions" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEntities.FK_Students_Exams_Answers_Students" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEntities.Exams_Questions" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
