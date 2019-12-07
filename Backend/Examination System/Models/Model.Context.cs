@@ -15,10 +15,10 @@ namespace Examination_System.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class DBEntities : DbContext
+    public partial class ExaminationSystemDBEntities : DbContext
     {
-        public DBEntities()
-            : base("name=DBEntities")
+        public ExaminationSystemDBEntities()
+            : base("name=ExaminationSystemDBEntities")
         {
         }
     
@@ -28,7 +28,7 @@ namespace Examination_System.Models
         }
     
         public virtual DbSet<Answer> Answers { get; set; }
-        public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<Cours> Courses { get; set; }
         public virtual DbSet<Courses_Students> Courses_Students { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Exam> Exams { get; set; }
@@ -220,13 +220,13 @@ namespace Examination_System.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("get_courses_students", courseidParameter, studentidParameter);
         }
     
-        public virtual ObjectResult<Nullable<int>> get_courses_students_by_StudentID(Nullable<int> studentid)
+        public virtual ObjectResult<get_courses_students_by_StudentID_Result> get_courses_students_by_StudentID(Nullable<int> studentid)
         {
             var studentidParameter = studentid.HasValue ?
                 new ObjectParameter("studentid", studentid) :
                 new ObjectParameter("studentid", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("get_courses_students_by_StudentID", studentidParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<get_courses_students_by_StudentID_Result>("get_courses_students_by_StudentID", studentidParameter);
         }
     
         public virtual ObjectResult<get_courses_students_number_by_instructorid_Result> get_courses_students_number_by_instructorid(Nullable<int> instructorid)
@@ -478,7 +478,7 @@ namespace Examination_System.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
         }
     
-        public virtual int sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
+        public virtual ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
         {
             var diagramnameParameter = diagramname != null ?
                 new ObjectParameter("diagramname", diagramname) :
@@ -488,10 +488,10 @@ namespace Examination_System.Models
                 new ObjectParameter("owner_id", owner_id) :
                 new ObjectParameter("owner_id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagramdefinition_Result>("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
         }
     
-        public virtual int sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
+        public virtual ObjectResult<sp_helpdiagrams_Result> sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
         {
             var diagramnameParameter = diagramname != null ?
                 new ObjectParameter("diagramname", diagramname) :
@@ -501,7 +501,7 @@ namespace Examination_System.Models
                 new ObjectParameter("owner_id", owner_id) :
                 new ObjectParameter("owner_id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagrams_Result>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
         }
     
         public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)

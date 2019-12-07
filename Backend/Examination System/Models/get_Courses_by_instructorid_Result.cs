@@ -15,9 +15,9 @@ namespace Examination_System.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public Nullable<int> Duration { get; set; }
         public string Description { get; set; }
         public Nullable<int> DepartmentID { get; set; }
         public Nullable<int> InstructorID { get; set; }
+        public string Photo { get; set; }
     }
 }

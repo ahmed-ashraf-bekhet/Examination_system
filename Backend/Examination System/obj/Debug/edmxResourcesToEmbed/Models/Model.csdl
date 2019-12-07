@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="DBEntities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Answer">
     <Key>
       <PropertyRef Name="ID" />
@@ -10,7 +10,7 @@
     <NavigationProperty Name="Question" Relationship="Self.FK_Answers_Questions" FromRole="Answers" ToRole="Questions" />
     <NavigationProperty Name="Students_Exams_Answers" Relationship="Self.FK_Students_Exams_Answers_Answers" FromRole="Answers" ToRole="Students_Exams_Answers" />
   </EntityType>
-  <EntityType Name="Course">
+  <EntityType Name="Cours">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
@@ -19,13 +19,13 @@
     <Property Name="Description" Type="String" MaxLength="700" FixedLength="false" Unicode="true" />
     <Property Name="DepartmentID" Type="Int32" />
     <Property Name="InstructorID" Type="Int32" />
+    <Property Name="Photo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Department" Relationship="Self.FK_Courses_Departments" FromRole="Courses" ToRole="Departments" />
     <NavigationProperty Name="Instructor" Relationship="Self.FK_Courses_Instructors" FromRole="Courses" ToRole="Instructors" />
     <NavigationProperty Name="Courses_Students" Relationship="Self.FK_Courses_Students_Courses" FromRole="Courses" ToRole="Courses_Students" />
     <NavigationProperty Name="Exams" Relationship="Self.FK_Exams_Courses" FromRole="Courses" ToRole="Exams" />
     <NavigationProperty Name="Questions" Relationship="Self.FK_Questions_Courses" FromRole="Courses" ToRole="Questions" />
     <NavigationProperty Name="Topics" Relationship="Self.FK_Topics_Courses" FromRole="Courses" ToRole="Topics" />
-    <Property Name="Photo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Courses_Students">
     <Key>
@@ -44,10 +44,10 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Photo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Courses" Relationship="Self.FK_Courses_Departments" FromRole="Departments" ToRole="Courses" />
     <NavigationProperty Name="Instructors" Relationship="Self.FK_Instructors_Departments" FromRole="Departments" ToRole="Instructors" />
     <NavigationProperty Name="Students" Relationship="Self.FK_Students_Departments1" FromRole="Departments" ToRole="Students" />
-    <Property Name="Photo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Exam">
     <Key>
@@ -181,7 +181,7 @@
     <End Role="Departments" Type="Self.Department" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Courses" Type="DBModel.Course" Multiplicity="*" />
+    <End Role="Courses" Type="Self.Cours" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Departments">
         <PropertyRef Name="ID" />
@@ -193,7 +193,7 @@
   </Association>
   <Association Name="FK_Courses_Instructors">
     <End Role="Instructors" Type="Self.Instructor" Multiplicity="0..1" />
-    <End Role="Courses" Type="DBModel.Course" Multiplicity="*" />
+    <End Role="Courses" Type="Self.Cours" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Instructors">
         <PropertyRef Name="ID" />
@@ -204,7 +204,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Courses_Students_Courses">
-    <End Role="Courses" Type="DBModel.Course" Multiplicity="1">
+    <End Role="Courses" Type="Self.Cours" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="Courses_Students" Type="Self.Courses_Students" Multiplicity="*" />
@@ -218,7 +218,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Exams_Courses">
-    <End Role="Courses" Type="DBModel.Course" Multiplicity="0..1">
+    <End Role="Courses" Type="Self.Cours" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="Exams" Type="Self.Exam" Multiplicity="*" />
@@ -232,7 +232,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Questions_Courses">
-    <End Role="Courses" Type="DBModel.Course" Multiplicity="0..1">
+    <End Role="Courses" Type="Self.Cours" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="Questions" Type="Self.Question" Multiplicity="*" />
@@ -246,7 +246,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Topics_Courses">
-    <End Role="Courses" Type="DBModel.Course" Multiplicity="0..1">
+    <End Role="Courses" Type="Self.Cours" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="Topics" Type="Self.Topic" Multiplicity="*" />
@@ -355,9 +355,9 @@
     <End Role="Exams" Type="Self.Exam" Multiplicity="*" />
     <End Role="Questions" Type="Self.Question" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="ExaminationSystemDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Answers" EntityType="Self.Answer" />
-    <EntitySet Name="Courses" EntityType="DBModel.Course" />
+    <EntitySet Name="Courses" EntityType="Self.Cours" />
     <EntitySet Name="Courses_Students" EntityType="Self.Courses_Students" />
     <EntitySet Name="Departments" EntityType="Self.Department" />
     <EntitySet Name="Exams" EntityType="Self.Exam" />
@@ -479,43 +479,43 @@
       <Parameter Name="duration" Mode="In" Type="Int32" />
       <Parameter Name="title" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="get_Courses_by_departmentid" ReturnType="Collection(DBModel.get_Courses_by_departmentid_Result)">
+    <FunctionImport Name="get_Courses_by_departmentid" ReturnType="Collection(DBEntities.get_Courses_by_departmentid_Result)">
       <Parameter Name="departmentid" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="get_Courses_by_instructorid" ReturnType="Collection(DBModel.get_Courses_by_instructorid_Result)">
+    <FunctionImport Name="get_Courses_by_instructorid" ReturnType="Collection(DBEntities.get_Courses_by_instructorid_Result)">
       <Parameter Name="instructorid" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="get_courses_students" ReturnType="Collection(Int32)">
       <Parameter Name="courseid" Mode="In" Type="Int32" />
       <Parameter Name="studentid" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="get_courses_students_by_StudentID" ReturnType="Collection(Int32)">
+    <FunctionImport Name="get_courses_students_by_StudentID" ReturnType="Collection(DBEntities.get_courses_students_by_StudentID_Result)">
       <Parameter Name="studentid" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="get_courses_students_number_by_instructorid" ReturnType="Collection(DBModel.get_courses_students_number_by_instructorid_Result)">
+    <FunctionImport Name="get_courses_students_number_by_instructorid" ReturnType="Collection(DBEntities.get_courses_students_number_by_instructorid_Result)">
       <Parameter Name="instructorid" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="get_department" ReturnType="Collection(DBModel.get_department_Result)" />
-    <FunctionImport Name="get_exams" ReturnType="Collection(DBModel.get_exams_Result)" />
-    <FunctionImport Name="get_exams_questions" ReturnType="Collection(DBModel.get_exams_questions_Result)" />
-    <FunctionImport Name="get_questions_by_ExamID" ReturnType="Collection(DBModel.get_questions_by_ExamID_Result)">
+    <FunctionImport Name="get_department" ReturnType="Collection(DBEntities.get_department_Result)" />
+    <FunctionImport Name="get_exams" ReturnType="Collection(DBEntities.get_exams_Result)" />
+    <FunctionImport Name="get_exams_questions" ReturnType="Collection(DBEntities.get_exams_questions_Result)" />
+    <FunctionImport Name="get_questions_by_ExamID" ReturnType="Collection(DBEntities.get_questions_by_ExamID_Result)">
       <Parameter Name="exam_id" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="get_questionsTypes" ReturnType="Collection(DBModel.get_questionsTypes_Result)" />
-    <FunctionImport Name="get_student_answers" ReturnType="Collection(DBModel.get_student_answers_Result)">
+    <FunctionImport Name="get_questionsTypes" ReturnType="Collection(DBEntities.get_questionsTypes_Result)" />
+    <FunctionImport Name="get_student_answers" ReturnType="Collection(DBEntities.get_student_answers_Result)">
       <Parameter Name="exam_id" Mode="In" Type="Int32" />
       <Parameter Name="student_id" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="get_student_info_by_departmentid" ReturnType="Collection(DBModel.get_student_info_by_departmentid_Result)">
+    <FunctionImport Name="get_student_info_by_departmentid" ReturnType="Collection(DBEntities.get_student_info_by_departmentid_Result)">
       <Parameter Name="departmentid" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="get_Students_by_departmentid" ReturnType="Collection(DBModel.get_Students_by_departmentid_Result)">
+    <FunctionImport Name="get_Students_by_departmentid" ReturnType="Collection(DBEntities.get_Students_by_departmentid_Result)">
       <Parameter Name="departmentid" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="get_Students_by_studentid" ReturnType="Collection(DBModel.get_Students_by_studentid_Result)">
+    <FunctionImport Name="get_Students_by_studentid" ReturnType="Collection(DBEntities.get_Students_by_studentid_Result)">
       <Parameter Name="studentid" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="get_topics_by_courseid" ReturnType="Collection(DBModel.get_topics_by_courseid_Result)">
+    <FunctionImport Name="get_topics_by_courseid" ReturnType="Collection(DBEntities.get_topics_by_courseid_Result)">
       <Parameter Name="courseid" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="insert_Course">
@@ -566,11 +566,11 @@
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="sp_helpdiagramdefinition">
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(DBEntities.sp_helpdiagramdefinition_Result)">
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="sp_helpdiagrams">
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(DBEntities.sp_helpdiagrams_Result)">
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
     </FunctionImport>
@@ -618,31 +618,36 @@
   </EntityContainer>
   <ComplexType Name="get_Courses_by_departmentid_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
-    <Property Type="Int32" Name="Duration" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
     <Property Type="String" Name="Description" Nullable="true" MaxLength="700" />
     <Property Type="Int32" Name="DepartmentID" Nullable="true" />
     <Property Type="Int32" Name="InstructorID" Nullable="true" />
+    <Property Type="String" Name="Photo" Nullable="true" MaxLength="1000" />
   </ComplexType>
   <ComplexType Name="get_Courses_by_instructorid_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
-    <Property Type="Int32" Name="Duration" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
     <Property Type="String" Name="Description" Nullable="true" MaxLength="700" />
     <Property Type="Int32" Name="DepartmentID" Nullable="true" />
     <Property Type="Int32" Name="InstructorID" Nullable="true" />
+    <Property Type="String" Name="Photo" Nullable="true" MaxLength="1000" />
+  </ComplexType>
+  <ComplexType Name="get_courses_students_by_StudentID_Result">
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="Grade" Nullable="true" />
   </ComplexType>
   <ComplexType Name="get_courses_students_number_by_instructorid_Result">
-    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
     <Property Type="Int32" Name="Number_of_Student" Nullable="true" />
   </ComplexType>
   <ComplexType Name="get_department_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Photo" Nullable="true" MaxLength="1000" />
   </ComplexType>
   <ComplexType Name="get_exams_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="Title" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="200" />
     <Property Type="Int32" Name="Duration" Nullable="true" />
     <Property Type="DateTime" Name="CreationDateTime" Nullable="true" Precision="23" />
     <Property Type="Int32" Name="CourseID" Nullable="true" />
@@ -655,7 +660,7 @@
   </ComplexType>
   <ComplexType Name="get_questions_by_ExamID_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="Body" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Body" Nullable="false" MaxLength="500" />
     <Property Type="Int32" Name="CourseID" Nullable="true" />
     <Property Type="Int32" Name="TypeID" Nullable="true" />
     <Property Type="Int32" Name="Right_AnswerID" Nullable="true" />
@@ -667,33 +672,45 @@
     <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
   </ComplexType>
   <ComplexType Name="get_student_answers_Result">
-    <Property Type="String" Name="Body" Nullable="true" MaxLength="500" />
-    <Property Type="String" Name="Body1" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Question" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="Answer" Nullable="true" />
+    <Property Type="String" Name="Right_Answer" Nullable="true" />
   </ComplexType>
   <ComplexType Name="get_student_info_by_departmentid_Result">
-    <Property Type="String" Name="name" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="Username" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="Department" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Username" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Department" Nullable="false" MaxLength="200" />
   </ComplexType>
   <ComplexType Name="get_Students_by_departmentid_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="Username" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Username" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="200" />
     <Property Type="Int32" Name="DepartmentID" Nullable="true" />
     <Property Type="String" Name="Photo" Nullable="true" MaxLength="500" />
   </ComplexType>
   <ComplexType Name="get_Students_by_studentid_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="Username" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Username" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="200" />
     <Property Type="Int32" Name="DepartmentID" Nullable="true" />
     <Property Type="String" Name="Photo" Nullable="true" MaxLength="500" />
   </ComplexType>
   <ComplexType Name="get_topics_by_courseid_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
     <Property Type="Int32" Name="CourseID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
 </Schema>

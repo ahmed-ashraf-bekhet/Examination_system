@@ -14,7 +14,7 @@ namespace Examination_System.Controllers
 {
     public class TopicController : ApiController
     {
-        private DBEntities db = new DBEntities();
+        private ExaminationSystemDBEntities db = new ExaminationSystemDBEntities();
 
         // GET: api/Topic
         public IHttpActionResult GetTopics()

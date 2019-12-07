@@ -14,7 +14,7 @@ namespace Examination_System.Controllers
 {
     public class CourseController : ApiController
     {
-        private DBEntities db = new DBEntities();
+        private ExaminationSystemDBEntities db = new ExaminationSystemDBEntities();
 
         // GET: api/Course
         public IHttpActionResult GetCourses()
@@ -24,7 +24,7 @@ namespace Examination_System.Controllers
         }
 
         // GET: api/Course/5
-        [ResponseType(typeof(Course))]
+        [ResponseType(typeof(Cours))]
         public IHttpActionResult GetCourse(int id)
         {
             var course = db.Courses.Where(c=>c.ID == id).Select(c=>new { c.ID, c.Name, c.Description, deptname = c.Department.Name, c.Photo,
@@ -85,9 +85,9 @@ namespace Examination_System.Controllers
         // PUT: api/Cours/5
         [ResponseType(typeof(void))]
         [HttpPut]
-        public IHttpActionResult Edit([FromUri]int id, [FromBody] Course cours)
+        public IHttpActionResult Edit([FromUri]int id, [FromBody] Cours cours)
         {
-            Course cs = db.Courses.Find(id);
+            Cours cs = db.Courses.Find(id);
             cs.Name = cours.Name;
             cs.InstructorID = cours.InstructorID;
             cs.DepartmentID = cours.DepartmentID;
@@ -104,9 +104,9 @@ namespace Examination_System.Controllers
         }
 
         // POST: api/Cours
-        [ResponseType(typeof(Course))]
+        [ResponseType(typeof(Cours))]
         [HttpPost]
-        public IHttpActionResult Add(Course cours)
+        public IHttpActionResult Add(Cours cours)
         {
             if (!ModelState.IsValid)
             {
@@ -120,10 +120,10 @@ namespace Examination_System.Controllers
         }
 
         // DELETE: api/Cours/5
-        [ResponseType(typeof(Course))]
+        [ResponseType(typeof(Cours))]
         public IHttpActionResult Delete(int id)
         {
-            Course cours = db.Courses.Find(id);
+            Cours cours = db.Courses.Find(id);
             if (cours == null)
             {
                 return NotFound();
@@ -134,7 +134,7 @@ namespace Examination_System.Controllers
             return Ok(cours);
         }
 
-        [ResponseType(typeof(Course))]
+        [ResponseType(typeof(Cours))]
         [HttpPost]
         [Route("api/joincourse")]
         public IHttpActionResult JoinCourse(Courses_Students cs)

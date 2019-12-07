@@ -14,7 +14,7 @@ namespace Examination_System.Controllers
 {
     public class InstructorController : ApiController
     {
-        private DBEntities db = new DBEntities();
+        private ExaminationSystemDBEntities db = new ExaminationSystemDBEntities();
 
         // GET: api/Instructor/5
         [HttpGet]
