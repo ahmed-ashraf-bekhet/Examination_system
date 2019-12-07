@@ -25,6 +25,8 @@ import { TeacherSingleComponent } from './components/teacher-single/teacher-sing
 import { CourseService } from './services/course.service';
 import { TestComponent } from './components/test/test.component';
 import { CookieService } from 'ngx-cookie-service';
+import { AboutComponent } from './components/about/about.component';
+import { TeachersListComponent } from './components/teachers-list/teachers-list.component';
 
 const AppRoutes = [
   { path: '', component: HomeComponent },
@@ -57,7 +59,9 @@ const AppRoutes = [
     DepartmentSingleComponent,
     TeachersComponent,
     TeacherSingleComponent,
-    TestComponent
+    TestComponent,
+    AboutComponent,
+    TeachersListComponent
   ],
   imports: [
     BrowserModule,

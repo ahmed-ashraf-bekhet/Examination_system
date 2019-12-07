@@ -21,7 +21,7 @@
                             <i class="ti-book text-primary icon-md mr-2"></i>
                             <div class="text-left">
                                 <h6 class="mb-0">COURSES</h6>
-                                <p class="mb-0">{{getCoursesNumber()}}</p>
+                                <p class="mb-0">{{courses_number}}</p>
                             </div>
                         </div>
                     </li>
@@ -30,7 +30,7 @@
                             <i class="ti-alarm-clock text-primary icon-md mr-2"></i>
                             <div class="text-left">
                                 <h6 class="mb-0">Teachers</h6>
-                                <p class="mb-0">{{getTeachersNumber()}}</p>
+                                <p class="mb-0">{{teachers_number}}</p>
                             </div>
                         </div>
                     </li>
@@ -39,7 +39,7 @@
                             <i class="ti-wallet text-primary icon-md mr-2"></i>
                             <div class="text-left">
                                 <h6 class="mb-0">Students</h6>
-                                <p class="mb-0">{{getStudentsNumber()}}</p>
+                                <p class="mb-0">{{students_number}}</p>
                             </div>
                         </div>
                     </li>
@@ -80,6 +80,16 @@
         </div>
         <!-- /related courses -->
 
-        <div>some teachers</div>
+        <!-- department teachers -->
+        <app-see-all-header title="Teachers" link="/teachers"></app-see-all-header>
+        <app-teachers-list [deptID] = "departmentID"></app-teachers-list>
+
+        <!-- mobile see all button -->
+        <div class="row">
+            <div class="col-12 text-center">
+                <a routerLink="/courses" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">see all</a>
+            </div>
+        </div>
+        <!-- /department teachers -->
     </div>
 </section>

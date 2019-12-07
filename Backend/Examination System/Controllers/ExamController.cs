@@ -16,13 +16,6 @@ namespace Examination_System.Controllers
     {
         private ExaminationSystemDBEntities db = new ExaminationSystemDBEntities();
 
-        // GET: api/Exam
-        [HttpGet]
-        public IQueryable<Exam> GetExams()
-        {
-            return db.Exams;
-        }
-
         [HttpGet]
         [Route("api/exam/getCourseExams/{courseID}")]
         public IHttpActionResult GetCourseExams(int courseID)

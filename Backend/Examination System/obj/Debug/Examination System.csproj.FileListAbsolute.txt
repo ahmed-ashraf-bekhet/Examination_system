@@ -83,91 +83,6 @@ E:\Examination System\Examination System\obj\Debug\Examination System.csprojAsse
 E:\Examination System\Examination System\obj\Debug\Examination System.csproj.CopyComplete
 E:\Examination System\Examination System\obj\Debug\Examination System.dll
 E:\Examination System\Examination System\obj\Debug\Examination System.pdb
-F:\GP\Backend\Examination System\bin\Examination System.dll.config
-F:\GP\Backend\Examination System\bin\Examination System.dll
-F:\GP\Backend\Examination System\bin\Examination System.pdb
-F:\GP\Backend\Examination System\bin\roslyn\csc.exe
-F:\GP\Backend\Examination System\bin\roslyn\csc.exe.config
-F:\GP\Backend\Examination System\bin\roslyn\csc.rsp
-F:\GP\Backend\Examination System\bin\roslyn\csi.exe
-F:\GP\Backend\Examination System\bin\roslyn\csi.exe.config
-F:\GP\Backend\Examination System\bin\roslyn\csi.rsp
-F:\GP\Backend\Examination System\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-F:\GP\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-F:\GP\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-F:\GP\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.dll
-F:\GP\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-F:\GP\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-F:\GP\Backend\Examination System\bin\roslyn\Microsoft.CSharp.Core.targets
-F:\GP\Backend\Examination System\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-F:\GP\Backend\Examination System\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-F:\GP\Backend\Examination System\bin\roslyn\Microsoft.Managed.Core.targets
-F:\GP\Backend\Examination System\bin\roslyn\Microsoft.VisualBasic.Core.targets
-F:\GP\Backend\Examination System\bin\roslyn\System.AppContext.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.Collections.Immutable.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.Console.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.Diagnostics.StackTrace.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.IO.Compression.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.IO.FileSystem.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.IO.FileSystem.Primitives.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.IO.Pipes.AccessControl.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.IO.Pipes.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.Reflection.Metadata.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.Security.AccessControl.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.Security.Claims.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.Security.Cryptography.Encoding.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.Security.Cryptography.Primitives.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.Security.Principal.Windows.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.Text.Encoding.CodePages.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.ValueTuple.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.Xml.ReaderWriter.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.Xml.XmlDocument.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.Xml.XPath.dll
-F:\GP\Backend\Examination System\bin\roslyn\System.Xml.XPath.XDocument.dll
-F:\GP\Backend\Examination System\bin\roslyn\vbc.exe
-F:\GP\Backend\Examination System\bin\roslyn\vbc.exe.config
-F:\GP\Backend\Examination System\bin\roslyn\vbc.rsp
-F:\GP\Backend\Examination System\bin\roslyn\VBCSCompiler.exe
-F:\GP\Backend\Examination System\bin\roslyn\VBCSCompiler.exe.config
-F:\GP\Backend\Examination System\bin\Antlr3.Runtime.dll
-F:\GP\Backend\Examination System\bin\EntityFramework.dll
-F:\GP\Backend\Examination System\bin\EntityFramework.SqlServer.dll
-F:\GP\Backend\Examination System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-F:\GP\Backend\Examination System\bin\Microsoft.Web.Infrastructure.dll
-F:\GP\Backend\Examination System\bin\Newtonsoft.Json.dll
-F:\GP\Backend\Examination System\bin\System.Net.Http.Formatting.dll
-F:\GP\Backend\Examination System\bin\System.Web.Helpers.dll
-F:\GP\Backend\Examination System\bin\System.Web.Http.dll
-F:\GP\Backend\Examination System\bin\System.Web.Http.WebHost.dll
-F:\GP\Backend\Examination System\bin\System.Web.Mvc.dll
-F:\GP\Backend\Examination System\bin\System.Web.Optimization.dll
-F:\GP\Backend\Examination System\bin\System.Web.Razor.dll
-F:\GP\Backend\Examination System\bin\System.Web.WebPages.Deployment.dll
-F:\GP\Backend\Examination System\bin\System.Web.WebPages.dll
-F:\GP\Backend\Examination System\bin\System.Web.WebPages.Razor.dll
-F:\GP\Backend\Examination System\bin\WebGrease.dll
-F:\GP\Backend\Examination System\bin\EntityFramework.xml
-F:\GP\Backend\Examination System\bin\EntityFramework.SqlServer.xml
-F:\GP\Backend\Examination System\bin\Newtonsoft.Json.xml
-F:\GP\Backend\Examination System\bin\System.Net.Http.Formatting.xml
-F:\GP\Backend\Examination System\bin\System.Web.Helpers.xml
-F:\GP\Backend\Examination System\bin\System.Web.Http.xml
-F:\GP\Backend\Examination System\bin\System.Web.Http.WebHost.xml
-F:\GP\Backend\Examination System\bin\System.Web.Mvc.xml
-F:\GP\Backend\Examination System\bin\System.Web.Optimization.xml
-F:\GP\Backend\Examination System\bin\System.Web.Razor.xml
-F:\GP\Backend\Examination System\bin\System.Web.WebPages.xml
-F:\GP\Backend\Examination System\bin\System.Web.WebPages.Deployment.xml
-F:\GP\Backend\Examination System\bin\System.Web.WebPages.Razor.xml
-F:\GP\Backend\Examination System\bin\Antlr3.Runtime.pdb
-F:\GP\Backend\Examination System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-F:\GP\Backend\Examination System\obj\Debug\Examination System.csproj.CopyComplete
-F:\GP\Backend\Examination System\obj\Debug\Examination System.dll
-F:\GP\Backend\Examination System\obj\Debug\Examination System.pdb
-F:\GP\Backend\Examination System\obj\Debug\Examination System.csprojAssemblyReference.cache
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\Examination System.dll.config
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\Examination System.dll
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\Examination System.pdb
@@ -269,3 +184,88 @@ E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\obj\Debug\E
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\obj\Debug\Examination System.csproj.CopyComplete
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\obj\Debug\Examination System.dll
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\obj\Debug\Examination System.pdb
+F:\GP\Backend\Examination System\bin\Examination System.dll.config
+F:\GP\Backend\Examination System\bin\Examination System.dll
+F:\GP\Backend\Examination System\bin\Examination System.pdb
+F:\GP\Backend\Examination System\bin\roslyn\csc.exe
+F:\GP\Backend\Examination System\bin\roslyn\csc.exe.config
+F:\GP\Backend\Examination System\bin\roslyn\csc.rsp
+F:\GP\Backend\Examination System\bin\roslyn\csi.exe
+F:\GP\Backend\Examination System\bin\roslyn\csi.exe.config
+F:\GP\Backend\Examination System\bin\roslyn\csi.rsp
+F:\GP\Backend\Examination System\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\GP\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\GP\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\GP\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\GP\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\GP\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\GP\Backend\Examination System\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\GP\Backend\Examination System\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\GP\Backend\Examination System\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\GP\Backend\Examination System\bin\roslyn\Microsoft.Managed.Core.targets
+F:\GP\Backend\Examination System\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\GP\Backend\Examination System\bin\roslyn\System.AppContext.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.Collections.Immutable.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.Console.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.IO.Compression.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.IO.FileSystem.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.IO.Pipes.AccessControl.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.IO.Pipes.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.Reflection.Metadata.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.Security.AccessControl.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.Security.Claims.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.Security.Cryptography.Encoding.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.Security.Cryptography.Primitives.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.Security.Principal.Windows.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.Text.Encoding.CodePages.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.ValueTuple.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.Xml.ReaderWriter.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.Xml.XmlDocument.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.Xml.XPath.dll
+F:\GP\Backend\Examination System\bin\roslyn\System.Xml.XPath.XDocument.dll
+F:\GP\Backend\Examination System\bin\roslyn\vbc.exe
+F:\GP\Backend\Examination System\bin\roslyn\vbc.exe.config
+F:\GP\Backend\Examination System\bin\roslyn\vbc.rsp
+F:\GP\Backend\Examination System\bin\roslyn\VBCSCompiler.exe
+F:\GP\Backend\Examination System\bin\roslyn\VBCSCompiler.exe.config
+F:\GP\Backend\Examination System\bin\Antlr3.Runtime.dll
+F:\GP\Backend\Examination System\bin\EntityFramework.dll
+F:\GP\Backend\Examination System\bin\EntityFramework.SqlServer.dll
+F:\GP\Backend\Examination System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\GP\Backend\Examination System\bin\Microsoft.Web.Infrastructure.dll
+F:\GP\Backend\Examination System\bin\Newtonsoft.Json.dll
+F:\GP\Backend\Examination System\bin\System.Net.Http.Formatting.dll
+F:\GP\Backend\Examination System\bin\System.Web.Helpers.dll
+F:\GP\Backend\Examination System\bin\System.Web.Http.dll
+F:\GP\Backend\Examination System\bin\System.Web.Http.WebHost.dll
+F:\GP\Backend\Examination System\bin\System.Web.Mvc.dll
+F:\GP\Backend\Examination System\bin\System.Web.Optimization.dll
+F:\GP\Backend\Examination System\bin\System.Web.Razor.dll
+F:\GP\Backend\Examination System\bin\System.Web.WebPages.Deployment.dll
+F:\GP\Backend\Examination System\bin\System.Web.WebPages.dll
+F:\GP\Backend\Examination System\bin\System.Web.WebPages.Razor.dll
+F:\GP\Backend\Examination System\bin\WebGrease.dll
+F:\GP\Backend\Examination System\bin\EntityFramework.xml
+F:\GP\Backend\Examination System\bin\EntityFramework.SqlServer.xml
+F:\GP\Backend\Examination System\bin\Newtonsoft.Json.xml
+F:\GP\Backend\Examination System\bin\System.Net.Http.Formatting.xml
+F:\GP\Backend\Examination System\bin\System.Web.Helpers.xml
+F:\GP\Backend\Examination System\bin\System.Web.Http.xml
+F:\GP\Backend\Examination System\bin\System.Web.Http.WebHost.xml
+F:\GP\Backend\Examination System\bin\System.Web.Mvc.xml
+F:\GP\Backend\Examination System\bin\System.Web.Optimization.xml
+F:\GP\Backend\Examination System\bin\System.Web.Razor.xml
+F:\GP\Backend\Examination System\bin\System.Web.WebPages.xml
+F:\GP\Backend\Examination System\bin\System.Web.WebPages.Deployment.xml
+F:\GP\Backend\Examination System\bin\System.Web.WebPages.Razor.xml
+F:\GP\Backend\Examination System\bin\Antlr3.Runtime.pdb
+F:\GP\Backend\Examination System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\GP\Backend\Examination System\obj\Debug\Examination System.csprojAssemblyReference.cache
+F:\GP\Backend\Examination System\obj\Debug\Examination System.csproj.CopyComplete
+F:\GP\Backend\Examination System\obj\Debug\Examination System.dll
+F:\GP\Backend\Examination System\obj\Debug\Examination System.pdb

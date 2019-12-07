@@ -45,7 +45,26 @@ namespace Examination_System.Controllers
                 return Ok(Department);
         }
 
+        [HttpGet]
+        [Route("api/getStudentsNumber/{deptID}")]
+        public IHttpActionResult GetStudentsNumber(int deptID)
+        {
+            return Ok(db.Students.Count(s => s.DepartmentID == deptID));
+        }
 
+        [HttpGet]
+        [Route("api/getInstructorsNumber/{deptID}")]
+        public IHttpActionResult GetInstructorsNumber(int deptID)
+        {
+            return Ok(db.Instructors.Count(i => i.DepartmentID == deptID));
+        }
+
+        [HttpGet]
+        [Route("api/getCoursesNumber/{deptID}")]
+        public IHttpActionResult GetCoursesNumber(int deptID)
+        {
+            return Ok(db.Courses.Count(c => c.DepartmentID == deptID));
+        }
 
         //Delete one Dept
         [HttpDelete]

@@ -50,7 +50,7 @@ namespace Examination_System.Controllers
         }
 
         [Route("api/GetInstructorCourses/{id}")]
-        public IHttpActionResult GetINstructorCourses(int id)
+        public IHttpActionResult GetInstructorCourses(int id)
         {
             Instructor inst = db.Instructors.FirstOrDefault(c => c.ID == id);
             if (inst == null)

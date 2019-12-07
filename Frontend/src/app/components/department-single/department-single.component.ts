@@ -10,18 +10,25 @@ import { ActivatedRoute } from '@angular/router'
 export class DepartmentSingleComponent implements OnInit {
 
   department:{};
+  students_number: number;
+  teachers_number: number;
+  courses_number: number;
+
   departmentID: number = this.myRouter.snapshot.params['id'];
 
-  constructor(public myService:DepartmentService, public myRouter: ActivatedRoute) { }
+  constructor(private deptService:DepartmentService, public myRouter: ActivatedRoute) { }
 
   ngOnInit() {
     this.getDepartment(this.departmentID)
+    this.getCoursesNumber(this.departmentID);
+    this.getStudentsNumber(this.departmentID);
+    this.getTeachersNumber(this.departmentID);
   }
 
   getDepartment(ID:number): void{
-    this.myService.getDepartment(ID).subscribe(
+    this.deptService.getDepartment(ID).subscribe(
       (data)=>{
-        this.department = data[0];
+        this.department = data;
       },
       (error)=>{
         console.log(error);
@@ -29,15 +36,36 @@ export class DepartmentSingleComponent implements OnInit {
     )
   }
 
-  getStudentsNumber(ID:number){
-    return 50;
+  getStudentsNumber(DepartmentID:number){
+    this.deptService.getStudentsNumber(DepartmentID).subscribe(
+      (data)=>{
+        this.students_number = data as number;
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
   }
 
   getTeachersNumber(DepartmentID:number){
-    return 8;
+    this.deptService.getTeachersNumber(DepartmentID).subscribe(
+      (data)=>{
+        this.teachers_number = data as number;
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
   }
 
   getCoursesNumber(DepartmentID:number){
-    return 4;
+    this.deptService.getCoursesNumber(DepartmentID).subscribe(
+      (data)=>{
+        this.courses_number = data as number;
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
   }
 }

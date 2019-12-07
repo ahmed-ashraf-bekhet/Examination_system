@@ -1,0 +1,22 @@
+{
+    "teachers": [
+        {
+            "ID": 1,
+            "Name": "teacher1",
+            "DepartmentID": 3,
+            "deptName": "dept1"
+        },
+        {
+            "ID": 2,
+            "Name": "teacher2",
+            "DepartmentID": 3,
+            "deptName": "dept1"
+        },
+        {
+            "ID": 3,
+            "Name": "teacher3",
+            "DepartmentID": 3,
+            "deptName": "dept1"
+        }
+    ]
+}
