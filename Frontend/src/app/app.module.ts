@@ -23,8 +23,11 @@ import { TeachersComponent } from './components/teachers/teachers.component';
 import { TeacherSingleComponent } from './components/teacher-single/teacher-single.component';
 
 import { CourseService } from './services/course.service';
+import { UserService } from './services/user.service';
 import { TestComponent } from './components/test/test.component';
 import { CookieService } from 'ngx-cookie-service';
+import { StudentComponent } from './components/student/student.component';
+import { UpdateUserModalComponent } from './components/popups/UpdateUserModal/UpdateUserModal.component';
 
 const AppRoutes = [
   { path: '', component: HomeComponent },
@@ -34,6 +37,8 @@ const AppRoutes = [
   { path: 'departments', component: DepartmentsComponent },
   { path: 'departments/:id', component: DepartmentSingleComponent },
   { path: 'teachers', component: TeachersComponent },
+  { path: 'teacherHome', component: TeacherSingleComponent },
+  { path: 'student', component: StudentComponent },
   { path: 'teachers/:id', component: TeacherSingleComponent },
   { path: '**', component: ErrorComponent }
 ]
@@ -57,7 +62,9 @@ const AppRoutes = [
     DepartmentSingleComponent,
     TeachersComponent,
     TeacherSingleComponent,
-    TestComponent
+    TestComponent,
+    StudentComponent,
+    UpdateUserModalComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +73,7 @@ const AppRoutes = [
     RouterModule.forRoot(AppRoutes)
 
   ],
-  providers: [CourseService,CookieService],
+  providers: [CourseService,UserService,CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

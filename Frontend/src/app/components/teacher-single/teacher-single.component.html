@@ -1,1 +1,14 @@
-<p>teacher-single works!</p>
+<p>Home</p>
+<h3>{{teacher.ID}}</h3>
+<h3>{{teacher.Name}}</h3>
+<h3>{{teacher.Username}}</h3>
+<h3>{{teacher.Password}}</h3>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Update
+</button>
+<br>
+<app-courses-list courses_number=0 [teacherID]="'1'"></app-courses-list>
+<app-pop-ups [teacher]="teacher"></app-pop-ups>
+
+
