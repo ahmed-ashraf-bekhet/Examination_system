@@ -17,23 +17,23 @@
 
             <!-- Buttons -->
             <div class="col-lg-2 col-md-3 col-5 text-md-right mb-4 mb-xl-0">
-                <a href="#" class="btn btn-primary">Update</a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-7 text-md-right text-left mb-4 mb-xl-0">
-                <button class="btn btn-primary" (click)="delete()">Delete</button>
-            </div>
-
-            <div class="col-lg-3 col-5 mt-4 mb-4 mb-xl-0">
                 <a href="#" class="btn btn-primary">Questions</a>
             </div>
-            <div class="col-lg-3 col-7 text-lg-right mt-4 mb-4 mb-xl-0">
-                <a href="#" class="btn btn-primary">Create Question</a>
+            <div class="col-lg-2 col-md-3 col-7 text-md-right text-left mb-4 mb-xl-0" >
+                <a href="#" class="btn btn-primary">Exams</a>
             </div>
-            <div class="col-lg-3 col-5 mt-4 mb-4 mb-xl-0">
+
+            <div class="col-lg-3 col-5 mt-4 mb-4 mb-xl-0" [hidden] = "hidden">
                 <a href="#" class="btn btn-primary">Generate Exam</a>
             </div>
-            <div class="col-lg-3 col-7 mt-4 mb-4 mb-xl-0 text-lg-right">
-                <a href="#" class="btn btn-primary">Exams</a>
+            <div class="col-lg-3 col-7 text-lg-right mt-4 mb-4 mb-xl-0" [hidden] = "hidden">
+                <a href="#" class="btn btn-primary">Create Question</a>
+            </div>
+            <div class="col-lg-3 col-5 mt-4 mb-4 mb-xl-0" [hidden] = "normal_teacher">
+                <a href="#" class="btn btn-primary">Update</a>
+            </div>
+            <div class="col-lg-3 col-7 mt-4 mb-4 mb-xl-0 text-lg-right" [hidden] = "normal_teacher">
+                <button class="btn btn-primary" (click)="delete()">Delete</button>
             </div>
 
             <!-- border -->
@@ -41,6 +41,10 @@
                 <div class="border-bottom border-primary"></div>
             </div>
         </div>
+
+        <!-- topics -->
+        <app-topics [courseID] = "courseID"></app-topics>
+        <!-- /topics -->
 
         <!-- course details -->
         <div class="row">

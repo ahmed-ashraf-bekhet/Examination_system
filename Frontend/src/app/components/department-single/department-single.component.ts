@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DepartmentService } from '../../services/department.service';
+import { AuthService } from '../../services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
@@ -14,10 +15,17 @@ export class DepartmentSingleComponent implements OnInit {
   teachers_number: number;
   courses_number: number;
   departmentID: number;
+  hidden:boolean;
 
-  constructor(private deptService:DepartmentService, public myRouter: ActivatedRoute, private router:Router) { }
+  constructor(private deptService:DepartmentService, private authService:AuthService, public myRouter: ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
+    var cookie = this.authService.getCookie();
+    if(cookie && cookie.isAdmin == "1")
+      this.hidden = false;
+    else
+      this.hidden = true;
+
     this.departmentID = this.myRouter.snapshot.params['id'];
     this.getDepartment(this.departmentID)
     this.getCoursesNumber(this.departmentID);
