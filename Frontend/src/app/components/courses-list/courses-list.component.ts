@@ -9,6 +9,8 @@ import { CourseService } from '../../services/course.service';
 export class CoursesListComponent implements OnInit {
   @Input() courses_number: number;
   @Input() deptID:number;
+  @Input() studentID:number;
+  @Input() teacherID:number;
 
   courses;
 
@@ -17,8 +19,15 @@ export class CoursesListComponent implements OnInit {
   ngOnInit() {
     if(this.deptID)
       this.getDepartmentCourses(this.deptID);
-    else
+    else if(this.studentID){
+      this.getStudentCourses(this.studentID);
+    }
+    else if(this.teacherID){
+      this.getTeacherCourses(this.teacherID);
+    }
+    else{
       this.getAllCourses();
+    }
   }
 
   getAllCourses(){
@@ -45,4 +54,29 @@ export class CoursesListComponent implements OnInit {
       }
     )
   }
+
+  getStudentCourses(studentID){
+    this.courseService.getStudentCourses(studentID).subscribe(
+      (data)=>{
+        this.courses = data.courses;
+        console.log(this.courses)
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
+  }
+
+  getTeacherCourses(teacherID){
+    this.courseService.getStudentCourses(teacherID).subscribe(
+      (data)=>{
+        this.courses = data.courses;
+        console.log(this.courses)
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
+  }
+
 }
