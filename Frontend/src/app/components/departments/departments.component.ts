@@ -19,7 +19,6 @@ export class DepartmentsComponent implements OnInit {
   getDepartments(): void{
     this.myService.getAllDepartments().subscribe(
       (data)=>{
-        console.log(data)
         this.departments = data;
       },
       (error)=>{

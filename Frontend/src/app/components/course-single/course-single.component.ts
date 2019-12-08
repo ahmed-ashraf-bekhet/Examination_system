@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../../services/course.service';
+import { AuthService } from '../../services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -9,18 +10,32 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CourseSingleComponent implements OnInit {
 
+  hidden:boolean;
+  normal_teacher:boolean;
   course:{};
   courseID:number;
 
-  constructor(public myService:CourseService, public myRouter: ActivatedRoute, private router:Router) { }
+  constructor(public courseService:CourseService, private authService:AuthService, public myRouter: ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
+    var cookie = this.authService.getCookie();
+    if(!cookie || cookie.userTypeID == "0")
+      this.hidden = true;
+    else if(cookie.isAdmin == "1"){
+      this.hidden = false;
+      this.normal_teacher = false;
+    }
+    else{
+      this.hidden = false;
+      this.normal_teacher = true;
+    }
+
     this.courseID = this.myRouter.snapshot.params['id'];
     this.getCourse(this.courseID)
   }
 
   getCourse(ID:number): void{
-    this.myService.getCourse(ID).subscribe(
+    this.courseService.getCourse(ID).subscribe(
       (data)=>{
         this.course = data;
       },
@@ -31,7 +46,7 @@ export class CourseSingleComponent implements OnInit {
   }
 
   delete(){
-    this.myService.delete(this.courseID).subscribe(
+    this.courseService.delete(this.courseID).subscribe(
       (success)=>{
         this.router.navigate(['']);
       },
