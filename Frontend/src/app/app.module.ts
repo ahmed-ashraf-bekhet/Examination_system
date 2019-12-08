@@ -27,6 +27,7 @@ import { TestComponent } from './components/test/test.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AboutComponent } from './components/about/about.component';
 import { TeachersListComponent } from './components/teachers-list/teachers-list.component';
+import { ActiveLinkDirective } from './directives/active-link.directive';
 
 const AppRoutes = [
   { path: '', component: HomeComponent },
@@ -61,7 +62,8 @@ const AppRoutes = [
     TeacherSingleComponent,
     TestComponent,
     AboutComponent,
-    TeachersListComponent
+    TeachersListComponent,
+    ActiveLinkDirective
   ],
   imports: [
     BrowserModule,
