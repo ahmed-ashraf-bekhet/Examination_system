@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-guest-header',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GuestHeaderComponent implements OnInit {
 
-  constructor() { }
+  hidden:boolean;
+
+  constructor(private authService:AuthService) { }
 
   ngOnInit() {
+    if(this.authService.getCookie())
+      this.hidden = true;
+    else
+      this.hidden = false;
   }
 
 }

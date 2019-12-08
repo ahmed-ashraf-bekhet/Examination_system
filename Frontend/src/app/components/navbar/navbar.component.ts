@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  hidden:boolean;
+
+  constructor(private authService:AuthService) { }
 
   ngOnInit() {
+    if(this.authService.getCookie())
+      this.hidden = false;
+    else
+      this.hidden = true;
+  }
+
+  logout(){
+    console.log("logout")
+    this.authService.deleteCookie();
   }
 
 }
