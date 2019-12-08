@@ -67,9 +67,22 @@ namespace Examination_System.Controllers
         }
 
         //Delete one Dept
-        [HttpDelete]
-        public IHttpActionResult Delete(int? id)
+        [HttpGet]
+        [Route("api/department/delete/{id}")]
+        public IHttpActionResult Delete(int id)
         {
+            try
+            {
+                int isAdmin = Int32.Parse(Request.Headers.GetValues("isAdmin").FirstOrDefault());
+                if (isAdmin == 0)
+                    return Unauthorized();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return Unauthorized();
+            }
+
             Department Department = db.Departments.Find(id);
             if (Department == null)
             {
@@ -77,7 +90,7 @@ namespace Examination_System.Controllers
             }
                 
             db.delete_department(id);
-            return Ok(Department);
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         //Update one Dept

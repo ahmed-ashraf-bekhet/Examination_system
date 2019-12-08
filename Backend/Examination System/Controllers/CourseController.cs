@@ -28,7 +28,7 @@ namespace Examination_System.Controllers
         public IHttpActionResult GetCourse(int id)
         {
             var course = db.Courses.Where(c=>c.ID == id).Select(c=>new { c.ID, c.Name, c.Description, deptname = c.Department.Name, c.Photo,
-                instructorID = c.Instructor.ID, instructorName = c.Instructor.Name, instructorPhoto = c.Instructor.Photo, instructorBio = c.Instructor.Bio });
+                instructorID = c.Instructor.ID, instructorName = c.Instructor.Name, instructorPhoto = c.Instructor.Photo, instructorBio = c.Instructor.Bio }).SingleOrDefault();
             if (course == null)
             {
                 return BadRequest();
@@ -120,9 +120,22 @@ namespace Examination_System.Controllers
         }
 
         // DELETE: api/Cours/5
-        [ResponseType(typeof(Cours))]
+        [HttpGet]
+        [Route("api/course/delete/{id}")]
         public IHttpActionResult Delete(int id)
         {
+            try
+            {
+                int isAdmin = Int32.Parse(Request.Headers.GetValues("isAdmin").FirstOrDefault());
+                if (isAdmin == 0)
+                    return Unauthorized();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return Unauthorized();
+            }
+
             Cours cours = db.Courses.Find(id);
             if (cours == null)
             {
@@ -131,7 +144,7 @@ namespace Examination_System.Controllers
 
             db.delete_Courses(id);
 
-            return Ok(cours);
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         [ResponseType(typeof(Cours))]

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DepartmentService } from '../../services/department.service';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
   selector: 'app-department-single',
@@ -13,12 +13,12 @@ export class DepartmentSingleComponent implements OnInit {
   students_number: number;
   teachers_number: number;
   courses_number: number;
+  departmentID: number;
 
-  departmentID: number = this.myRouter.snapshot.params['id'];
-
-  constructor(private deptService:DepartmentService, public myRouter: ActivatedRoute) { }
+  constructor(private deptService:DepartmentService, public myRouter: ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
+    this.departmentID = this.myRouter.snapshot.params['id'];
     this.getDepartment(this.departmentID)
     this.getCoursesNumber(this.departmentID);
     this.getStudentsNumber(this.departmentID);
@@ -65,6 +65,17 @@ export class DepartmentSingleComponent implements OnInit {
       },
       (error)=>{
         console.log(error);
+      }
+    )
+  }
+
+  delete(){
+    this.deptService.delete(this.departmentID).subscribe(
+      (success)=>{
+        this.router.navigate(['']);
+      },
+      (error)=>{
+        console.log(error)
       }
     )
   }
