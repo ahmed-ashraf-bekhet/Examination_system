@@ -1,3 +1,78 @@
-<p>navbar works!</p>
-<a routerLink="/student">Login</a><br><br>
-<a routerLink="/teacherHome">LoginAsTeacher</a>
+<!-- navbar -->
+<div class="navigation w-100">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light p-0">
+            <a class="navbar-brand" routerLink=""><img src="../../../assets/images/logo.png" alt="logo"></a>
+            <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+                aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navigation">
+                <ul class="navbar-nav ml-auto text-center">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="" appActiveLink>Home</a>
+                    </li>
+                    <li class="nav-item @@about">
+                        <a class="nav-link" routerLink="/about" appActiveLink>About</a>
+                    </li>
+                    <li class="nav-item @@courses">
+                        <a class="nav-link" routerLink="/courses" appActiveLink>Courses</a>
+                    </li>
+                    <li class="nav-item @@teachers">
+                        <a class="nav-link" routerLink="/teachers" appActiveLink>Teachers</a>
+                    </li>
+                    <li class="nav-item @@departments">
+                        <a class="nav-link" routerLink="/departments" appActiveLink>Departments</a>
+                    </li>
+                    <li class="nav-item @@contact">
+                        <a class="nav-link" routerLink="/contact" appActiveLink>CONTACT</a>
+                    </li>
+
+                    <!-- user dropdown list -->
+                    <li class="dropdown" [hidden] = "hidden">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #d87801;size: 15px;">
+                            <i class="fa fa-user fa-fw"
+                                style="font-size: 36px;margin-top: 28px;margin-right: -27px;"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li style="margin-bottom: 10px;"><a href="profile.html" target="_blank"><i
+                                        class="fa fa-user fa-fw"></i> Profile</a>
+                            </li>
+                            <li style="margin-bottom: 10px;" class="dropdown-submenu">
+                                <a class="test" tabindex="-1" href="#"><i class="fa fa-plus fa-fw"></i> New<span
+                                        class="caret"></span></a>
+                                <ul class="dropdown-menu" style="left: -180px;display: none;">
+                                    <a tabindex="-1" href="#">
+                                        <li style="margin-bottom: 10px;">Topic</li>
+                                    </a>
+                                    <a tabindex="-1" href="#">
+                                        <li style="margin-bottom: 10px;">Department</li>
+                                    </a>
+                                    <a tabindex="-1" href="#">
+                                        <li style="margin-bottom: 10px;">Teacher</li>
+                                    </a>
+                                    <a tabindex="-1" href="#">
+                                        <li style="margin-bottom: 10px;">Student</li>
+                                    </a>
+                                    <a tabindex="-1" href="#">
+                                        <li style="margin-bottom: 10px;">Course</li>
+                                    </a>
+                                </ul>
+                            </li>
+                            <li style="margin-bottom: 10px;" class="dropdown-submenu">
+                                <a class="" tabindex="-1" href="#" data-toggle="modal" data-target="#exampleModal"><i
+                                        class="fa fa-plus fa-fw"></i> Assign Student <span class="caret"></span></a>
+                            </li>
+                            <li style="margin-bottom: 10px;"><a href="/" (click)="logout()"><i class="fa fa-sign-out fa-fw"></i>
+                                    Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- /user dropdown list -->
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- /navbar -->

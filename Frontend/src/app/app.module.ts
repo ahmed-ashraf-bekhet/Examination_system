@@ -31,6 +31,7 @@ import { StudentComponent } from './components/student/student.component';
 import { UpdateUserModalComponent } from './components/popups/UpdateUserModal/UpdateUserModal.component';
 import { AboutComponent } from './components/about/about.component';
 import { TeachersListComponent } from './components/teachers-list/teachers-list.component';
+import { ActiveLinkDirective } from './directives/active-link.directive';
 
 
 const AppRoutes = [
@@ -70,10 +71,9 @@ const AppRoutes = [
 
     StudentComponent,
     UpdateUserModalComponent,
-
     AboutComponent,
-    TeachersListComponent
-
+    TeachersListComponent,
+    ActiveLinkDirective
   ],
   imports: [
     BrowserModule,
