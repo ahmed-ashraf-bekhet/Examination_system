@@ -33,8 +33,11 @@ import { AboutComponent } from './components/about/about.component';
 import { TeachersListComponent } from './components/teachers-list/teachers-list.component';
 
 import { LoginModalComponent } from './components/popups/login-modal/login-modal.component';
-
+import { TopicsComponent } from './components/topics/topics.component';
 import { ActiveLinkDirective } from './directives/active-link.directive';
+import { AuthService } from './services/auth.service';
+import { TopicService } from './services/topic.service';
+import { DepartmentService } from './services/department.service';
 
 
 
@@ -72,17 +75,13 @@ const AppRoutes = [
     TeachersComponent,
     TeacherSingleComponent,
     TestComponent,
-
     StudentComponent,
     UpdateUserModalComponent,
     AboutComponent,
     TeachersListComponent,
-
     LoginModalComponent,
-
-
+    TopicsComponent,
     ActiveLinkDirective
-
   ],
   imports: [
     BrowserModule,
@@ -91,7 +90,8 @@ const AppRoutes = [
     RouterModule.forRoot(AppRoutes)
 
   ],
-  providers: [CourseService,UserService,CookieService],
+  providers: [CourseService,UserService,CookieService,AuthService,TopicService
+              ,DepartmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
