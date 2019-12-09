@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
+  modal_name:string = "addCourseModal"
+
   constructor() { }
 
   ngOnInit() {

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router'
 
@@ -38,6 +38,8 @@ import { ActiveLinkDirective } from './directives/active-link.directive';
 import { AuthService } from './services/auth.service';
 import { TopicService } from './services/topic.service';
 import { DepartmentService } from './services/department.service';
+import { AddDepartmentModalComponent } from './components/popups/add-department-modal/add-department-modal.component';
+import { AddCourseModalComponent } from './components/popups/add-course-modal/add-course-modal.component';
 
 
 
@@ -81,11 +83,14 @@ const AppRoutes = [
     TeachersListComponent,
     LoginModalComponent,
     TopicsComponent,
-    ActiveLinkDirective
+    ActiveLinkDirective,
+    AddDepartmentModalComponent,
+    AddCourseModalComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(AppRoutes)
 

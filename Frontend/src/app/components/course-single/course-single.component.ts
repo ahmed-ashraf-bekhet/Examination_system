@@ -19,7 +19,7 @@ export class CourseSingleComponent implements OnInit {
 
   ngOnInit() {
     var cookie = this.authService.getCookie();
-    if(!cookie || cookie.userTypeID == "0")
+    if(!cookie || cookie.userTypeID == "2")
       this.hidden = true;
     else if(cookie.isAdmin == "1"){
       this.hidden = false;
