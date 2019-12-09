@@ -9,12 +9,27 @@ import { AuthService } from '../../services/auth.service';
 export class NavbarComponent implements OnInit {
 
   hidden:boolean;
-
+  user;
+  teacher;
+  student;
   constructor(private authService:AuthService) { }
 
   ngOnInit() {
-    if(this.authService.getCookie())
+    if(this.authService.getCookie()){
       this.hidden = false;
+      this.user = this.authService.getCookie();
+      console.log(this.user)
+      if(this.user.userTypeID==1){
+        this.teacher = this.authService.getCookie()
+        console.log(this.teacher)
+        console.log(this.student)
+      }
+      else {
+        this.student = this.authService.getCookie()
+        console.log(this.teacher)
+        console.log(this.student)
+      }
+    }
     else
       this.hidden = true;
   }

@@ -20,8 +20,36 @@ export class UserService {
   }
 
   updateTeacherInfo(teacher){
-    
     return this.myHttp.post(this.teacherUrl, teacher)
   }
+
+  LoginAsTeacher(username,password){
+    console.log(username)
+    console.log(password)
+    let teacher = {
+      Username : username,
+      Password : password 
+    }
+    return this.myHttp.post("http://localhost:6755/api/instructor/login",teacher)
+  }
+
+  LoginAsStudent(username,password){
+    console.log(username)
+    console.log(password)
+    let student = {
+      Username : username,
+      Password : password 
+    }
+    return this.myHttp.post("http://localhost:6755/api/student/login",student)
+  }
+
+  getStudentByID(ID){
+    return this.myHttp.get(`http://localhost:6755/api/student/${ID}`)
+  }
+
+  getTeacherByID(ID){
+    return this.myHttp.get(`http://localhost:6755/api/instructor/${ID}`)
+  }
+
 }
 

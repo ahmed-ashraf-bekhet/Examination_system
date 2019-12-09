@@ -20,6 +20,7 @@ export class CoursesListComponent implements OnInit {
     if(this.deptID)
       this.getDepartmentCourses(this.deptID);
     else if(this.studentID){
+      console.log(this.studentID)
       this.getStudentCourses(this.studentID);
     }
     else if(this.teacherID){
@@ -58,8 +59,8 @@ export class CoursesListComponent implements OnInit {
   getStudentCourses(studentID){
     this.courseService.getStudentCourses(studentID).subscribe(
       (data)=>{
-        this.courses = data.courses;
-        console.log(this.courses)
+        this.courses = data;
+        console.log(data)
       },
       (error)=>{
         console.log(error);
@@ -68,10 +69,10 @@ export class CoursesListComponent implements OnInit {
   }
 
   getTeacherCourses(teacherID){
-    this.courseService.getStudentCourses(teacherID).subscribe(
+    this.courseService.getTeacherCourses(teacherID).subscribe(
       (data)=>{
-        this.courses = data.courses;
-        console.log(this.courses)
+        this.courses = data;
+        console.log(data)
       },
       (error)=>{
         console.log(error);
