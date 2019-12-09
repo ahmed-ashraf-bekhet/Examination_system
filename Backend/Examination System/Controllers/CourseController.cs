@@ -103,9 +103,8 @@ namespace Examination_System.Controllers
             }
         }
 
-        // POST: api/Cours
-        [ResponseType(typeof(Cours))]
         [HttpPost]
+        [Route("api/course/add")]
         public IHttpActionResult Add(Cours cours)
         {
             if (!ModelState.IsValid)
@@ -113,10 +112,17 @@ namespace Examination_System.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Courses.Add(cours);
-            db.SaveChanges();
+            try
+            {
+                db.Courses.Add(cours);
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return BadRequest("unique");
+            }
 
-            return CreatedAtRoute("Addedd Successfully", new { id = cours.ID }, cours);
+            return StatusCode(HttpStatusCode.Created);
         }
 
         // DELETE: api/Cours/5

@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 
-
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
   url : string = "http://localhost:6755/api/student/update"
   teacherUrl : string = "http://localhost:6755/api/instructor/update"
   basic = ''
+  
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': this.basic 
   });
+  
   constructor(public myHttp:HttpClient) { }
   
   updateInfo(student){
@@ -49,6 +51,14 @@ export class UserService {
 
   getTeacherByID(ID){
     return this.myHttp.get(`http://localhost:6755/api/instructor/${ID}`)
+  }
+
+  getAllTeachers(){
+    return this.myHttp.get("http://localhost:54345/api/Instructor");
+  }
+
+  getDepartmentTeachers(ID:number){
+    return this.myHttp.get(`http://localhost:54345/api/GetDepartmentInstructors/${ID}`);
   }
 
 }

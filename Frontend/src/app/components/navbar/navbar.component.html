@@ -1,6 +1,6 @@
 
 
-<div class="row navigation w-100">
+<div class="navigation w-100">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light p-0">
             <a class="navbar-brand" routerLink=""><img src="../../../assets/images/logo.png" alt="logo"></a>
@@ -48,6 +48,8 @@
                                 </li>
                             </div>
                             <li style="margin-bottom: 10px;" class="dropdown-submenu">
+                                <a class="test" tabindex="-1" href="#"><i class="fa fa-plus fa-fw"></i> New<span
+                                    class="caret"></span></a>
                                 <ul class="dropdown-menu" style="left: -180px;display: none;">
                                     <a tabindex="-1" href="#">
                                         <li style="margin-bottom: 10px;">Topic</li>
@@ -66,7 +68,11 @@
                                     </a>
                                 </ul>
                             </li>
-                            <li style="margin-bottom: 10px;"><a href="/" (click)="logout()"><i class="fa fa-sign-out fa-fw"></i>
+                            <li style="margin-bottom: 10px;" class="dropdown-submenu">
+                                <a class="" tabindex="-1" href="#" data-toggle="modal" data-target="#exampleModal"><i
+                                        class="fa fa-plus fa-fw"></i> Assign Student <span class="caret"></span></a>
+                            </li>
+                            <li style="margin-bottom: 10px;"><a href="#" (click)="logout()"><i class="fa fa-sign-out fa-fw"></i>
                                     Logout</a>
                             </li>
                         </ul>

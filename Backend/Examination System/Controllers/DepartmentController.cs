@@ -128,12 +128,9 @@ namespace Examination_System.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-
-
-
-
         //Add Departmanet
         [HttpPost]
+        [Route("api/department/add")]
         public IHttpActionResult Add(Department department)
         {
             if (!ModelState.IsValid)
@@ -141,10 +138,17 @@ namespace Examination_System.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Departments.Add(department);
-            db.SaveChanges();
+            try
+            {
+                db.Departments.Add(department);
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return BadRequest("unique");
+            }
 
-            return CreatedAtRoute("DefaultApi", new { ID = department.ID }, department);
+            return StatusCode(HttpStatusCode.Created);
         }
 
         //check if Department is exist or not

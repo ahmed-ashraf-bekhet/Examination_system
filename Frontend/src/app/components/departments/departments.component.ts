@@ -8,6 +8,7 @@ import { DepartmentService } from '../../services/department.service';
 })
 export class DepartmentsComponent implements OnInit {
 
+  modal_name:string = "addDepartmentModal";
   departments;
 
   constructor(private myService:DepartmentService) { }

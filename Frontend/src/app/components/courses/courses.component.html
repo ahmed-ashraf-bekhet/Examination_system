@@ -2,6 +2,14 @@
 
 <section class="section">
     <div class="container">
+        <!-- add course modal -->
+        <div class="mb-4 text-center">
+            <button class="btn btn-primary" id="add-btn" data-toggle="modal" [attr.data-target]="'#' + modal_name">Add
+                Course</button>
+            <app-add-course-modal [modal_name]="modal_name"></app-add-course-modal>
+        </div>
+        <!-- /add course modal -->
+
         <app-courses-list courses_number=0></app-courses-list>
     </div>
 </section>

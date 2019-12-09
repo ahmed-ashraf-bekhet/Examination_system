@@ -37,6 +37,7 @@ export class NavbarComponent implements OnInit {
   logout(){
     console.log("logout")
     this.authService.deleteCookie();
+    location.href = '/';
   }
 
 }

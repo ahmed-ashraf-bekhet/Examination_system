@@ -29,6 +29,10 @@ export class DepartmentService {
     return this.myHttp.get(`http://localhost:54345/api/getCoursesNumber/${DepartmentID}`);
   }
 
+  save(department){
+    return this.myHttp.post("http://localhost:54345/api/department/add",department);
+  }
+
   delete(ID:number){
     const httpOptions = {
       headers: new HttpHeaders(this.authService.getCookie())

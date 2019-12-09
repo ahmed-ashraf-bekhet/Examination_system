@@ -30,6 +30,10 @@ export class CourseService {
     return this.myHttp.get(`http://localhost:6755/api/GetInstructorCourses/${ID}`)
   }
 
+  save(course){
+    return this.myHttp.post("http://localhost:54345/api/course/add",course);
+  }
+
   delete(ID:number){
     const httpOptions = {
       headers: new HttpHeaders(this.authService.getCookie())

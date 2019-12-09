@@ -34,7 +34,7 @@ export class LoginModalComponent implements OnInit {
               console.log(error);
             }
           )
-          window.location.href = `http://localhost:4200/teacherProfile/${response}`
+          location.href = `/teacherProfile/${response}`
         },
         (error)=>{
           console.log(error);

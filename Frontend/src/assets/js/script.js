@@ -1,16 +1,6 @@
 (function ($) {
     'use strict';
 
-    $(document).ready(function(){
-        $('.dropdown-submenu a.test').on("click", function(e){
-          $('.dropdown-submenu ul').css({"display":"none"});
-    
-          $(this).next('ul').toggle();
-          e.stopPropagation();
-          e.preventDefault();
-        });
-      });
-
     // Sticky Menu
     $(window).scroll(function () {
         if ($('header').offset().top > 10) {
