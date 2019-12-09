@@ -31,8 +31,11 @@ import { StudentComponent } from './components/student/student.component';
 import { UpdateUserModalComponent } from './components/popups/UpdateUserModal/UpdateUserModal.component';
 import { AboutComponent } from './components/about/about.component';
 import { TeachersListComponent } from './components/teachers-list/teachers-list.component';
+
+import { LoginModalComponent } from './components/popups/login-modal/login-modal.component';
+
 import { ActiveLinkDirective } from './directives/active-link.directive';
-import { TopicsComponent } from './components/topics/topics.component';
+
 
 
 const AppRoutes = [
@@ -43,8 +46,8 @@ const AppRoutes = [
   { path: 'departments', component: DepartmentsComponent },
   { path: 'departments/:id', component: DepartmentSingleComponent },
   { path: 'teachers', component: TeachersComponent },
-  { path: 'teacherHome', component: TeacherSingleComponent },
-  { path: 'student', component: StudentComponent },
+  { path: 'teacherProfile/:id', component: TeacherSingleComponent },
+  { path: 'studentProfile/:id', component: StudentComponent },
   { path: 'teachers/:id', component: TeacherSingleComponent },
   { path: '**', component: ErrorComponent }
 ]
@@ -74,8 +77,12 @@ const AppRoutes = [
     UpdateUserModalComponent,
     AboutComponent,
     TeachersListComponent,
-    ActiveLinkDirective,
-    TopicsComponent
+
+    LoginModalComponent,
+
+
+    ActiveLinkDirective
+
   ],
   imports: [
     BrowserModule,

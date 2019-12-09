@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-teacher-single',
@@ -7,15 +9,33 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./teacher-single.component.css']
 })
 export class TeacherSingleComponent implements OnInit {
-  teacher = {
-    ID: 1,
-    Name: "done",
-    Username: "sample string 3",
-    Password: "sample string 4"
-  }
+  teacher 
+  ID
   @Input() title:string;
-  constructor(public myService:UserService) { }
+  constructor(public authService:AuthService,public myService:UserService,public myActivatedRoute:ActivatedRoute) { 
+    this.ID = this.myActivatedRoute.snapshot.params['id'] 
+  }
+
+  ngOnInit() {
+    if(!this.authService.getCookie()){
+      window.location.href = "sdabsadbk"
+    }
+    this.myService.getTeacherByID(this.ID).subscribe(
+      (response)=>{
+        // console.log(response.ID)
+        this.teacher = response
+        console.log(this.teacher.DeptName)
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
+  }
+  
+
   clicked(username,password){
+    this.teacher.Username = username;
+    this.teacher.Password = password;
     this.myService.updateTeacherInfo(this.teacher).subscribe(
       (response)=>{
         console.log(response)
@@ -26,8 +46,6 @@ export class TeacherSingleComponent implements OnInit {
       }
     )
     console.log('dsa')
-  }
-  ngOnInit() {
   }
 
 }
