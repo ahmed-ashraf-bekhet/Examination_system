@@ -16,25 +16,26 @@
             </div>
 
             <!-- Buttons -->
-            <div *ngIf="crsID" class="col-lg-2 col-md-3 col-5 text-md-right mb-4 mb-xl-0">
-                <a [routerLink]="['/questions',crsID]" class="btn btn-primary">Questions</a>
+            <div class="col-lg-2 col-md-3 col-5 text-md-right mb-4 mb-xl-0">
+                <a [routerLink]="['/questions',courseID]" class="btn btn-primary">Questions</a>
             </div>
-            <div class="col-lg-2 col-md-3 col-7 text-md-right text-left mb-4 mb-xl-0" >
+            <div class="col-lg-2 col-md-3 col-7 text-md-right text-left mb-4 mb-xl-0">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#examsModal">
                     Exams
                 </button>
             </div>
 
-            <div class="col-lg-3 col-5 mt-4 mb-4 mb-xl-0" [hidden] = "hidden">
-                <a href="#" class="btn btn-primary">Generate Exam</a>
+            <div class="col-lg-3 col-5 mt-4 mb-4 mb-xl-0" [hidden]="hidden">
+                <a href="#" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#' + generate_exam_modal">Generate
+                    Exam</a>
             </div>
-            <div class="col-lg-3 col-7 text-lg-right mt-4 mb-4 mb-xl-0" [hidden] = "hidden">
+            <div class="col-lg-3 col-7 text-lg-center mt-4 mb-4 mb-xl-0" [hidden]="hidden">
                 <a href="#" class="btn btn-primary">Create Question</a>
             </div>
-            <div class="col-lg-3 col-5 mt-4 mb-4 mb-xl-0" [hidden] = "!isAdmin">
+            <div class="col-lg-3 col-5 mt-4 text-lg-center mb-4 mb-xl-0" [hidden]="!isAdmin">
                 <a href="#" class="btn btn-primary">Update</a>
             </div>
-            <div class="col-lg-3 col-7 mt-4 mb-4 mb-xl-0 text-lg-right" [hidden] = "!isAdmin">
+            <div class="col-lg-3 col-7 mt-4 mb-4 mb-xl-0 text-lg-right" [hidden]="!isAdmin">
                 <button class="btn btn-primary" (click)="delete()">Delete</button>
             </div>
 
@@ -45,7 +46,7 @@
         </div>
 
         <!-- topics -->
-        <app-topics [courseID] = "courseID"></app-topics>
+        <app-topics [courseID]="courseID"></app-topics>
         <!-- /topics -->
 
         <!-- course details -->
@@ -54,7 +55,7 @@
                 <h3>About Course</h3>
                 <p>{{course.Description}}</p>
             </div>
-            
+
             <!-- teacher -->
             <div class="col-12">
                 <h5 class="mb-3">Teacher</h5>
@@ -62,7 +63,7 @@
                     <div class="media mb-2 mb-sm-0">
                         <img class="mr-4 img-fluid" src="../../../assets/images/teacher.jpg" alt="Teacher image">
                         <div class="media-body">
-                            <a [routerLink] = "['/teachers',course.instructorID]">
+                            <a [routerLink]="['/teachers',course.instructorID]">
                                 <h4 class="card-title">{{course.instructorName}}</h4>
                             </a>
                             <p>{{course.instructorBio}}</p>
@@ -89,7 +90,11 @@
 </section>
 <!-- /section -->
 
-<div *ngIf="crsID">
-    <app-exams-modal [courseID]="crsID"></app-exams-modal>
-</div>
 
+
+<!-- popups -->
+<app-generate-exam-modal [modal_name]="generate_exam_modal" [courseID]="courseID"></app-generate-exam-modal>
+<div *ngIf="courseID">
+    <app-exams-modal [courseID]="courseID"></app-exams-modal>
+</div>
+<!-- /popups -->
