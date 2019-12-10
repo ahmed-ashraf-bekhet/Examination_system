@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CourseSingleComponent implements OnInit {
 
   hidden:boolean;
-  normal_teacher:boolean;
+  isAdmin:boolean = false;
   course:{};
   courseID:number;
   crsID
@@ -26,11 +26,10 @@ export class CourseSingleComponent implements OnInit {
       this.hidden = true;
     else if(cookie.isAdmin == "1"){
       this.hidden = false;
-      this.normal_teacher = false;
+      this.isAdmin = true;
     }
     else{
       this.hidden = false;
-      this.normal_teacher = true;
     }
 
     this.courseID = this.myRouter.snapshot.params['id'];

@@ -9,6 +9,6 @@ export class TopicService {
   constructor(private myHttp: HttpClient) { }
 
   getTopics(courseID:number){
-    return this.myHttp.get(`http://localhost:6755/api/topic/getTopics/${courseID}`)
+    return this.myHttp.get(`http://localhost:54345/api/topic/getTopics/${courseID}`)
   }
 }

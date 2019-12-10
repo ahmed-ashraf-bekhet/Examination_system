@@ -42,15 +42,15 @@ export class UserService {
       Username : username,
       Password : password 
     }
-    return this.myHttp.post("http://localhost:6755/api/student/login",student)
+    return this.myHttp.post("http://localhost:54345/api/student/login",student)
   }
 
   getStudentByID(ID){
-    return this.myHttp.get(`http://localhost:6755/api/student/${ID}`)
+    return this.myHttp.get(`http://localhost:54345/api/student/${ID}`)
   }
 
   getTeacherByID(ID){
-    return this.myHttp.get(`http://localhost:6755/api/instructor/${ID}`)
+    return this.myHttp.get(`http://localhost:54345/api/instructor/${ID}`)
   }
 
   getAllTeachers(){

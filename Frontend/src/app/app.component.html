@@ -1,10 +1,15 @@
 <!-- header -->
 <header class="fixed-top header">
     <app-guest-header></app-guest-header>
-    <app-navbar></app-navbar>
+    <app-navbar [course_modal] = "course_modal" [department_modal] = "department_modal"></app-navbar>
 </header>
 <!-- /header -->
+
+<!-- popups -->
 <app-login-modal></app-login-modal>
+<app-add-course-modal [modal_name]="course_modal"></app-add-course-modal>
+<app-add-department-modal [modal_name]="department_modal"></app-add-department-modal>
+<!-- /popups -->
 
 <router-outlet></router-outlet>
 

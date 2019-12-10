@@ -31,10 +31,10 @@
             <div class="col-lg-3 col-7 text-lg-right mt-4 mb-4 mb-xl-0" [hidden] = "hidden">
                 <a href="#" class="btn btn-primary">Create Question</a>
             </div>
-            <div class="col-lg-3 col-5 mt-4 mb-4 mb-xl-0" [hidden] = "normal_teacher">
+            <div class="col-lg-3 col-5 mt-4 mb-4 mb-xl-0" [hidden] = "!isAdmin">
                 <a href="#" class="btn btn-primary">Update</a>
             </div>
-            <div class="col-lg-3 col-7 mt-4 mb-4 mb-xl-0 text-lg-right" [hidden] = "normal_teacher">
+            <div class="col-lg-3 col-7 mt-4 mb-4 mb-xl-0 text-lg-right" [hidden] = "!isAdmin">
                 <button class="btn btn-primary" (click)="delete()">Delete</button>
             </div>
 

@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CourseService } from '../../../services/course.service';
+import { UserService } from '../../../services/user.service';
+import { DepartmentService } from '../../../services/department.service';
 
 @Component({
   selector: 'app-add-course-modal',
@@ -9,37 +11,65 @@ import { CourseService } from '../../../services/course.service';
 })
 export class AddCourseModalComponent implements OnInit {
 
-  @Input() modal_name:string;
-  course:FormGroup;
+  @Input() modal_name: string;
+  teachers;
+  departments;
+  course: FormGroup;
 
-  constructor(private builder:FormBuilder,private courseService:CourseService) { }
+  constructor(private builder: FormBuilder, private courseService: CourseService, private userService: UserService,
+    private deptService: DepartmentService) { }
 
   ngOnInit() {
+    this.getAllTeachers();
+    this.getAllDepartments();
+
     this.course = this.builder.group({
-      Name:['',Validators.required],
-      Description:['', Validators.required]
+      Name: ['', Validators.required],
+      Description: ['', Validators.required],
+      DepartmentID: ['', Validators.required],
+      InstructorID: ['', Validators.required]
     })
   }
 
-  save(){
+  getAllTeachers() {
+    this.userService.getAllTeachers().subscribe(
+      (data) => {
+        this.teachers = data;
+        console.log(this.teachers)
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
+  getAllDepartments() {
+    this.deptService.getAllDepartments().subscribe(
+      (data) => {
+        this.departments = data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
+  save() {
     const controls = this.course.controls;
     for (const name in controls) {
-        if (controls[name].invalid) {
-            return;
-        }
+      if (controls[name].invalid) {
+        return;
+      }
     }
 
-console.log(this.course.value)
-
-    // this.courseService.save(this.course.value).subscribe(
-    //   (success)=>{
-    //     location.href = '/courses'
-    //   },
-    //   (error)=>{
-    //     console.log(error);
-        
-    //   }
-    // )
+    this.courseService.save(this.course.value).subscribe(
+      (success) => {
+        console.log(success);
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
   }
 
 }

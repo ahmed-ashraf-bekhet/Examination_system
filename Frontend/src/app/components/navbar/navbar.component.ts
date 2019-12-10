@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -8,10 +8,14 @@ import { AuthService } from '../../services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
+  @Input() course_modal:string;
+  @Input() department_modal:string;
+
   hidden:boolean;
   user;
   teacher;
   student;
+
   constructor(private authService:AuthService) { }
 
   ngOnInit() {
@@ -35,9 +39,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(){
-    console.log("logout")
     this.authService.deleteCookie();
-    location.href = '/';
   }
 
 }
