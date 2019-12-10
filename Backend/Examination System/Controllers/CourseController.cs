@@ -57,7 +57,7 @@ namespace Examination_System.Controllers
             {
                 return NotFound();
             }
-            return Ok(new { instructorName = inst.Name, course_names = inst.Courses.Select(c => c.Name) });
+            return Ok(inst.Courses.Select(c => new { c.ID, c.Name }));
         }
 
         [Route("api/GetStudentCourses/{id}")]
@@ -68,11 +68,11 @@ namespace Examination_System.Controllers
             {
                 return BadRequest();
             }
-            return Ok(new { st.Name, courses_name = st.Courses_Students.Select(c => c.Cours.Name) });
+            return Ok(st.Courses_Students.Select(c => new { c.Cours.ID, c.Cours.Name}));
         }
 
         [Route("api/GetStudentCourses/{id}")]
-        public IHttpActionResult GetStudentCoursesGrade(int id)//???
+        public IHttpActionResult GetStudentCoursesGrade(int id)
         {
             Student st = db.Students.FirstOrDefault(s => s.ID == id);
             if (st == null)

@@ -269,3 +269,87 @@ F:\GP\Backend\Examination System\obj\Debug\Examination System.csprojAssemblyRefe
 F:\GP\Backend\Examination System\obj\Debug\Examination System.csproj.CopyComplete
 F:\GP\Backend\Examination System\obj\Debug\Examination System.dll
 F:\GP\Backend\Examination System\obj\Debug\Examination System.pdb
+E:\angular\nineDec_pm\Backend\Examination System\bin\Examination System.dll.config
+E:\angular\nineDec_pm\Backend\Examination System\bin\Examination System.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\Examination System.pdb
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\csc.exe
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\csc.exe.config
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\csc.rsp
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\csi.exe
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\csi.exe.config
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\csi.rsp
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\Microsoft.Managed.Core.targets
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.AppContext.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.Collections.Immutable.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.Console.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.IO.Compression.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.IO.FileSystem.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.IO.Pipes.AccessControl.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.IO.Pipes.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.Reflection.Metadata.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.Security.AccessControl.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.Security.Claims.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.Security.Principal.Windows.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.ValueTuple.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.Xml.XmlDocument.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.Xml.XPath.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\vbc.exe
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\vbc.exe.config
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\vbc.rsp
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\VBCSCompiler.exe
+E:\angular\nineDec_pm\Backend\Examination System\bin\roslyn\VBCSCompiler.exe.config
+E:\angular\nineDec_pm\Backend\Examination System\bin\Antlr3.Runtime.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\EntityFramework.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\EntityFramework.SqlServer.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\Microsoft.Web.Infrastructure.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\Newtonsoft.Json.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Net.Http.Formatting.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Web.Helpers.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Web.Http.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Web.Http.WebHost.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Web.Mvc.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Web.Optimization.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Web.Razor.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Web.WebPages.Deployment.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Web.WebPages.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Web.WebPages.Razor.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\WebGrease.dll
+E:\angular\nineDec_pm\Backend\Examination System\bin\EntityFramework.xml
+E:\angular\nineDec_pm\Backend\Examination System\bin\EntityFramework.SqlServer.xml
+E:\angular\nineDec_pm\Backend\Examination System\bin\Newtonsoft.Json.xml
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Net.Http.Formatting.xml
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Web.Helpers.xml
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Web.Http.xml
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Web.Http.WebHost.xml
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Web.Mvc.xml
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Web.Optimization.xml
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Web.Razor.xml
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Web.WebPages.xml
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Web.WebPages.Deployment.xml
+E:\angular\nineDec_pm\Backend\Examination System\bin\System.Web.WebPages.Razor.xml
+E:\angular\nineDec_pm\Backend\Examination System\bin\Antlr3.Runtime.pdb
+E:\angular\nineDec_pm\Backend\Examination System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\angular\nineDec_pm\Backend\Examination System\obj\Debug\Examination System.csprojResolveAssemblyReference.cache
+E:\angular\nineDec_pm\Backend\Examination System\obj\Debug\Examination System.dll
+E:\angular\nineDec_pm\Backend\Examination System\obj\Debug\Examination System.pdb

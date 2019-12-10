@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Frontend';
+  course_modal:string = "addCourseModal";
+  department_modal:string = "department_modal";
 }

@@ -27,7 +27,7 @@ import { UserService } from './services/user.service';
 import { TestComponent } from './components/test/test.component';
 import { CookieService } from 'ngx-cookie-service';
 
-import { StudentComponent } from './components/student/student.component';
+import { StudentSingleComponent } from './components/student-single/student-single.component';
 import { UpdateUserModalComponent } from './components/popups/UpdateUserModal/UpdateUserModal.component';
 import { AboutComponent } from './components/about/about.component';
 import { TeachersListComponent } from './components/teachers-list/teachers-list.component';
@@ -40,7 +40,8 @@ import { TopicService } from './services/topic.service';
 import { DepartmentService } from './services/department.service';
 import { AddDepartmentModalComponent } from './components/popups/add-department-modal/add-department-modal.component';
 import { AddCourseModalComponent } from './components/popups/add-course-modal/add-course-modal.component';
-
+import { ExamsModalComponent } from './components/popups/exams-modal/exams-modal.component';
+import { QuestionsComponent } from './components/questions/questions.component';
 
 
 const AppRoutes = [
@@ -51,9 +52,9 @@ const AppRoutes = [
   { path: 'departments', component: DepartmentsComponent },
   { path: 'departments/:id', component: DepartmentSingleComponent },
   { path: 'teachers', component: TeachersComponent },
-  { path: 'teacherProfile/:id', component: TeacherSingleComponent },
-  { path: 'studentProfile/:id', component: StudentComponent },
+  { path: 'students/:id', component: StudentSingleComponent },
   { path: 'teachers/:id', component: TeacherSingleComponent },
+  { path: 'questions/:id', component: QuestionsComponent },
   { path: '**', component: ErrorComponent }
 ]
 
@@ -77,7 +78,7 @@ const AppRoutes = [
     TeachersComponent,
     TeacherSingleComponent,
     TestComponent,
-    StudentComponent,
+    StudentSingleComponent,
     UpdateUserModalComponent,
     AboutComponent,
     TeachersListComponent,
@@ -85,7 +86,9 @@ const AppRoutes = [
     TopicsComponent,
     ActiveLinkDirective,
     AddDepartmentModalComponent,
-    AddCourseModalComponent
+    AddCourseModalComponent,
+    ExamsModalComponent,
+    QuestionsComponent
   ],
   imports: [
     BrowserModule,

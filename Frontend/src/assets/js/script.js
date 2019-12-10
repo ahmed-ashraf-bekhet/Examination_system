@@ -12,6 +12,16 @@
         }
     });
 
+    $(document).ready(function(){
+        $('.dropdown-submenu a.test').on("click", function(e){
+          $('.dropdown-submenu ul').css({"display":"none"});
+    
+          $(this).next('ul').toggle();
+          e.stopPropagation();
+          e.preventDefault();
+        });
+      });
+
     // Background-images
     $('[data-background]').each(function () {
         $(this).css({

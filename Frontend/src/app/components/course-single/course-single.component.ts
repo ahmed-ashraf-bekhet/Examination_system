@@ -11,23 +11,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CourseSingleComponent implements OnInit {
 
   hidden:boolean;
-  normal_teacher:boolean;
+  isAdmin:boolean = false;
   course:{};
   courseID:number;
+  crsID
 
-  constructor(public courseService:CourseService, private authService:AuthService, public myRouter: ActivatedRoute, private router:Router) { }
+  constructor(public courseService:CourseService, private authService:AuthService, public myRouter: ActivatedRoute, private router:Router,public activetedRouter:ActivatedRoute) { }
 
   ngOnInit() {
+    this.crsID = this.activetedRouter.snapshot.params['id']
+    console.log(this.crsID)
     var cookie = this.authService.getCookie();
     if(!cookie || cookie.userTypeID == "2")
       this.hidden = true;
     else if(cookie.isAdmin == "1"){
       this.hidden = false;
-      this.normal_teacher = false;
+      this.isAdmin = true;
     }
     else{
       this.hidden = false;
-      this.normal_teacher = true;
     }
 
     this.courseID = this.myRouter.snapshot.params['id'];

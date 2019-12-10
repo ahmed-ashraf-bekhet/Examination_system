@@ -3,15 +3,6 @@
 <!-- department list -->
 <section class="section">
     <div class="container">
-
-        <!-- add department modal -->
-        <div class="mb-4 text-center">
-            <button class="btn btn-primary" id="add-btn" data-toggle="modal" [attr.data-target]="'#' + modal_name">Add
-                Department</button>
-            <app-add-department-modal [modal_name]="modal_name"></app-add-department-modal>
-        </div>
-        <!-- /add department modal -->
-
         <div class="row justify-content-center">
             <div class="col-lg-4 col-sm-6 mb-5" *ngFor="let department of departments">
                 <div class="card p-0 border-primary rounded-0 hover-shadow">
