@@ -12,15 +12,14 @@ export class CourseSingleComponent implements OnInit {
 
   hidden:boolean;
   isAdmin:boolean = false;
+  generate_exam_modal:string = "generateExamModal";
+
   course:{};
   courseID:number;
-  crsID
 
   constructor(public courseService:CourseService, private authService:AuthService, public myRouter: ActivatedRoute, private router:Router,public activetedRouter:ActivatedRoute) { }
 
   ngOnInit() {
-    this.crsID = this.activetedRouter.snapshot.params['id']
-    console.log(this.crsID)
     var cookie = this.authService.getCookie();
     if(!cookie || cookie.userTypeID == "2")
       this.hidden = true;

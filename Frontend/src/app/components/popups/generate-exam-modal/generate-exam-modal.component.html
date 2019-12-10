@@ -1,0 +1,61 @@
+<!-- generate exam Modal -->
+<div class="modal fade" id={{modal_name}} role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content rounded-0 border-0 p-4">
+            <div class="modal-header border-0">
+                <h3>Generate Exam</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <form [formGroup]="exam" (ngSubmit)="save()" class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input type="text" class="form-control mb-3" formControlName="Title" placeholder="Title">
+                            <span class="error-msg" *ngIf="exam.get('Title').invalid && exam.get('Title').touched">
+                                Title is required
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input type="number" class="form-control mb-3" formControlName="Duration"
+                                placeholder="Duration" min="0" />
+                            <span class="error-msg"
+                                *ngIf="exam.get('Duration').invalid && exam.get('Duration').touched">
+                                Duration is required
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input type="number" class="form-control mb-3" formControlName="TFQuestionsNumber"
+                                placeholder="TF Questions number" />
+                            <span class="error-msg"
+                                *ngIf="exam.get('TFQuestionsNumber').invalid && exam.get('TFQuestionsNumber').touched">
+                                TF Questions Number is required
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input type="number" class="form-control mb-3" formControlName="MCQQuestionsNumber"
+                                placeholder="MCQ Questions number" />
+                            <span class="error-msg"
+                                *ngIf="exam.get('MCQQuestionsNumber').invalid && exam.get('MCQQuestionsNumber').touched">
+                                MCQ Questions Number is required
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <input type="submit" class="btn btn-primary mt-3" value="Save"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
