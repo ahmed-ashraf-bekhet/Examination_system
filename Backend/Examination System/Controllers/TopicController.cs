@@ -87,6 +87,18 @@ namespace Examination_System.Controllers
         [Route("api/topic/delete/{id}")]
         public IHttpActionResult Delete(int id)
         {
+            try
+            {
+                int isAdmin = int.Parse(Request.Headers.GetValues("isAdmin").FirstOrDefault());
+                if (isAdmin == 0)
+                    return Unauthorized();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return Unauthorized();
+            }
+
             Topic topic = db.Topics.Find(id);
             if (topic == null)
             {

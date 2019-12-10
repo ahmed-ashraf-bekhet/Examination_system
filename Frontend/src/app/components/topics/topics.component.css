@@ -1,0 +1,56 @@
+.containerr {
+    position: relative;
+    width: 50%;
+    height: 240px;
+    padding-right: 5%;
+}
+
+.containerr .overlay {
+    position: absolute;
+    bottom: 90px;
+    left: 0;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+}
+
+.containerr:hover .overlay {
+    height: 29%;
+    margin-bottom: 46px;
+    border-radius: 40px;
+    background-color: #e0a12761;
+    width: 92%;
+    margin-left: 4%;
+}
+
+.containerr .overlay .text {
+    color: white;
+    font-size: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-10%, -10%);
+    text-align: center;
+}
+
+.delete_update {
+    margin-left: 0%;
+    margin-top: 1%;
+    text-align: center;
+}
+
+.buttondu {
+    padding: 3px;
+    margin-top: 3px;
+    border-radius: 21px;
+}
+
+.topics {
+    margin-bottom: -100px;
+    margin-top: -70px;
+}

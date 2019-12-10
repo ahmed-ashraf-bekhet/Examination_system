@@ -1,1 +1,16 @@
-<p>topics works!</p>
+<div class="container topics">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-1 containerr" *ngFor="let topic of topics">
+            <span class="h5 text-primary font-secondary" style="line-height: 162px;margin-left: 32%;"> {{topic.Name}}</span>
+            <div class="overlay">
+                <div class="delete_update">
+                    <div class="btn btn-primary buttondu" (click)="delete(topic.ID)">Delete</div>
+                    <div class="btn btn-primary buttondu" data-toggle="modal" [attr.data-target]="'#' + update_modal" >Update</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- popups -->
+<app-update-topic-modal [courseID] = "courseID" [modal_name] = "update_modal"></app-update-topic-modal>

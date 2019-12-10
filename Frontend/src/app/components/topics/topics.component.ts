@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TopicService } from '../../services/topic.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-topics',
@@ -8,22 +9,35 @@ import { TopicService } from '../../services/topic.service';
 })
 export class TopicsComponent implements OnInit {
 
-  @Input() courseID:number;
+  @Input() courseID: number;
+  update_modal: string = "updateTopicModal";
   topics;
 
-  constructor(private topicService:TopicService) { }
+  constructor(private topicService: TopicService, private router: Router) { }
 
   ngOnInit() {
     this.getTopics();
   }
 
-  getTopics(){
+  getTopics() {
     this.topicService.getTopics(this.courseID).subscribe(
-      (data)=>{
+      (data) => {
         this.topics = data;
-        console.log(this.topics)
       },
-      (error)=>{
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
+  delete(ID) {
+    this.topicService.delete(ID).subscribe(
+      (success) => {
+        this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['/courses', this.courseID]);
+        });
+      },
+      (error) => {
         console.log(error);
       }
     )
