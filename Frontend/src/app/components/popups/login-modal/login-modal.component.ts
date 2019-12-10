@@ -29,12 +29,13 @@ export class LoginModalComponent implements OnInit {
               this.authService.setCookie(teacher.ID,"1",teacher.IsAdmin)
 
               teacher = res
+              location.href = `/teachers/${response}`
+
             },
             (error)=>{
               console.log(error);
             }
           )
-          location.href = `/teacherProfile/${response}`
         },
         (error)=>{
           console.log(error);
@@ -55,13 +56,13 @@ export class LoginModalComponent implements OnInit {
               console.log(res)
               student = res
               this.authService.setCookie(student.ID,"2","0")
+              window.location.href = `http://localhost:4200/students/${response}`
 
             },
             (error)=>{
               console.log(error);
             }
           )
-          window.location.href = `http://localhost:4200/studentProfile/${response}`
         },
         (error)=>{
           console.log(error);

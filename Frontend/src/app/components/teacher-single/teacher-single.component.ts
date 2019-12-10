@@ -22,7 +22,6 @@ export class TeacherSingleComponent implements OnInit {
     }
     this.myService.getTeacherByID(this.ID).subscribe(
       (response)=>{
-        // console.log(response.ID)
         this.teacher = response
         console.log(this.teacher.DeptName)
       },
@@ -45,7 +44,6 @@ export class TeacherSingleComponent implements OnInit {
         console.log(error);
       }
     )
-    console.log('dsa')
   }
 
 }

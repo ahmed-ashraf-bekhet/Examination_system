@@ -16,11 +16,13 @@
             </div>
 
             <!-- Buttons -->
-            <div class="col-lg-2 col-md-3 col-5 text-md-right mb-4 mb-xl-0">
-                <a href="#" class="btn btn-primary">Questions</a>
+            <div *ngIf="crsID" class="col-lg-2 col-md-3 col-5 text-md-right mb-4 mb-xl-0">
+                <a [routerLink]="['/questions',crsID]" class="btn btn-primary">Questions</a>
             </div>
             <div class="col-lg-2 col-md-3 col-7 text-md-right text-left mb-4 mb-xl-0" >
-                <a href="#" class="btn btn-primary">Exams</a>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#examsModal">
+                    Exams
+                </button>
             </div>
 
             <div class="col-lg-3 col-5 mt-4 mb-4 mb-xl-0" [hidden] = "hidden">
@@ -86,3 +88,8 @@
     </div>
 </section>
 <!-- /section -->
+
+<div *ngIf="crsID">
+    <app-exams-modal [courseID]="crsID"></app-exams-modal>
+</div>
+

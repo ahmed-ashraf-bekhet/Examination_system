@@ -1,17 +1,17 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-student',
-  templateUrl: './student.component.html',
-  styleUrls: ['./student.component.css']
+  templateUrl: './student-single.component.html',
+  styleUrls: ['./student-single.component.css']
 })
-export class StudentComponent implements OnInit {
+export class StudentSingleComponent implements OnInit {
   student 
   title:string;
-  constructor(public authService:AuthService,public myService:UserService,public myActivatedRoute:ActivatedRoute) { 
+  constructor(public router:Router,public authService:AuthService,public myService:UserService,public myActivatedRoute:ActivatedRoute) { 
   }
 
   ngOnInit() {
@@ -34,7 +34,7 @@ export class StudentComponent implements OnInit {
     this.myService.updateInfo(this.student).subscribe(
       (response)=>{
         console.log(response)
-        this.title = "Thanks , Your Info Updated Successfully"  
+        this.title = "Thanks , Your Info Updated Successfully"
       },
       (error)=>{
         console.log(error);

@@ -38,6 +38,7 @@ export class UpdateUserModalComponent implements OnInit {
         (response) => {
           console.log(response)
           this.title = "Thanks , Your Info Updated Successfully"
+          let modal = document.querySelector("#updateModal")
         },
         (error) => {
           console.log(error);
