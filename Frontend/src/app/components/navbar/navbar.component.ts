@@ -10,7 +10,7 @@ export class NavbarComponent implements OnInit {
 
   @Input() course_modal:string;
   @Input() department_modal:string;
-  
+
   hidden:boolean;
   user;
   teacher;
@@ -39,9 +39,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(){
-    console.log("logout")
     this.authService.deleteCookie();
-    location.href = '/';
   }
 
 }
