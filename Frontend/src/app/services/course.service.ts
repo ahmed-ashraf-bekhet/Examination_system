@@ -12,7 +12,7 @@ export class CourseService {
 
   getAllCourses(){
     
-    return this.myHttp.get("http://localhost:54345/api/Course");
+    return this.myHttp.get("http://localhost:6755/api/Course");
 
   }
 
@@ -21,13 +21,17 @@ export class CourseService {
   }
 
   getCourse(ID:number){
-    return this.myHttp.get(`http://localhost:54345/api/Course/${ID}`)
+    return this.myHttp.get(`http://localhost:6755/api/Course/${ID}`)
   }
   getStudentCourses(ID:number){
     return this.myHttp.get(`http://localhost:6755/api/GetStudentCourses/${ID}`)
   }
   getTeacherCourses(ID:number){
     return this.myHttp.get(`http://localhost:6755/api/GetInstructorCourses/${ID}`)
+  }
+
+  getCourseQuestions(courseID:number){
+    return this.myHttp.get(`http://localhost:6755/api/coursequestion/${courseID}`)
   }
 
   save(course){
@@ -51,6 +55,10 @@ export class CourseService {
     };
     
     return this.myHttp.get("http://localhost:54345/test/test",httpOptions)
+  }
+
+  getCourseExams(courseID){
+    return this.myHttp.get(`http://localhost:6755/api/exam/getCourseExams/${courseID}`)
   }
 
 }
