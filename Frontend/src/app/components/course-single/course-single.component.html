@@ -90,9 +90,8 @@
 </section>
 <!-- /section -->
 
-
-
 <!-- popups -->
+<app-update-course-modal [modal_name] = "update_modal" [data] = "course"></app-update-course-modal>
 <app-generate-exam-modal [modal_name]="generate_exam_modal" [courseID]="courseID"></app-generate-exam-modal>
 <div *ngIf="courseID">
     <app-exams-modal [courseID]="courseID"></app-exams-modal>

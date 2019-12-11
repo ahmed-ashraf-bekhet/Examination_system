@@ -45,6 +45,7 @@ import { QuestionsComponent } from './components/questions/questions.component';
 import { GenerateExamModalComponent } from './components/popups/generate-exam-modal/generate-exam-modal.component';
 import { UpdateTopicModalComponent } from './components/popups/update-topic-modal/update-topic-modal.component';
 import { UpdateDepartmentModalComponent } from './components/popups/update-department-modal/update-department-modal.component';
+import { UpdateCourseModalComponent } from './components/popups/update-course-modal/update-course-modal.component';
 
 
 const AppRoutes = [
@@ -94,7 +95,8 @@ const AppRoutes = [
     QuestionsComponent,
     GenerateExamModalComponent,
     UpdateTopicModalComponent,
-    UpdateDepartmentModalComponent
+    UpdateDepartmentModalComponent,
+    UpdateCourseModalComponent
   ],
   imports: [
     BrowserModule,

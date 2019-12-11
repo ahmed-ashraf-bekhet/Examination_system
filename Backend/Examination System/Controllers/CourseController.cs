@@ -27,7 +27,7 @@ namespace Examination_System.Controllers
         [ResponseType(typeof(Cours))]
         public IHttpActionResult GetCourse(int id)
         {
-            var course = db.Courses.Where(c=>c.ID == id).Select(c=>new { c.ID, c.Name, c.Description, deptname = c.Department.Name, c.Photo,
+            var course = db.Courses.Where(c=>c.ID == id).Select(c=>new { c.ID, c.Name, c.Description, deptname = c.Department.Name, c.Photo, c.DepartmentID,
                 instructorID = c.Instructor.ID, instructorName = c.Instructor.Name, instructorPhoto = c.Instructor.Photo, instructorBio = c.Instructor.Bio }).SingleOrDefault();
             if (course == null)
             {
@@ -84,23 +84,34 @@ namespace Examination_System.Controllers
 
         // PUT: api/Cours/5
         [ResponseType(typeof(void))]
-        [HttpPut]
-        public IHttpActionResult Edit([FromUri]int id, [FromBody] Cours cours)
+        [HttpPost]
+        [Route("api/course/update")]
+        public IHttpActionResult Update(Cours course)
         {
-            Cours cs = db.Courses.Find(id);
-            cs.Name = cours.Name;
-            cs.InstructorID = cours.InstructorID;
-            cs.DepartmentID = cours.DepartmentID;
-            cs.Description = cours.Description;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            db.Entry(course).State = EntityState.Modified;
+
             try
             {
                 db.SaveChanges();
-                return StatusCode(HttpStatusCode.NoContent);
             }
-            catch
+            catch (DbUpdateConcurrencyException)
             {
-                return BadRequest();
+                if (!CoursExists(course.ID))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
             }
+
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         [HttpPost]
