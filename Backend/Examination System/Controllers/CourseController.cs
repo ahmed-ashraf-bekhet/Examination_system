@@ -28,7 +28,7 @@ namespace Examination_System.Controllers
         public IHttpActionResult GetCourse(int id)
         {
             var course = db.Courses.Where(c=>c.ID == id).Select(c=>new { c.ID, c.Name, c.Description, deptname = c.Department.Name, c.Photo, c.DepartmentID,
-                instructorID = c.Instructor.ID, instructorName = c.Instructor.Name, instructorPhoto = c.Instructor.Photo, instructorBio = c.Instructor.Bio }).SingleOrDefault();
+                InstructorID = c.Instructor.ID, instructorName = c.Instructor.Name, instructorPhoto = c.Instructor.Photo, instructorBio = c.Instructor.Bio }).SingleOrDefault();
             if (course == null)
             {
                 return BadRequest();

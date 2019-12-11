@@ -60,14 +60,6 @@
             </div>
         </div>
 
-        <!-- department details -->
-        <div class="row">
-            <div class="col-12 mb-4">
-                <h3>About Department</h3>
-                <p>{{department.Description}}</p>
-            </div>
-        </div>
-
         <!-- related courses -->
         <app-see-all-header title="Related Courses" link="/courses"></app-see-all-header>
         <app-courses-list courses_number=0 [deptID]="departmentID"></app-courses-list>

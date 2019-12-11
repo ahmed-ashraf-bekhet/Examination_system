@@ -25,6 +25,7 @@ export class UpdateCourseModalComponent implements OnInit {
     this.getAllDepartments();
 
     this.course = this.builder.group({
+      ID:this.data['ID'],
       Name: [this.data['Name'], Validators.required],
       Description: [this.data['Description'], Validators.required],
       DepartmentID: [this.data['DepartmentID'], Validators.required],
@@ -63,9 +64,9 @@ export class UpdateCourseModalComponent implements OnInit {
       }
     }
 
-    this.courseService.save(this.course.value).subscribe(
+    this.courseService.update(this.course.value).subscribe(
       (success) => {
-        location.href = `/courses/${this.data['ID']}`
+        location.reload();
       },
       (error) => {
         console.log(error);
