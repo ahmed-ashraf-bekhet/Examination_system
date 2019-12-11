@@ -11,19 +11,17 @@
 <body>
 
     <br><br><br><br><br><br><br><br><br><br>
-    <!-- اوعى حد يشيل السطر اللى فوق دااا -->
 
-    <div style="border: 4px solid rgb(247, 167, 62); border-radius: 20px; width: 40%; margin-left: 30%;">
+    <div style="border: 4px solid rgb(247, 167, 62); border-radius: 20px; width: 70%; margin-left: 15%;">
     <div style="margin: 3%;" *ngFor="let question of questions">
         <h4>{{question.Body}} ?</h4>
-
         <ol type="1">
             <li *ngFor="let answer of question.answers"  style="margin: 3%;">
                 <div *ngIf="question.Right_AnswerID == answer.ID">
                     <div style="font-size: 20px; color: rgb(247, 167, 62);">-{{answer.Body}}</div>
                 </div>
                 <div *ngIf="question.Right_AnswerID != answer.ID">
-                    -{{answer.Body}}
+                    - {{answer.Body}}
                 </div>
             </li>
         </ol>

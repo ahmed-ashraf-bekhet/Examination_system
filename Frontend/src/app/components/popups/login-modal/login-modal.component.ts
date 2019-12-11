@@ -56,7 +56,7 @@ export class LoginModalComponent implements OnInit {
               console.log(res)
               student = res
               this.authService.setCookie(student.ID,"2","0")
-              window.location.href = `http://localhost:4200/students/${response}`
+              window.location.href = `/students/${response}`
 
             },
             (error)=>{

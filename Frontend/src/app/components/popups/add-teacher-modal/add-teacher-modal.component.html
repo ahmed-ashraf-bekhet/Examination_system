@@ -1,0 +1,71 @@
+<!-- add course Modal -->
+<div class="modal fade" id={{modal_name}} role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content rounded-0 border-0 p-4">
+            <div class="modal-header border-0">
+                <h3>Add Teacher</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <form [formGroup]="teacher" (ngSubmit)="save()" class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input type="text" class="form-control mb-3" formControlName="Name" placeholder="Name">
+                            <span class="error-msg" *ngIf="teacher.get('Name').invalid && teacher.get('Name').touched">
+                                Name is required
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input type="text" class="form-control mb-3" formControlName="UserName"
+                                placeholder="UserName">
+                            <span class="error-msg"
+                                *ngIf="teacher.get('UserName').invalid && teacher.get('UserName').touched">
+                                UserName is required
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input type="password" class="form-control mb-3" formControlName="Password"
+                                placeholder="Password">
+                            <span class="error-msg"
+                                *ngIf="teacher.get('Password').invalid && teacher.get('Password').touched">
+                                Password is required
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <textarea type="text" class="form-control mb-3" formControlName="Bio"
+                                placeholder="Bio"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label for="DepartmentID">Department</label>
+                        <select formControlName="DepartmentID" id="DepartmentID" class="custom-select">
+                            <option [value]="dept.ID" *ngFor="let dept of departments">{{dept.Name}}
+                            </option>
+                        </select>
+                        <span class="error-msg"
+                            *ngIf="teacher.get('DepartmentID').invalid && teacher.get('DepartmentID').touched">
+                            Department is required
+                        </span>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="IsAdmin">
+                            <label class="form-check-label" for="exampleCheck1">IsAdmin</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <input type="submit" class="btn btn-primary mt-3" value="Save" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

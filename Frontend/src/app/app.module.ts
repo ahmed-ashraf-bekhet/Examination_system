@@ -43,6 +43,8 @@ import { AddCourseModalComponent } from './components/popups/add-course-modal/ad
 import { ExamsModalComponent } from './components/popups/exams-modal/exams-modal.component';
 import { QuestionsComponent } from './components/questions/questions.component';
 import { GenerateExamModalComponent } from './components/popups/generate-exam-modal/generate-exam-modal.component';
+import { AddStudentModalComponent } from './components/popups/add-student-modal/add-student-modal.component';
+import { AddTeacherModalComponent } from './components/popups/add-teacher-modal/add-teacher-modal.component';
 
 
 const AppRoutes = [
@@ -90,7 +92,9 @@ const AppRoutes = [
     AddCourseModalComponent,
     ExamsModalComponent,
     QuestionsComponent,
-    GenerateExamModalComponent
+    GenerateExamModalComponent,
+    AddStudentModalComponent,
+    AddTeacherModalComponent
   ],
   imports: [
     BrowserModule,

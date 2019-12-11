@@ -18,7 +18,7 @@ export class TeacherSingleComponent implements OnInit {
 
   ngOnInit() {
     if(!this.authService.getCookie()){
-      window.location.href = "sdabsadbk"
+      window.location.href = "NoAuthorization"
     }
     this.myService.getTeacherByID(this.ID).subscribe(
       (response)=>{
