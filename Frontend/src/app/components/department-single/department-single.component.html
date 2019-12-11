@@ -47,7 +47,7 @@
             </div>
 
             <div class="col-lg-2 col-5 text-xl-right mb-4 mb-xl-0" [hidden] = "hidden">
-                <a href="#" class="btn btn-primary">Update</a>
+                <a href="#" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#' + update_modal">Update</a>
             </div>
 
             <div class="col-lg-2 col-7 text-xl-right mb-4 mb-xl-0" [hidden] = "hidden">
@@ -57,14 +57,6 @@
             <!-- border -->
             <div class="col-12 mt-4">
                 <div class="border-bottom border-primary"></div>
-            </div>
-        </div>
-
-        <!-- department details -->
-        <div class="row">
-            <div class="col-12 mb-4">
-                <h3>About Department</h3>
-                <p>{{department.Description}}</p>
             </div>
         </div>
 
@@ -93,3 +85,6 @@
         <!-- /department teachers -->
     </div>
 </section>
+
+<!-- popups -->
+<app-update-department-modal [modal_name] = "update_modal" [data] = "department"></app-update-department-modal>

@@ -40,4 +40,8 @@ export class DepartmentService {
 
     return this.myHttp.get(`http://localhost:6755/api/department/delete/${ID}`,httpOptions);
   }
+
+  update(department){
+    return this.myHttp.post("http://localhost:54345/api/department/update",department);
+  }
 }

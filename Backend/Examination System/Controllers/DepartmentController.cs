@@ -94,17 +94,13 @@ namespace Examination_System.Controllers
         }
 
         //Update one Dept
-        [HttpPut]
-        public IHttpActionResult Update(int id, Department department)
+        [HttpPost]
+        [Route("api/department/update")]
+        public IHttpActionResult Update(Department department)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
-            }
-
-            if (id != department.ID)
-            {
-                return BadRequest();
             }
 
             db.Entry(department).State = EntityState.Modified;
@@ -115,7 +111,7 @@ namespace Examination_System.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DepartMentExists(id))
+                if (!DepartMentExists(department.ID))
                 {
                     return NotFound();
                 }

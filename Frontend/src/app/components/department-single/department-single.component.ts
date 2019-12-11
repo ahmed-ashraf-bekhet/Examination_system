@@ -16,6 +16,7 @@ export class DepartmentSingleComponent implements OnInit {
   courses_number: number;
   departmentID: number;
   hidden:boolean;
+  update_modal = "updateDepartmentModal";
 
   constructor(private deptService:DepartmentService, private authService:AuthService, public myRouter: ActivatedRoute, private router:Router) { }
 

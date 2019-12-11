@@ -16,6 +16,7 @@ export class CourseSingleComponent implements OnInit {
 
   course:{};
   courseID:number;
+  update_modal = "updateCourseModal";
 
   constructor(public courseService:CourseService, private authService:AuthService, public myRouter: ActivatedRoute, private router:Router,public activetedRouter:ActivatedRoute) { }
 
