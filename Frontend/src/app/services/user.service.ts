@@ -42,23 +42,31 @@ export class UserService {
       Username : username,
       Password : password 
     }
-    return this.myHttp.post("http://localhost:54345/api/student/login",student)
+    return this.myHttp.post("http://localhost:6755/api/student/login",student)
   }
 
   getStudentByID(ID){
-    return this.myHttp.get(`http://localhost:54345/api/student/${ID}`)
+    return this.myHttp.get(`http://localhost:6755/api/student/${ID}`)
   }
 
   getTeacherByID(ID){
-    return this.myHttp.get(`http://localhost:54345/api/instructor/${ID}`)
+    return this.myHttp.get(`http://localhost:6755/api/instructor/${ID}`)
   }
 
   getAllTeachers(){
-    return this.myHttp.get("http://localhost:54345/api/Instructor");
+    return this.myHttp.get("http://localhost:6755/api/Instructor");
   }
 
   getDepartmentTeachers(ID:number){
-    return this.myHttp.get(`http://localhost:54345/api/GetDepartmentInstructors/${ID}`);
+    return this.myHttp.get(`http://localhost:6755/api/GetDepartmentInstructors/${ID}`);
+  }
+
+  addStudent(student){
+    return this.myHttp.post("http://localhost:6755/api/student/add",student)
+  }
+
+  addTeacher(teacher){
+    return this.myHttp.post("http://localhost:6755/api/instructor/add",teacher)
   }
 
 }
