@@ -2,45 +2,37 @@
 <h4 class="dispaly-4">ADD Question</h4>
 <hr>
 <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-    <input type="hidden"  name="OrderItemID" #OrderItemID="ngModel" [(ngModel)]="formData.OrderItemID">
-    <input type="hidden"  name="OrderID" #OrderID="ngModel" [(ngModel)]="formData.OrderID">
-  <input type="hidden"  name="ItemName" #ItemName="ngModel" [(ngModel)]="formData.ItemName">
+  <input type="hidden"  name="courseID" #courseID="ngModel" [(ngModel)]="formData.courseID">
   <div class="form-group">
     <label>Question</label>
-    <input name="Question" #Quantity="ngModel" [(ngModel)]="formData.Quantity" class="form-control"
-    (keyup)="updateTotal()" [class.is-invalid]="!isValid && formData.Quantity==0">
-    <!-- <select name="ItemID" #ItemID="ngModel" [(ngModel)]="formData.ItemID" class="form-control" (change)="updatePrice($event.target)"
-    [class.is-invalid]="!isValid && formData.ItemID==0">
-      <option value="0">-Select-</option>
-      <option *ngFor="let item of itemList" value="{{item.ItemID}}">{{item.Name}}</option>
-    </select> -->
+    <input name="Question" #Question="ngModel" [(ngModel)]="formData.Question" class="form-control"
+    [class.is-invalid]="!isValid && formData.Question==''">
     <hr>
     <label>Type</label>
-    <select name="ItemID" #ItemID="ngModel" [(ngModel)]="formData.ItemID" class="form-control" (change)="updatePrice($event.target)"
-      [class.is-invalid]="!isValid && formData.ItemID==0">
+    <select name="TypeID" #ItemID="ngModel" [(ngModel)]="formData.TypeID" class="form-control""
+      [class.is-invalid]="!isValid && formData.TypeID==0">
       <option value="0">-Select-</option>
-      <option *ngFor="let item of itemList" value="1">MCQ</option>
+      <option *ngFor="let item of typeList" value="{{item.ID}}">{{item.Name}}</option>
     </select>
 
     <hr>
     <label>Answer</label>
-    <input  name="Answer" #Quantity="ngModel" [(ngModel)]="formData.Quantity" class="form-control"
-    (keyup)="updateTotal()" [class.is-invalid]="!isValid && formData.Quantity==0">
+    <input  name="Answer" #Answer="ngModel" [(ngModel)]="formData.Answer" class="form-control"
+     [class.is-invalid]="!isValid && formData.Answer==['']">
 
     <hr>
     <label>Right Answer</label>
-    <select name="ItemID" #ItemID="ngModel" [(ngModel)]="formData.ItemID" class="form-control" (change)="updatePrice($event.target)"
-      [class.is-invalid]="!isValid && formData.ItemID==0">
+    <select name="R_Answer" #ItemID="ngModel" [(ngModel)]="formData.R_Answer" class="form-control"
+      [class.is-invalid]="!isValid && formData.R_Answer==0">
       <option value="0">-Select-</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <!--*ngFor="let item of itemList" 
-          <option *ngIf="show" value="1">1</option>
-      <option *ngIf="show" value="2">2</option>
-      <option *ngIf="show" value="3">3</option>
-      <option *ngIf="show" value="4">4</option> -->
-
+      <option *ngIf="formData.TypeID=2" value="1">1</option>
+      <option *ngIf="formData.TypeID=2" value="2">2</option>
       
+      <option *ngIf="formData.TypeID=1" value="1">1</option>
+      <option *ngIf="formData.TypeID=1" value="2">2</option>
+      <option *ngIf="formData.TypeID=1" value="3">3</option>
+      <option *ngIf="formData.TypeID=1" value="4">4</option> 
+
     </select>
   </div>
 

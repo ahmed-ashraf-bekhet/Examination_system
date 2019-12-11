@@ -49,5 +49,18 @@ namespace Examination_System.Controllers
 
             return CreatedAtRoute("DefaultApi", new { Question = CQ.Question }, CQ);
         }
+
+
+        //return All Types of Questions
+        [HttpGet]
+        [Route("api/Type")]
+        public IHttpActionResult GetAll()
+        {
+            var Types = db.Question_Types.Select(s => new { s.ID, s.Name }).ToList();
+            if (Types == null)
+                return NotFound();
+            else
+                return Ok(Types);
+        }
     }
 }

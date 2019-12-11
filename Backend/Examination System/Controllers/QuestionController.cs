@@ -10,7 +10,7 @@ namespace Pro_Test3_API.Controllers
 {
     public class QuestionController : ApiController
     {
-        ExaminationSystemDBEntities db = new ExaminationSystemDBEntities();
+        DBEntities db = new DBEntities();
 
         [HttpGet]
         [Route("api/coursequestion/{id}")]
@@ -49,7 +49,7 @@ namespace Pro_Test3_API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest("Invalid data.");
 
-            using (var ctx = new ExaminationSystemDBEntities())
+            using (var ctx = new DBEntities())
             {
                 ctx.Questions.Add(new Question()
                 {

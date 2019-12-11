@@ -52,7 +52,7 @@ export class CourseSingleComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.width = "50%";
     dialogConfig.data = {courseItemIndex ,courseID };
-    console.log(courseItemIndex ,courseID);
+    //console.log(courseItemIndex ,courseID);
     this.dialog.open(CreateQuestionsComponent, dialogConfig).afterClosed().subscribe(res => {
       console.log(`Dialog result: M `);
     });
