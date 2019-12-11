@@ -86,59 +86,12 @@ E:\Examination System\Examination System\obj\Debug\Examination System.pdb
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\Examination System.dll.config
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\Examination System.dll
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\Examination System.pdb
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\csc.exe
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\csc.exe.config
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\csc.rsp
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\csi.exe
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\csi.exe.config
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\csi.rsp
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.CSharp.Core.targets
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.Managed.Core.targets
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.VisualBasic.Core.targets
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.AppContext.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Collections.Immutable.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Console.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Diagnostics.StackTrace.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.IO.Compression.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.IO.FileSystem.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.IO.FileSystem.Primitives.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.IO.Pipes.AccessControl.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.IO.Pipes.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Reflection.Metadata.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Security.AccessControl.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Security.Claims.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Security.Cryptography.Encoding.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Security.Cryptography.Primitives.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Security.Principal.Windows.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Text.Encoding.CodePages.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.ValueTuple.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Xml.ReaderWriter.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Xml.XmlDocument.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Xml.XPath.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Xml.XPath.XDocument.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\vbc.exe
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\vbc.exe.config
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\vbc.rsp
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\VBCSCompiler.exe
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\VBCSCompiler.exe.config
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\Antlr3.Runtime.dll
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\CrystalDecisions.CrystalReports.Engine.dll
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\CrystalDecisions.ReportSource.dll
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\CrystalDecisions.Shared.dll
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\EntityFramework.dll
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\EntityFramework.SqlServer.dll
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\Microsoft.Web.Infrastructure.dll
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\Newtonsoft.Json.dll
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\System.Net.Http.Formatting.dll
@@ -179,7 +132,6 @@ E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\System.
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\System.Web.WebPages.Deployment.xml
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\System.Web.WebPages.Razor.xml
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\Antlr3.Runtime.pdb
-E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\obj\Debug\Examination System.csproj.CoreCompileInputs.cache
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\obj\Debug\Examination System.csproj.CopyComplete
 E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\obj\Debug\Examination System.dll
@@ -269,3 +221,55 @@ F:\GP\Backend\Examination System\obj\Debug\Examination System.csprojAssemblyRefe
 F:\GP\Backend\Examination System\obj\Debug\Examination System.csproj.CopyComplete
 F:\GP\Backend\Examination System\obj\Debug\Examination System.dll
 F:\GP\Backend\Examination System\obj\Debug\Examination System.pdb
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\obj\Debug\Examination System.csprojAssemblyReference.cache
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\csc.exe
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\csc.exe.config
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\csc.rsp
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\csi.exe
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\csi.exe.config
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\csi.rsp
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.Managed.Core.targets
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.AppContext.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Collections.Immutable.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Console.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Globalization.Calendars.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.IO.Compression.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.IO.FileSystem.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Net.Http.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Net.Sockets.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Reflection.Metadata.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.ValueTuple.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Xml.XmlDocument.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Xml.XPath.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\vbc.exe
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\vbc.exe.config
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\vbc.rsp
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\VBCSCompiler.exe
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\roslyn\VBCSCompiler.exe.config
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\ITI_Web _Net\ITI_GP\Examination System\Backend\Examination System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml

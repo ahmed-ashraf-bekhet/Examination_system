@@ -14,7 +14,17 @@ namespace Examination_System.Controllers
 {
     public class CourseController : ApiController
     {
-        private ExaminationSystemDBEntities db = new ExaminationSystemDBEntities();
+        private DBEntities db = new DBEntities();
+
+
+
+
+        [HttpGet]
+        [Route("api/getCoursesNumber")]
+        public IHttpActionResult GetCoursesNumber()
+        {
+            return Ok(db.Courses.Count());
+        }
 
         // GET: api/Course
         public IHttpActionResult GetCourses()

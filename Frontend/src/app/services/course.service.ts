@@ -20,14 +20,19 @@ export class CourseService {
     return this.myHttp.get(`http://localhost:54345/api/GetDepartmentCourses/${ID}`);
   }
 
+
+  getCoursesNumber(){
+    return this.myHttp.get(`http://localhost:54345/api/getCoursesNumber`);
+  }
+
   getCourse(ID:number){
     return this.myHttp.get(`http://localhost:54345/api/Course/${ID}`)
   }
   getStudentCourses(ID:number){
-    return this.myHttp.get(`http://localhost:6755/api/GetStudentCourses/${ID}`)
+    return this.myHttp.get(`http://localhost:54345/api/GetStudentCourses/${ID}`)
   }
   getTeacherCourses(ID:number){
-    return this.myHttp.get(`http://localhost:6755/api/GetInstructorCourses/${ID}`)
+    return this.myHttp.get(`http://localhost:54345/api/GetInstructorCourses/${ID}`)
   }
 
   delete(ID:number){

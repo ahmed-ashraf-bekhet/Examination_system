@@ -26,12 +26,15 @@ import { CourseService } from './services/course.service';
 import { UserService } from './services/user.service';
 import { TestComponent } from './components/test/test.component';
 import { CookieService } from 'ngx-cookie-service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { StudentComponent } from './components/student/student.component';
 import { UpdateUserModalComponent } from './components/popups/UpdateUserModal/UpdateUserModal.component';
 import { AboutComponent } from './components/about/about.component';
 import { TeachersListComponent } from './components/teachers-list/teachers-list.component';
 import { ActiveLinkDirective } from './directives/active-link.directive';
+import { CreateQuestionsComponent } from './components/popups/create-questions/create-questions.component';
 
 
 const AppRoutes = [
@@ -45,6 +48,7 @@ const AppRoutes = [
   { path: 'teacherHome', component: TeacherSingleComponent },
   { path: 'student', component: StudentComponent },
   { path: 'teachers/:id', component: TeacherSingleComponent },
+  { path: 'about', component: AboutComponent },
   { path: '**', component: ErrorComponent }
 ]
 
@@ -57,6 +61,7 @@ const AppRoutes = [
     SliderComponent,
     BannerFeatureComponent,
     HomeComponent,
+    CreateQuestionsComponent,
     CoursesComponent,
     SeeAllHeaderComponent,
     ErrorComponent,
@@ -73,15 +78,18 @@ const AppRoutes = [
     UpdateUserModalComponent,
     AboutComponent,
     TeachersListComponent,
-    ActiveLinkDirective
+    ActiveLinkDirective,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
     RouterModule.forRoot(AppRoutes)
 
   ],
+  entryComponents:[CreateQuestionsComponent],
   providers: [CourseService,UserService,CookieService],
   bootstrap: [AppComponent]
 })

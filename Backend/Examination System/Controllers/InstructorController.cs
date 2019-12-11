@@ -14,7 +14,7 @@ namespace Examination_System.Controllers
 {
     public class InstructorController : ApiController
     {
-        private ExaminationSystemDBEntities db = new ExaminationSystemDBEntities();
+        private DBEntities db = new DBEntities();
 
         // GET: api/Instructor
         [HttpGet]
@@ -23,6 +23,14 @@ namespace Examination_System.Controllers
             var instructors = db.Instructors.Select(i => new { i.ID, i.Name, i.Photo, i.DepartmentID, deptName = i.Department.Name});
             
             return Ok(instructors);
+        }
+
+
+        [HttpGet]
+        [Route("api/getInstructorsNumber")]
+        public IHttpActionResult GetInstructorsNumber()
+        {
+            return Ok(db.Instructors.Count());
         }
 
         // GET: api/Instructor/5
