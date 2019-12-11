@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TeacherService } from '../../services/teacher.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-teachers-list',
@@ -12,7 +12,7 @@ export class TeachersListComponent implements OnInit {
   @Input() deptID:number;
   teachers;
 
-  constructor(private teacherService:TeacherService) { }
+  constructor(private userService:UserService) { }
 
   ngOnInit() {
     if(this.deptID)
@@ -22,7 +22,7 @@ export class TeachersListComponent implements OnInit {
   }
 
   getAllTeachers(){
-    this.teacherService.getAllTeachers().subscribe(
+    this.userService.getAllTeachers().subscribe(
       (data) => {
         this.teachers = data ;
         
@@ -36,7 +36,7 @@ export class TeachersListComponent implements OnInit {
   }
 
   getDepartmentTeachers(deptID){
-    this.teacherService.getDepartmentTeachers(deptID).subscribe(
+    this.userService.getDepartmentTeachers(deptID).subscribe(
       (data)=>{
         this.teachers = data;
       },

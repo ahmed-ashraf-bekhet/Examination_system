@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SliderComponent } from './slider.component';
+import { UpdateTopicModalComponent } from './update-topic-modal.component';
 
-describe('SliderComponent', () => {
-  let component: SliderComponent;
-  let fixture: ComponentFixture<SliderComponent>;
+describe('UpdateTopicModalComponent', () => {
+  let component: UpdateTopicModalComponent;
+  let fixture: ComponentFixture<UpdateTopicModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SliderComponent ]
+      declarations: [ UpdateTopicModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SliderComponent);
+    fixture = TestBed.createComponent(UpdateTopicModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

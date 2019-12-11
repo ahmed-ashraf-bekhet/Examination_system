@@ -16,10 +16,11 @@ namespace Examination_System.Controllers
     {
         private DBEntities db = new DBEntities();
 
-        // GET: api/Topic
-        public IHttpActionResult GetTopics()
+        [HttpGet]
+        [Route("api/topic/getTopics/{courseID}")]
+        public IHttpActionResult GetTopics(int courseID)
         {
-            var topics = db.Topics.Select(e => new { e.ID, e.Name });
+            var topics = db.Topics.Where(t=>t.CourseID == courseID).Select(t => new { t.ID, t.Name });
             return Ok(topics);
         }
 
@@ -36,18 +37,13 @@ namespace Examination_System.Controllers
             return Ok(topic);
         }
 
-        // PUT: api/Topic/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutTopic(int id, Topic topic)
+        [HttpPost]
+        [Route("api/topic/update")]
+        public IHttpActionResult Update(Topic topic)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
-            }
-
-            if (id != topic.ID)
-            {
-                return BadRequest();
             }
 
             db.Entry(topic).State = EntityState.Modified;
@@ -58,7 +54,7 @@ namespace Examination_System.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TopicExists(id))
+                if (!TopicExists(topic.ID))
                 {
                     return NotFound();
                 }
@@ -71,9 +67,10 @@ namespace Examination_System.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Topic
-        [ResponseType(typeof(Topic))]
-        public IHttpActionResult PostTopic(Topic topic)
+
+        [HttpPost]
+        [Route("api/topic/add")]
+        public IHttpActionResult Add(Topic topic)
         {
             if (!ModelState.IsValid)
             {
@@ -86,10 +83,22 @@ namespace Examination_System.Controllers
             return CreatedAtRoute("DefaultApi", new { id = topic.ID }, topic);
         }
 
-        // DELETE: api/Topic/5
-        [ResponseType(typeof(Topic))]
-        public IHttpActionResult DeleteTopic(int id)
+        [HttpGet]
+        [Route("api/topic/delete/{id}")]
+        public IHttpActionResult Delete(int id)
         {
+            try
+            {
+                int isAdmin = int.Parse(Request.Headers.GetValues("isAdmin").FirstOrDefault());
+                if (isAdmin == 0)
+                    return Unauthorized();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return Unauthorized();
+            }
+
             Topic topic = db.Topics.Find(id);
             if (topic == null)
             {

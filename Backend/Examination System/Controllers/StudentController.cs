@@ -38,10 +38,10 @@ namespace Examination_System.Controllers
         [Route("api/Student/{id}")]
         public IHttpActionResult GetStudent(int? id)
         {
-            var student = db.Students.Where(s => s.ID == id).Select(s => new { s.ID, s.Name, s.Username, s.Password, s.Photo }).SingleOrDefault();
+            var student = db.Students.Where(s => s.ID == id).Select(s => new { s.ID, s.Name, s.Username, s.Password, s.Photo, deptName = s.Department.Name, courses = s.Courses_Students.Select(c => new { c.Cours.ID, c.Cours.Name, c.Grade }) }).SingleOrDefault();
             if (student == null)
                 return NotFound();
-            
+
             return Ok(student);
         }
 

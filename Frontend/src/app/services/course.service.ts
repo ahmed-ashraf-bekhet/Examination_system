@@ -12,12 +12,12 @@ export class CourseService {
 
   getAllCourses(){
     
-    return this.myHttp.get("http://localhost:54345/api/Course");
+    return this.myHttp.get("http://localhost:6755/api/Course");
 
   }
 
   getDepartmentCourses(ID:number){
-    return this.myHttp.get(`http://localhost:54345/api/GetDepartmentCourses/${ID}`);
+    return this.myHttp.get(`http://localhost:6755/api/GetDepartmentCourses/${ID}`);
   }
 
 
@@ -26,7 +26,7 @@ export class CourseService {
   }
 
   getCourse(ID:number){
-    return this.myHttp.get(`http://localhost:54345/api/Course/${ID}`)
+    return this.myHttp.get(`http://localhost:6755/api/Course/${ID}`)
   }
   getStudentCourses(ID:number){
     return this.myHttp.get(`http://localhost:54345/api/GetStudentCourses/${ID}`)
@@ -35,12 +35,24 @@ export class CourseService {
     return this.myHttp.get(`http://localhost:54345/api/GetInstructorCourses/${ID}`)
   }
 
+  getCourseQuestions(courseID:number){
+    return this.myHttp.get(`http://localhost:6755/api/coursequestion/${courseID}`)
+  }
+
+  save(course){
+    return this.myHttp.post("http://localhost:6755/api/course/add",course);
+  }
+
+  update(course){
+    return this.myHttp.post("http://localhost:54345/api/course/update",course);
+  }
+
   delete(ID:number){
     const httpOptions = {
       headers: new HttpHeaders(this.authService.getCookie())
     };
 
-    return this.myHttp.get(`http://localhost:54345/api/course/delete/${ID}`,httpOptions);
+    return this.myHttp.get(`http://localhost:6755/api/course/delete/${ID}`,httpOptions);
   }
 
   test(image: File){
@@ -51,7 +63,11 @@ export class CourseService {
       headers: new HttpHeaders(this.authService.getCookie())
     };
     
-    return this.myHttp.get("http://localhost:54345/test/test",httpOptions)
+    return this.myHttp.get("http://localhost:6755/test/test",httpOptions)
+  }
+
+  getCourseExams(courseID){
+    return this.myHttp.get(`http://localhost:6755/api/exam/getCourseExams/${courseID}`)
   }
 
 }

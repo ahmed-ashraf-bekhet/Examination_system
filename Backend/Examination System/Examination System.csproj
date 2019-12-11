@@ -170,6 +170,7 @@
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\InstructorController.cs" />
+    <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TopicController.cs" />
     <Compile Include="Controllers\UserType.cs" />

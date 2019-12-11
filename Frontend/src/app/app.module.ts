@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router'
 
@@ -29,13 +29,32 @@ import { CookieService } from 'ngx-cookie-service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 
-import { StudentComponent } from './components/student/student.component';
+import { StudentSingleComponent } from './components/student-single/student-single.component';
 import { UpdateUserModalComponent } from './components/popups/UpdateUserModal/UpdateUserModal.component';
 import { AboutComponent } from './components/about/about.component';
 import { TeachersListComponent } from './components/teachers-list/teachers-list.component';
+<<<<<<< HEAD
 import { ActiveLinkDirective } from './directives/active-link.directive';
 import { CreateQuestionsComponent } from './components/popups/create-questions/create-questions.component';
+=======
+>>>>>>> master
 
+import { LoginModalComponent } from './components/popups/login-modal/login-modal.component';
+import { TopicsComponent } from './components/topics/topics.component';
+import { ActiveLinkDirective } from './directives/active-link.directive';
+import { AuthService } from './services/auth.service';
+import { TopicService } from './services/topic.service';
+import { DepartmentService } from './services/department.service';
+import { AddDepartmentModalComponent } from './components/popups/add-department-modal/add-department-modal.component';
+import { AddCourseModalComponent } from './components/popups/add-course-modal/add-course-modal.component';
+import { ExamsModalComponent } from './components/popups/exams-modal/exams-modal.component';
+import { QuestionsComponent } from './components/questions/questions.component';
+import { GenerateExamModalComponent } from './components/popups/generate-exam-modal/generate-exam-modal.component';
+import { UpdateTopicModalComponent } from './components/popups/update-topic-modal/update-topic-modal.component';
+import { UpdateDepartmentModalComponent } from './components/popups/update-department-modal/update-department-modal.component';
+import { UpdateCourseModalComponent } from './components/popups/update-course-modal/update-course-modal.component';
+import { AddStudentModalComponent } from './components/popups/add-student-modal/add-student-modal.component';
+import { AddTeacherModalComponent } from './components/popups/add-teacher-modal/add-teacher-modal.component';
 
 const AppRoutes = [
   { path: '', component: HomeComponent },
@@ -45,10 +64,13 @@ const AppRoutes = [
   { path: 'departments', component: DepartmentsComponent },
   { path: 'departments/:id', component: DepartmentSingleComponent },
   { path: 'teachers', component: TeachersComponent },
-  { path: 'teacherHome', component: TeacherSingleComponent },
-  { path: 'student', component: StudentComponent },
+  { path: 'students/:id', component: StudentSingleComponent },
   { path: 'teachers/:id', component: TeacherSingleComponent },
+<<<<<<< HEAD
   { path: 'about', component: AboutComponent },
+=======
+  { path: 'questions/:id', component: QuestionsComponent },
+>>>>>>> master
   { path: '**', component: ErrorComponent }
 ]
 
@@ -73,24 +95,45 @@ const AppRoutes = [
     TeachersComponent,
     TeacherSingleComponent,
     TestComponent,
-
-    StudentComponent,
+    StudentSingleComponent,
     UpdateUserModalComponent,
     AboutComponent,
     TeachersListComponent,
+<<<<<<< HEAD
     ActiveLinkDirective,
+=======
+    LoginModalComponent,
+    TopicsComponent,
+    ActiveLinkDirective,
+    AddDepartmentModalComponent,
+    AddCourseModalComponent,
+    ExamsModalComponent,
+    QuestionsComponent,
+    GenerateExamModalComponent,
+    UpdateTopicModalComponent,
+    UpdateDepartmentModalComponent,
+    UpdateCourseModalComponent,
+    AddStudentModalComponent,
+    AddTeacherModalComponent
+>>>>>>> master
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatDialogModule,
     RouterModule.forRoot(AppRoutes)
 
   ],
+<<<<<<< HEAD
   entryComponents:[CreateQuestionsComponent],
   providers: [CourseService,UserService,CookieService],
+=======
+  providers: [CourseService,UserService,CookieService,AuthService,TopicService
+              ,DepartmentService],
+>>>>>>> master
   bootstrap: [AppComponent]
 })
 export class AppModule { }

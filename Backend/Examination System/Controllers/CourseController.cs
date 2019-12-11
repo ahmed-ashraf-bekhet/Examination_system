@@ -37,8 +37,8 @@ namespace Examination_System.Controllers
         [ResponseType(typeof(Cours))]
         public IHttpActionResult GetCourse(int id)
         {
-            var course = db.Courses.Where(c=>c.ID == id).Select(c=>new { c.ID, c.Name, c.Description, deptname = c.Department.Name, c.Photo,
-                instructorID = c.Instructor.ID, instructorName = c.Instructor.Name, instructorPhoto = c.Instructor.Photo, instructorBio = c.Instructor.Bio }).SingleOrDefault();
+            var course = db.Courses.Where(c=>c.ID == id).Select(c=>new { c.ID, c.Name, c.Description, deptname = c.Department.Name, c.Photo, c.DepartmentID,
+                InstructorID = c.Instructor.ID, instructorName = c.Instructor.Name, instructorPhoto = c.Instructor.Photo, instructorBio = c.Instructor.Bio }).SingleOrDefault();
             if (course == null)
             {
                 return BadRequest();
@@ -67,7 +67,7 @@ namespace Examination_System.Controllers
             {
                 return NotFound();
             }
-            return Ok(new { instructorName = inst.Name, course_names = inst.Courses.Select(c => c.Name) });
+            return Ok(inst.Courses.Select(c => new { c.ID, c.Name }));
         }
 
         [Route("api/GetStudentCourses/{id}")]
@@ -78,11 +78,11 @@ namespace Examination_System.Controllers
             {
                 return BadRequest();
             }
-            return Ok(new { st.Name, courses_name = st.Courses_Students.Select(c => c.Cours.Name) });
+            return Ok(st.Courses_Students.Select(c => new { c.Cours.ID, c.Cours.Name}));
         }
 
         [Route("api/GetStudentCourses/{id}")]
-        public IHttpActionResult GetStudentCoursesGrade(int id)//???
+        public IHttpActionResult GetStudentCoursesGrade(int id)
         {
             Student st = db.Students.FirstOrDefault(s => s.ID == id);
             if (st == null)
@@ -94,28 +94,38 @@ namespace Examination_System.Controllers
 
         // PUT: api/Cours/5
         [ResponseType(typeof(void))]
-        [HttpPut]
-        public IHttpActionResult Edit([FromUri]int id, [FromBody] Cours cours)
+        [HttpPost]
+        [Route("api/course/update")]
+        public IHttpActionResult Update(Cours course)
         {
-            Cours cs = db.Courses.Find(id);
-            cs.Name = cours.Name;
-            cs.InstructorID = cours.InstructorID;
-            cs.DepartmentID = cours.DepartmentID;
-            cs.Description = cours.Description;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            db.Entry(course).State = EntityState.Modified;
+
             try
             {
                 db.SaveChanges();
-                return StatusCode(HttpStatusCode.NoContent);
             }
-            catch
+            catch (DbUpdateConcurrencyException)
             {
-                return BadRequest();
+                if (!CoursExists(course.ID))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
             }
+
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Cours
-        [ResponseType(typeof(Cours))]
         [HttpPost]
+        [Route("api/course/add")]
         public IHttpActionResult Add(Cours cours)
         {
             if (!ModelState.IsValid)
@@ -123,10 +133,17 @@ namespace Examination_System.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Courses.Add(cours);
-            db.SaveChanges();
+            try
+            {
+                db.Courses.Add(cours);
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return BadRequest("unique");
+            }
 
-            return CreatedAtRoute("Addedd Successfully", new { id = cours.ID }, cours);
+            return StatusCode(HttpStatusCode.Created);
         }
 
         // DELETE: api/Cours/5

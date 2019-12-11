@@ -6,7 +6,8 @@
         <div class="row justify-content-center">
             <div class="col-lg-4 col-sm-6 mb-5" *ngFor="let department of departments">
                 <div class="card p-0 border-primary rounded-0 hover-shadow">
-                    <img class="card-img-top rounded-0" src="../../../assets/images/courses/course-1.jpg" alt="department image">
+                    <img class="card-img-top rounded-0" src="../../../assets/images/courses/course-1.jpg"
+                        alt="department image">
                     <div class="card-body">
                         <a [routerLink]="['/departments',department.ID]">
                             <h4 class="card-title">{{department.Name}}</h4>

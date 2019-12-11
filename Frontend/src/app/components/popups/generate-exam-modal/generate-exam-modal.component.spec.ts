@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ErrorComponent } from './error.component';
+import { GenerateExamModalComponent } from './generate-exam-modal.component';
 
-describe('ErrorComponent', () => {
-  let component: ErrorComponent;
-  let fixture: ComponentFixture<ErrorComponent>;
+describe('GenerateExamModalComponent', () => {
+  let component: GenerateExamModalComponent;
+  let fixture: ComponentFixture<GenerateExamModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ErrorComponent ]
+      declarations: [ GenerateExamModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ErrorComponent);
+    fixture = TestBed.createComponent(GenerateExamModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

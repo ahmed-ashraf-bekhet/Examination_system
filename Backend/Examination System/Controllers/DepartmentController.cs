@@ -94,17 +94,13 @@ namespace Examination_System.Controllers
         }
 
         //Update one Dept
-        [HttpPut]
-        public IHttpActionResult Update(int id, Department department)
+        [HttpPost]
+        [Route("api/department/update")]
+        public IHttpActionResult Update(Department department)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
-            }
-
-            if (id != department.ID)
-            {
-                return BadRequest();
             }
 
             db.Entry(department).State = EntityState.Modified;
@@ -115,7 +111,7 @@ namespace Examination_System.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DepartMentExists(id))
+                if (!DepartMentExists(department.ID))
                 {
                     return NotFound();
                 }
@@ -128,9 +124,13 @@ namespace Examination_System.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
         //Add Departmanet
         [HttpPost]
+        [Route("api/department/add")]
         public IHttpActionResult Add(Department department)
         {
             if (!ModelState.IsValid)
@@ -138,10 +138,17 @@ namespace Examination_System.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Departments.Add(department);
-            db.SaveChanges();
+            try
+            {
+                db.Departments.Add(department);
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return BadRequest("unique");
+            }
 
-            return CreatedAtRoute("DefaultApi", new { ID = department.ID }, department);
+            return StatusCode(HttpStatusCode.Created);
         }
 
         //check if Department is exist or not

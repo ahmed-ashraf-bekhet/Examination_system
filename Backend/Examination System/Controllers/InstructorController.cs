@@ -37,7 +37,7 @@ namespace Examination_System.Controllers
         [HttpGet]
         public IHttpActionResult GetInstructor(int id)
         {
-            var instructor = db.Instructors.Where(s => s.ID == id).Select(i => new { i.ID, i.Name, i.Username, i.Password, i.Photo, i.IsAdmin }).SingleOrDefault();
+            var instructor = db.Instructors.Where(s => s.ID == id).Select(i => new { i.ID, i.Name, i.Username, i.Password, i.IsAdmin, DeptName = i.Department.Name }).SingleOrDefault();
             if (instructor == null)
                 return NotFound();
 
