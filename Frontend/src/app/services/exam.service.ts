@@ -9,7 +9,7 @@ export class ExamService {
   constructor(private myHttp: HttpClient) { }
 
   save(exam){
-    return this.myHttp.post("http://localhost:54345/api/exam/add",exam);
+    return this.myHttp.post("http://localhost:6755/api/exam/add",exam);
   }
 
 }

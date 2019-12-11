@@ -7,7 +7,7 @@
                     <tr>
                         <th scope="col">Exam Title</th>
                         <th scope="col">Duration</th>
-                        <th scope="col">#</th>
+                        <th scope="col">Show Exam</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -15,8 +15,8 @@
                         <td>{{exam.Title}}</td>
                         <td>{{exam.Duration}} Hours</td>
                         <td>
-                            <a data-dismiss="modal" [routerLink]="['/exams',courseID,exam.ID]">
-                                Start Exam
+                            <a data-dismiss="modal" [routerLink]="['/exams',exam.ID]">
+                                Show
                             </a>
                         </td>
                     </tr>

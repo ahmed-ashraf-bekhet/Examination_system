@@ -10,27 +10,27 @@ export class DepartmentService {
   constructor(private myHttp: HttpClient, private authService:AuthService) { }
 
   getAllDepartments(){
-    return this.myHttp.get("http://localhost:54345/api/Department");
+    return this.myHttp.get("http://localhost:6755/api/Department");
   }
 
   getDepartment(DepartmentID:number){
-    return this.myHttp.get(`http://localhost:54345/api/Department/${DepartmentID}`);
+    return this.myHttp.get(`http://localhost:6755/api/Department/${DepartmentID}`);
   }
 
   getStudentsNumber(DepartmentID:number){
-    return this.myHttp.get(`http://localhost:54345/api/getStudentsNumber/${DepartmentID}`);
+    return this.myHttp.get(`http://localhost:6755/api/getStudentsNumber/${DepartmentID}`);
   }
 
   getTeachersNumber(DepartmentID:number){
-    return this.myHttp.get(`http://localhost:54345/api/getInstructorsNumber/${DepartmentID}`);
+    return this.myHttp.get(`http://localhost:6755/api/getInstructorsNumber/${DepartmentID}`);
   }
 
   getCoursesNumber(DepartmentID:number){
-    return this.myHttp.get(`http://localhost:54345/api/getCoursesNumber/${DepartmentID}`);
+    return this.myHttp.get(`http://localhost:6755/api/getCoursesNumber/${DepartmentID}`);
   }
 
   save(department){
-    return this.myHttp.post("http://localhost:54345/api/department/add",department);
+    return this.myHttp.post("http://localhost:6755/api/department/add",department);
   }
 
   delete(ID:number){
@@ -38,7 +38,7 @@ export class DepartmentService {
       headers: new HttpHeaders(this.authService.getCookie())
     };
 
-    return this.myHttp.get(`http://localhost:54345/api/department/delete/${ID}`,httpOptions);
+    return this.myHttp.get(`http://localhost:6755/api/department/delete/${ID}`,httpOptions);
   }
 
   update(department){
