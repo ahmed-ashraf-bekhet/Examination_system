@@ -21,12 +21,7 @@ export class CourseSingleComponent implements OnInit {
   course:{};
   courseID:number;
   update_modal = "updateCourseModal";
-
-<<<<<<< HEAD
-  constructor(public myService:CourseService, public myRouter: ActivatedRoute, private router:Router, private dialog: MatDialog) { }
-=======
-  constructor(public courseService:CourseService, private authService:AuthService, public myRouter: ActivatedRoute, private router:Router,public activetedRouter:ActivatedRoute) { }
->>>>>>> master
+  constructor(public courseService:CourseService, private authService:AuthService, public myRouter: ActivatedRoute, private router:Router,private dialog: MatDialog) { }
 
   ngOnInit() {
     var cookie = this.authService.getCookie();
