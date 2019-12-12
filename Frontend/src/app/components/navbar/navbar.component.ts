@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
   user;
   teacher;
   student;
+  isAdmin:boolean = false;
 
   constructor(private authService:AuthService) { }
 
@@ -24,6 +25,10 @@ export class NavbarComponent implements OnInit {
     if(this.authService.getCookie()){
       this.hidden = false;
       this.user = this.authService.getCookie();
+
+      if(this.user.isAdmin == 1)
+        this.isAdmin = true;
+
       console.log(this.user)
       if(this.user.userTypeID==1){
         this.teacher = this.authService.getCookie()
