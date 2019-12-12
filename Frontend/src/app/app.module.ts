@@ -33,11 +33,8 @@ import { StudentSingleComponent } from './components/student-single/student-sing
 import { UpdateUserModalComponent } from './components/popups/UpdateUserModal/UpdateUserModal.component';
 import { AboutComponent } from './components/about/about.component';
 import { TeachersListComponent } from './components/teachers-list/teachers-list.component';
-<<<<<<< HEAD
 import { ActiveLinkDirective } from './directives/active-link.directive';
 import { CreateQuestionsComponent } from './components/popups/create-questions/create-questions.component';
-=======
->>>>>>> master
 
 import { LoginModalComponent } from './components/popups/login-modal/login-modal.component';
 import { TopicsComponent } from './components/topics/topics.component';
@@ -66,11 +63,8 @@ const AppRoutes = [
   { path: 'teachers', component: TeachersComponent },
   { path: 'students/:id', component: StudentSingleComponent },
   { path: 'teachers/:id', component: TeacherSingleComponent },
-<<<<<<< HEAD
   { path: 'about', component: AboutComponent },
-=======
   { path: 'questions/:id', component: QuestionsComponent },
->>>>>>> master
   { path: '**', component: ErrorComponent }
 ]
 
@@ -99,9 +93,7 @@ const AppRoutes = [
     UpdateUserModalComponent,
     AboutComponent,
     TeachersListComponent,
-<<<<<<< HEAD
     ActiveLinkDirective,
-=======
     LoginModalComponent,
     TopicsComponent,
     ActiveLinkDirective,
@@ -115,7 +107,6 @@ const AppRoutes = [
     UpdateCourseModalComponent,
     AddStudentModalComponent,
     AddTeacherModalComponent
->>>>>>> master
   ],
   imports: [
     BrowserModule,
@@ -127,13 +118,9 @@ const AppRoutes = [
     RouterModule.forRoot(AppRoutes)
 
   ],
-<<<<<<< HEAD
   entryComponents:[CreateQuestionsComponent],
-  providers: [CourseService,UserService,CookieService],
-=======
   providers: [CourseService,UserService,CookieService,AuthService,TopicService
               ,DepartmentService],
->>>>>>> master
   bootstrap: [AppComponent]
 })
 export class AppModule { }
