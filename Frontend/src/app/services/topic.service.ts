@@ -24,4 +24,8 @@ export class TopicService {
   update(topic){
     return this.myHttp.post("http://localhost:54345/api/topic/update",topic);
   }
+
+  save(topic){
+    return this.myHttp.post("http://localhost:54345/api/topic/add",topic);
+  }
 }

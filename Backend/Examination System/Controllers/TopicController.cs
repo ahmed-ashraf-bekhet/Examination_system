@@ -80,7 +80,7 @@ namespace Examination_System.Controllers
             db.Topics.Add(topic);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = topic.ID }, topic);
+            return StatusCode(HttpStatusCode.Created);
         }
 
         [HttpGet]

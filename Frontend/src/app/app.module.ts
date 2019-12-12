@@ -49,6 +49,7 @@ import { UpdateCourseModalComponent } from './components/popups/update-course-mo
 import { AddStudentModalComponent } from './components/popups/add-student-modal/add-student-modal.component';
 import { AddTeacherModalComponent } from './components/popups/add-teacher-modal/add-teacher-modal.component';
 import { AssignStudentModalComponent } from './components/popups/assign-student-modal/assign-student-modal.component';
+import { AddTopicModalComponent } from './components/popups/add-topic-modal/add-topic-modal.component';
 
 const AppRoutes = [
   { path: '', component: HomeComponent },
@@ -101,7 +102,8 @@ const AppRoutes = [
     UpdateCourseModalComponent,
     AddStudentModalComponent,
     AddTeacherModalComponent,
-    AssignStudentModalComponent
+    AssignStudentModalComponent,
+    AddTopicModalComponent
   ],
   imports: [
     BrowserModule,

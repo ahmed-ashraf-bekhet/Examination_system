@@ -12,4 +12,5 @@ export class AppComponent {
   student_modal:string = "student_modal";
   teacher_modal:string = "teacher_modal";
   joincourse_modal:string = "joincourse_modal";
+  topic_modal:string = "addTopicModal";
 }

@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   @Input() teacher_modal:string;
   @Input() department_modal:string;
   @Input() joincourse_modal:string;  
+  @Input() topic_modal:string;
 
   hidden:boolean;
   user;
