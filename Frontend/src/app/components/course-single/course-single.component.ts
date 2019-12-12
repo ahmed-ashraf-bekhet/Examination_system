@@ -45,10 +45,10 @@ export class CourseSingleComponent implements OnInit {
   AddQuestion(courseItemIndex,courseID):void {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
-    dialogConfig.disableClose = true;
+    dialogConfig.disableClose = true;  
     dialogConfig.width = "50%";
+    dialogConfig.height="50%";
     dialogConfig.data = {courseItemIndex ,courseID };
-    //console.log(courseItemIndex ,courseID);
     this.dialog.open(CreateQuestionsComponent, dialogConfig).afterClosed().subscribe(res => {
       console.log(`Dialog result: M `);
     });
