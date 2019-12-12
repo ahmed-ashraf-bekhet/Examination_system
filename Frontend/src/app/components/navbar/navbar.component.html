@@ -47,10 +47,10 @@
                                             class="fa fa-user fa-fw"></i> Profile </a>
                                 </li>
                             </div>
-                            <li style="margin-bottom: 10px;" class="dropdown-submenu">
-                                <a class="test" tabindex="-1" href="#"><i class="fa fa-plus fa-fw"></i> New<span
+                            <li style="margin-bottom: 10px;" class="dropdown-submenu" [hidden] = "!isAdmin">
+                                <a class="test" tabindex="-1" href="#" ><i class="fa fa-plus fa-fw"></i> New<span
                                         class="caret"></span></a>
-                                <ul class="dropdown-menu" style="left: -180px;display: none;">
+                                <ul class="dropdown-menu" style="left: -180px;display: none;" >
                                     <a tabindex="-1" href="#" data-toggle="modal" [attr.data-target]="'#' + course_modal">
                                         <li style="margin-bottom: 10px;">Topic</li>
                                     </a>
@@ -69,8 +69,8 @@
 
                                 </ul>
                             </li>
-                            <li style="margin-bottom: 10px;" class="dropdown-submenu">
-                                <a class="" tabindex="-1" href="#" data-toggle="modal" data-target="#exampleModal"><i
+                            <li style="margin-bottom: 10px;" class="dropdown-submenu" [hidden] = "!isTeacher">
+                                <a class="" tabindex="-1" href="#" data-toggle="modal" [attr.data-target]="'#' + joincourse_modal"><i
                                         class="fa fa-plus fa-fw"></i> Assign Student <span class="caret"></span></a>
                             </li>
                             <li style="margin-bottom: 10px;"><a routerLink="/" (click)="logout()"><i

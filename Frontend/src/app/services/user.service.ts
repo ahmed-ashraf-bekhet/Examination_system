@@ -57,6 +57,10 @@ export class UserService {
     return this.myHttp.get("http://localhost:6755/api/Instructor");
   }
 
+  getAllStudents(){
+    return this.myHttp.get("http://localhost:54345/api/Student");
+  }
+
   getDepartmentTeachers(ID:number){
     return this.myHttp.get(`http://localhost:6755/api/GetDepartmentInstructors/${ID}`);
   }

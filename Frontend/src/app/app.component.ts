@@ -11,4 +11,5 @@ export class AppComponent {
   department_modal:string = "department_modal";
   student_modal:string = "student_modal";
   teacher_modal:string = "teacher_modal";
+  joincourse_modal:string = "joincourse_modal";
 }

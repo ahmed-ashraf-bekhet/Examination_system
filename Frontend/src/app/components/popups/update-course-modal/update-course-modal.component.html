@@ -31,7 +31,7 @@
 
                     <div class="col-12 col-sm-6">
                         <label for="DepartmentID">Department</label>
-                        <select formControlName="DepartmentID" id="DepartmentID" class="custom-select">
+                        <select formControlName="DepartmentID" class="custom-select">
                             <option [value]="dept.ID" *ngFor="let dept of departments">{{dept.Name}}
                             </option>
                         </select>
@@ -43,7 +43,7 @@
 
                     <div class="col-12 col-sm-6">
                         <label for="InstructorID">Teacher</label>
-                        <select formControlName="InstructorID" id="InstructorID" class="custom-select">
+                        <select formControlName="InstructorID" class="custom-select">
                             <option [value]="teacher.ID" *ngFor="let teacher of teachers">{{teacher.Name}}
                             </option>
                         </select>

@@ -11,9 +11,7 @@ export class CourseService {
   constructor(private myHttp: HttpClient, private authService: AuthService) { }
 
   getAllCourses(){
-    
-    return this.myHttp.get("http://localhost:6755/api/Course");
-
+    return this.myHttp.get("http://localhost:54345/api/Course");
   }
 
   getDepartmentCourses(ID:number){
@@ -63,6 +61,10 @@ export class CourseService {
 
   getCourseExams(courseID){
     return this.myHttp.get(`http://localhost:6755/api/exam/getCourseExams/${courseID}`)
+  }
+
+  joinCourse(student_course){
+    return this.myHttp.post("http://localhost:54345/api/joincourse",student_course);
   }
 
 }

@@ -21,6 +21,15 @@ namespace Examination_System.Controllers
     {
         private ExaminationSystemDBEntities db = new ExaminationSystemDBEntities();
 
+        // GET: api/Student
+        [HttpGet]
+        public IHttpActionResult GetInstructors()
+        {
+            var students = db.Students.Select(s => new { s.ID, s.Name });
+
+            return Ok(students);
+        }
+
         // GET: api/Student/5
         [HttpGet]
         public IHttpActionResult GetStudent(int id)
