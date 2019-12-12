@@ -124,10 +124,6 @@ namespace Examination_System.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
         //Add Departmanet
         [HttpPost]
         [Route("api/department/add")]
