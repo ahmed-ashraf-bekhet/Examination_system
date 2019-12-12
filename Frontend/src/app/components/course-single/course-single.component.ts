@@ -10,25 +10,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CourseSingleComponent implements OnInit {
 
-  hidden:boolean;
-  isAdmin:boolean = false;
-  generate_exam_modal:string = "generateExamModal";
+  hidden: boolean;
+  isAdmin: boolean = false;
+  generate_exam_modal: string = "generateExamModal";
 
-  course:{};
-  courseID:number;
+  course: {};
+  courseID: number;
   update_modal = "updateCourseModal";
 
-  constructor(public courseService:CourseService, private authService:AuthService, public myRouter: ActivatedRoute, private router:Router,public activetedRouter:ActivatedRoute) { }
+  constructor(public courseService: CourseService, private authService: AuthService, public myRouter: ActivatedRoute, private router: Router, public activetedRouter: ActivatedRoute) { }
 
   ngOnInit() {
     var cookie = this.authService.getCookie();
-    if(!cookie || cookie.userTypeID == "2")
+    if (!cookie || cookie.userTypeID == "2")
       this.hidden = true;
-    else if(cookie.isAdmin == "1"){
+    else if (cookie.isAdmin == "1") {
       this.hidden = false;
       this.isAdmin = true;
     }
-    else{
+    else {
       this.hidden = false;
     }
 
@@ -36,23 +36,23 @@ export class CourseSingleComponent implements OnInit {
     this.getCourse(this.courseID)
   }
 
-  getCourse(ID:number): void{
+  getCourse(ID: number): void {
     this.courseService.getCourse(ID).subscribe(
-      (data)=>{
+      (data) => {
         this.course = data;
       },
-      (error)=>{
+      (error) => {
         console.log(error);
       }
     )
   }
 
-  delete(){
+  delete() {
     this.courseService.delete(this.courseID).subscribe(
-      (success)=>{
+      (success) => {
         this.router.navigate(['']);
       },
-      (error)=>{
+      (error) => {
         console.log(error)
       }
     )

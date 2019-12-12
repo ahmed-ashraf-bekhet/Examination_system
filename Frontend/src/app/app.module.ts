@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router'
+import { RouterModule,Routes } from '@angular/router'
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -48,6 +48,7 @@ import { UpdateDepartmentModalComponent } from './components/popups/update-depar
 import { UpdateCourseModalComponent } from './components/popups/update-course-modal/update-course-modal.component';
 import { AddStudentModalComponent } from './components/popups/add-student-modal/add-student-modal.component';
 import { AddTeacherModalComponent } from './components/popups/add-teacher-modal/add-teacher-modal.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const AppRoutes = [
   { path: '', component: HomeComponent },
@@ -60,6 +61,8 @@ const AppRoutes = [
   { path: 'students/:id', component: StudentSingleComponent },
   { path: 'teachers/:id', component: TeacherSingleComponent },
   { path: 'questions/:id', component: QuestionsComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'about', component: AboutComponent },
   { path: '**', component: ErrorComponent }
 ]
 
@@ -99,7 +102,8 @@ const AppRoutes = [
     UpdateDepartmentModalComponent,
     UpdateCourseModalComponent,
     AddStudentModalComponent,
-    AddTeacherModalComponent
+    AddTeacherModalComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
