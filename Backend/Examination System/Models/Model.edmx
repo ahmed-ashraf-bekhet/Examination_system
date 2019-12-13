@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ExaminationSystemDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ExaminationSystemDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Answers">
           <Key>
             <PropertyRef Name="ID" />
@@ -634,8 +634,7 @@
             <End Role="Topics" EntitySet="Topics" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ExaminationSystemDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1082,32 +1081,32 @@
             <Parameter Name="R_Answer" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="delete_answer">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="delete_Courses">
-            <Parameter Name="coursesid" Mode="In" Type="Int32" />
+          <Parameter Name="coursesid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="delete_courses_students">
             <Parameter Name="courseid" Mode="In" Type="Int32" />
             <Parameter Name="studentid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="delete_department">
-            <Parameter Name="dept_id" Mode="In" Type="Int32" />
+          <Parameter Name="dept_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="delete_exams">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="delete_instructor">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="delete_question">
-            <Parameter Name="q" Mode="In" Type="Int32" />
+          <Parameter Name="q" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="delete_questionsTypes">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="delete_Students">
-            <Parameter Name="studentid" Mode="In" Type="Int32" />
+          <Parameter Name="studentid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="delete_students_exams_answers">
             <Parameter Name="studentid" Mode="In" Type="Int32" />
@@ -1115,7 +1114,7 @@
             <Parameter Name="examid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="delete_topics">
-            <Parameter Name="topicid" Mode="In" Type="Int32" />
+          <Parameter Name="topicid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="generate_exam">
             <Parameter Name="courseID" Mode="In" Type="Int32" />
@@ -1125,26 +1124,26 @@
             <Parameter Name="title" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="get_Courses_by_departmentid" ReturnType="Collection(ExaminationSystemDBModel.get_Courses_by_departmentid_Result)">
-            <Parameter Name="departmentid" Mode="In" Type="Int32" />
+          <Parameter Name="departmentid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="get_Courses_by_instructorid" ReturnType="Collection(ExaminationSystemDBModel.get_Courses_by_instructorid_Result)">
-            <Parameter Name="instructorid" Mode="In" Type="Int32" />
+          <Parameter Name="instructorid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="get_courses_students" ReturnType="Collection(Int32)">
             <Parameter Name="courseid" Mode="In" Type="Int32" />
             <Parameter Name="studentid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="get_courses_students_by_StudentID" ReturnType="Collection(ExaminationSystemDBModel.get_courses_students_by_StudentID_Result)">
-            <Parameter Name="studentid" Mode="In" Type="Int32" />
+          <Parameter Name="studentid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="get_courses_students_number_by_instructorid" ReturnType="Collection(ExaminationSystemDBModel.get_courses_students_number_by_instructorid_Result)">
-            <Parameter Name="instructorid" Mode="In" Type="Int32" />
+          <Parameter Name="instructorid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="get_department" ReturnType="Collection(ExaminationSystemDBModel.get_department_Result)" />
           <FunctionImport Name="get_exams" ReturnType="Collection(ExaminationSystemDBModel.get_exams_Result)" />
           <FunctionImport Name="get_exams_questions" ReturnType="Collection(ExaminationSystemDBModel.get_exams_questions_Result)" />
           <FunctionImport Name="get_questions_by_ExamID" ReturnType="Collection(ExaminationSystemDBModel.get_questions_by_ExamID_Result)">
-            <Parameter Name="exam_id" Mode="In" Type="Int32" />
+          <Parameter Name="exam_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="get_questionsTypes" ReturnType="Collection(ExaminationSystemDBModel.get_questionsTypes_Result)" />
           <FunctionImport Name="get_student_answers" ReturnType="Collection(ExaminationSystemDBModel.get_student_answers_Result)">
@@ -1152,16 +1151,16 @@
             <Parameter Name="student_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="get_student_info_by_departmentid" ReturnType="Collection(ExaminationSystemDBModel.get_student_info_by_departmentid_Result)">
-            <Parameter Name="departmentid" Mode="In" Type="Int32" />
+          <Parameter Name="departmentid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="get_Students_by_departmentid" ReturnType="Collection(ExaminationSystemDBModel.get_Students_by_departmentid_Result)">
-            <Parameter Name="departmentid" Mode="In" Type="Int32" />
+          <Parameter Name="departmentid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="get_Students_by_studentid" ReturnType="Collection(ExaminationSystemDBModel.get_Students_by_studentid_Result)">
-            <Parameter Name="studentid" Mode="In" Type="Int32" />
+          <Parameter Name="studentid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="get_topics_by_courseid" ReturnType="Collection(ExaminationSystemDBModel.get_topics_by_courseid_Result)">
-            <Parameter Name="courseid" Mode="In" Type="Int32" />
+          <Parameter Name="courseid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="insert_Course">
             <Parameter Name="name" Mode="In" Type="String" />
@@ -1174,7 +1173,7 @@
             <Parameter Name="grade" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="insert_department">
-            <Parameter Name="name" Mode="In" Type="String" />
+          <Parameter Name="name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="insert_exam">
             <Parameter Name="title" Mode="In" Type="String" />
@@ -1183,10 +1182,10 @@
             <Parameter Name="courseid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="insert_ListOFAnswers">
-            <Parameter Name="Answer" Mode="In" Type="String" />
+          <Parameter Name="Answer" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="insert_questionsTypes">
-            <Parameter Name="name" Mode="In" Type="String" />
+          <Parameter Name="name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="insert_Student">
             <Parameter Name="name" Mode="In" Type="String" />

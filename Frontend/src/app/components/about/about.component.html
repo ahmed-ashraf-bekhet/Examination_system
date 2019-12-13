@@ -1,55 +1,70 @@
 <app-secondary-header title="About"></app-secondary-header>
 
-    
-    <!-- about -->
-    <section class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <img class="img-fluid w-100 mb-4" src="../../../assets/images/about/about-page.jpg" alt="about image">
-            <h2 class="section-title">ABOUT OUR JOURNY</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe ipsa illo quod veritatis, magni debitis fugiat dolore voluptates! Consequatur, aliquid. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat perferendis sint optio similique. Et amet magni facilis vero corporis quos.</p>
-            <p>exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum a, facere fugit error accusamus est officiis vero in, nostrum laboriosam corrupti explicabo, cumque repudiandae deleniti perspiciatis quae consectetur enim. Laboriosam!</p>
-          </div>
+
+<!-- about -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <img class="img-fluid w-100 mb-4" src="../../../assets/images/about/about-page.jpg" alt="about image">
+        <h2 class="section-title">ABOUT OUR JOURNY</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+          et.dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Saepe ipsa illo quod veritatis, magni debitis fugiat dolore voluptates! Consequatur,
+          aliquid. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat perferendis sint optio similique.
+          Et amet magni facilis vero corporis quos.</p>
+        <p>exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+          in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum, dolor sit amet consectetur
+          adipisicing elit. Ipsum a, facere fugit error accusamus est officiis vero in, nostrum laboriosam corrupti
+          explicabo, cumque repudiandae deleniti perspiciatis quae consectetur enim. Laboriosam!</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /about -->
+
+<!-- funfacts -->
+<!--Start-->
+<section class="section-sm bg-primary">
+  <div class="container">
+    <div class="row">
+      <!-- funfacts item -->
+      <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
+        <div class="text-center">
+          <h2 class="count text-white">{{Count_Of_teachers}}</h2>
+          <h5 class="text-white">TEACHERS</h5>
         </div>
       </div>
-    </section>
-    <!-- /about -->
-    
-    <!-- funfacts --> <!--Start--> 
-    <section class="section-sm bg-primary">
-      <div class="container">
-        <div class="row">
-          <!-- funfacts item -->
-          <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
-            <div class="text-center">
-              <h2 class="count text-white">{{Count_Of_teachers}}</h2>
-              <h5 class="text-white">TEACHERS</h5>
-            </div>
-          </div>
-          <!-- funfacts item -->
-          <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
-            <div class="text-center">
-              <h2 class="count text-white">{{Count_Of_Cources}}</h2>
-              <h5 class="text-white">COURSES</h5>
-            </div>
-          </div>
-          <!-- funfacts item -->
-          <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
-            <div class="text-center">
-              <h2 class="count text-white">{{Count_Of_Students}}</h2>
-              <h5 class="text-white">STUDENTS</h5>
-            </div>
-          </div>
+      <!-- funfacts item -->
+      <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
+        <div class="text-center">
+          <h2 class="count text-white">{{Count_Of_Cources}}</h2>
+          <h5 class="text-white">COURSES</h5>
         </div>
       </div>
-    </section>
-    <!-- /funfacts -->
-    
-    <!-- teachers -->
-    <app-teachers-list teachers_number=0></app-teachers-list>
-      <!-- /teachers -->
-    
-    
-  
-    
+      <!-- funfacts item -->
+      <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
+        <div class="text-center">
+          <h2 class="count text-white">{{Count_Of_Students}}</h2>
+          <h5 class="text-white">STUDENTS</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /funfacts -->
+
+<!-- teachers -->
+<section class="section-sm">
+  <div class="container">
+      <app-see-all-header title="Our Teachers" link="/teachers"></app-see-all-header>
+
+      <app-teachers-list teachers_number=3></app-teachers-list>
+      <!-- mobile see all button -->
+      <div class="row">
+          <div class="col-12 text-center">
+              <a routerLink="/teachers" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">see all</a>
+          </div>
+      </div>
+  </div>
+</section>

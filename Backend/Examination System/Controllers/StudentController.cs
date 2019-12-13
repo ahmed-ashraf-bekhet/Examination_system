@@ -23,6 +23,7 @@ namespace Examination_System.Controllers
 
         // GET: api/Student
         [HttpGet]
+        [Route("api/getStudentsNumber")]
         public IHttpActionResult GetCount()
         {
             int Students = db.Students.Count();
@@ -32,6 +33,15 @@ namespace Examination_System.Controllers
                 return Ok(Students);
         }
 
+
+        // GET: api/Student
+        [HttpGet]
+        public IHttpActionResult GetInstructors()
+        {
+            var students = db.Students.Select(s => new { s.ID, s.Name });
+
+            return Ok(students);
+        }
 
         // GET: api/Student/5
         [HttpGet]

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TeacherService } from 'src/app/services/teacher.service';
 import { CourseService } from 'src/app/services/course.service';
-import { StudentService } from 'src/app/services/student.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
