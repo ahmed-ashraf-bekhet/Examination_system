@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -10,7 +12,7 @@ namespace Pro_Test3_API.Controllers
 {
     public class QuestionController : ApiController
     {
-        ExaminationSystemDBEntities db = new ExaminationSystemDBEntities();
+        DBEntities db = new DBEntities();
 
         [HttpGet]
         [Route("api/coursequestion/{id}")]
@@ -43,27 +45,6 @@ namespace Pro_Test3_API.Controllers
 
             return Ok(new { msg = "Removed..." });
         }
-        [HttpPost]
-        public IHttpActionResult PostNewQuestion(Question question)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest("Invalid data.");
-
-            using (var ctx = new ExaminationSystemDBEntities())
-            {
-                ctx.Questions.Add(new Question()
-                {
-                    Body = question.Body,
-                    CourseID = question.CourseID,
-                    TypeID = question.TypeID,
-                    Right_AnswerID = question.Right_AnswerID
-                });
-
-                ctx.SaveChanges();
-            }
-
-            return Ok(new { msg = "Saved..." });
-        }
 
         [HttpPut]
         [Route("api/EditQuestion/{id}")]
@@ -82,6 +63,55 @@ namespace Pro_Test3_API.Controllers
 
         }
 
+
+        [HttpPost]
+        [Route("api/createQuestion")]
+        public IHttpActionResult Add([FromBody]CreateQuestion CQ)
+        {
+            var Answer = new DataTable();
+            Answer.Columns.Add("Answer", typeof(string));
+            foreach (var item in CQ.Answer)
+            {
+                Answer.Rows.Add(item);
+            }
+            var parameter1 = new SqlParameter("Question", SqlDbType.NVarChar);
+            parameter1.Value = CQ.Question;
+
+            var parameter2 = new SqlParameter("courseID", SqlDbType.Int);
+            parameter2.Value = CQ.courseID;
+
+            var parameter3 = new SqlParameter("TypeID", SqlDbType.Int);
+            parameter3.Value = CQ.TypeID;
+
+            var parameter4 = new SqlParameter("@Answer", SqlDbType.Structured);
+            parameter4.Value = Answer;
+            parameter4.TypeName = "dbo.ListOFAnswers";
+
+            var parameter5 = new SqlParameter("R_Answer", SqlDbType.Int);
+            parameter5.Value = CQ.R_Answer;
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            db.Database.ExecuteSqlCommand("exec dbo.CreateQuestion @Question, @courseID, @TypeID, @Answer, @R_Answer", parameter1, parameter2, parameter3, parameter4, parameter5);
+
+            return CreatedAtRoute("DefaultApi", new { Question = CQ.Question }, CQ);
+        }
+
+
+        //return All Types of Questions
+        [HttpGet]
+        [Route("api/Type")]
+        public IHttpActionResult GetAll()
+        {
+            var Types = db.Question_Types.Select(s => new { s.ID, s.Name }).ToList();
+            if (Types == null)
+                return NotFound();
+            else
+                return Ok(Types);
+        }
 
     }
 }

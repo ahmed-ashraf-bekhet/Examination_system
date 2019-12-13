@@ -69,5 +69,13 @@ export class UserService {
     return this.myHttp.post("http://localhost:6755/api/instructor/add",teacher)
   }
 
+  getInstructorsNumber(){
+    return this.myHttp.get("http://localhost:54345/api/getInstructorsNumber");
+  }
+
+  getCountOfStudent(){
+    return this.myHttp.get("http://localhost:54345/api/Student");
+  }
+
 }
 
