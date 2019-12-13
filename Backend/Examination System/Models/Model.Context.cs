@@ -15,10 +15,10 @@ namespace Examination_System.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class ExaminationSystemDBEntities : DbContext
+    public partial class DBEntities : DbContext
     {
-        public ExaminationSystemDBEntities()
-            : base("name=ExaminationSystemDBEntities")
+        public DBEntities()
+            : base("name=DBEntities")
         {
         }
     
@@ -51,6 +51,27 @@ namespace Examination_System.Models
                 new ObjectParameter("studentID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("correct_exam", examIDParameter, studentIDParameter);
+        }
+    
+        public virtual int CreateQuestion(string question, Nullable<int> courseID, Nullable<int> typeID, Nullable<int> r_Answer)
+        {
+            var questionParameter = question != null ?
+                new ObjectParameter("Question", question) :
+                new ObjectParameter("Question", typeof(string));
+    
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("courseID", courseID) :
+                new ObjectParameter("courseID", typeof(int));
+    
+            var typeIDParameter = typeID.HasValue ?
+                new ObjectParameter("TypeID", typeID) :
+                new ObjectParameter("TypeID", typeof(int));
+    
+            var r_AnswerParameter = r_Answer.HasValue ?
+                new ObjectParameter("R_Answer", r_Answer) :
+                new ObjectParameter("R_Answer", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateQuestion", questionParameter, courseIDParameter, typeIDParameter, r_AnswerParameter);
         }
     
         public virtual int delete_answer(Nullable<int> id)
@@ -378,6 +399,15 @@ namespace Examination_System.Models
                 new ObjectParameter("courseid", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insert_exam", titleParameter, durationParameter, creationDateTimeParameter, courseidParameter);
+        }
+    
+        public virtual int insert_ListOFAnswers(string answer)
+        {
+            var answerParameter = answer != null ?
+                new ObjectParameter("Answer", answer) :
+                new ObjectParameter("Answer", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insert_ListOFAnswers", answerParameter);
         }
     
         public virtual int insert_questionsTypes(string name)

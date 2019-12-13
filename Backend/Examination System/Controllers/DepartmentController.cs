@@ -19,7 +19,7 @@ namespace Examination_System.Controllers
     public class DepartmentController : ApiController
     {
 
-         private ExaminationSystemDBEntities db = new ExaminationSystemDBEntities(); 
+         private DBEntities db = new DBEntities(); 
 
         
         //return All Depts
@@ -123,6 +123,7 @@ namespace Examination_System.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
+
 
         //Add Departmanet
         [HttpPost]

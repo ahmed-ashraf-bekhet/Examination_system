@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DBEntities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="ExaminationSystemDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Answers">
     <Key>
       <PropertyRef Name="ID" />
@@ -357,6 +357,12 @@
     <Parameter Name="examID" Type="int" Mode="In" />
     <Parameter Name="studentID" Type="int" Mode="In" />
   </Function>
+  <Function Name="CreateQuestion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Question" Type="nvarchar" Mode="In" />
+    <Parameter Name="courseID" Type="int" Mode="In" />
+    <Parameter Name="TypeID" Type="int" Mode="In" />
+    <Parameter Name="R_Answer" Type="int" Mode="In" />
+  </Function>
   <Function Name="delete_answer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="int" Mode="In" />
   </Function>
@@ -459,6 +465,9 @@
     <Parameter Name="CreationDateTime" Type="datetime" Mode="In" />
     <Parameter Name="courseid" Type="int" Mode="In" />
   </Function>
+  <Function Name="insert_ListOFAnswers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Answer" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="insert_questionsTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="name" Type="nvarchar" Mode="In" />
   </Function>
@@ -537,7 +546,7 @@
     <Parameter Name="courseid" Type="int" Mode="In" />
     <Parameter Name="topicid" Type="int" Mode="In" />
   </Function>
-  <EntityContainer Name="DBEntitiesStoreContainer">
+  <EntityContainer Name="ExaminationSystemDBModelStoreContainer">
     <EntitySet Name="Answers" EntityType="Self.Answers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Courses_Students" EntityType="Self.Courses_Students" Schema="dbo" store:Type="Tables" />

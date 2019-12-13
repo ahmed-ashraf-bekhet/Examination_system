@@ -26,15 +26,18 @@ import { CourseService } from './services/course.service';
 import { UserService } from './services/user.service';
 import { TestComponent } from './components/test/test.component';
 import { CookieService } from 'ngx-cookie-service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { StudentSingleComponent } from './components/student-single/student-single.component';
 import { UpdateUserModalComponent } from './components/popups/UpdateUserModal/UpdateUserModal.component';
 import { AboutComponent } from './components/about/about.component';
 import { TeachersListComponent } from './components/teachers-list/teachers-list.component';
+import { ActiveLinkDirective } from './directives/active-link.directive';
+import { CreateQuestionsComponent } from './components/popups/create-questions/create-questions.component';
 
 import { LoginModalComponent } from './components/popups/login-modal/login-modal.component';
 import { TopicsComponent } from './components/topics/topics.component';
-import { ActiveLinkDirective } from './directives/active-link.directive';
 import { AuthService } from './services/auth.service';
 import { TopicService } from './services/topic.service';
 import { DepartmentService } from './services/department.service';
@@ -50,6 +53,7 @@ import { AddStudentModalComponent } from './components/popups/add-student-modal/
 import { AddTeacherModalComponent } from './components/popups/add-teacher-modal/add-teacher-modal.component';
 import { AssignStudentModalComponent } from './components/popups/assign-student-modal/assign-student-modal.component';
 import { AddTopicModalComponent } from './components/popups/add-topic-modal/add-topic-modal.component';
+import { HomeAboutComponent } from './components/home-about/home-about.component';
 
 const AppRoutes = [
   { path: '', component: HomeComponent },
@@ -61,6 +65,7 @@ const AppRoutes = [
   { path: 'teachers', component: TeachersComponent },
   { path: 'students/:id', component: StudentSingleComponent },
   { path: 'teachers/:id', component: TeacherSingleComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'questions/:id', component: QuestionsComponent },
   { path: '**', component: ErrorComponent }
 ]
@@ -74,6 +79,7 @@ const AppRoutes = [
     SliderComponent,
     BannerFeatureComponent,
     HomeComponent,
+    CreateQuestionsComponent,
     CoursesComponent,
     SeeAllHeaderComponent,
     ErrorComponent,
@@ -89,9 +95,9 @@ const AppRoutes = [
     UpdateUserModalComponent,
     AboutComponent,
     TeachersListComponent,
+    ActiveLinkDirective,
     LoginModalComponent,
     TopicsComponent,
-    ActiveLinkDirective,
     AddDepartmentModalComponent,
     AddCourseModalComponent,
     ExamsModalComponent,
@@ -103,16 +109,20 @@ const AppRoutes = [
     AddStudentModalComponent,
     AddTeacherModalComponent,
     AssignStudentModalComponent,
-    AddTopicModalComponent
+    AddTopicModalComponent,
+    HomeAboutComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
     RouterModule.forRoot(AppRoutes)
 
   ],
+  entryComponents:[CreateQuestionsComponent],
   providers: [CourseService,UserService,CookieService,AuthService,TopicService
               ,DepartmentService],
   bootstrap: [AppComponent]

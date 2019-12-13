@@ -15,25 +15,30 @@ export class CourseService {
   }
 
   getDepartmentCourses(ID:number){
-    return this.myHttp.get(`http://localhost:6755/api/GetDepartmentCourses/${ID}`);
+    return this.myHttp.get(`http://localhost:54345/api/GetDepartmentCourses/${ID}`);
+  }
+
+
+  getCoursesNumber(){
+    return this.myHttp.get(`http://localhost:54345/api/getCoursesNumber`);
   }
 
   getCourse(ID:number){
-    return this.myHttp.get(`http://localhost:6755/api/Course/${ID}`)
+    return this.myHttp.get(`http://localhost:54345/api/Course/${ID}`)
   }
   getStudentCourses(ID:number){
-    return this.myHttp.get(`http://localhost:6755/api/GetStudentCourses/${ID}`)
+    return this.myHttp.get(`http://localhost:54345/api/GetStudentCourses/${ID}`)
   }
   getTeacherCourses(ID:number){
-    return this.myHttp.get(`http://localhost:6755/api/GetInstructorCourses/${ID}`)
+    return this.myHttp.get(`http://localhost:54345/api/GetInstructorCourses/${ID}`)
   }
 
   getCourseQuestions(courseID:number){
-    return this.myHttp.get(`http://localhost:6755/api/coursequestion/${courseID}`)
+    return this.myHttp.get(`http://localhost:54345/api/coursequestion/${courseID}`)
   }
 
   save(course){
-    return this.myHttp.post("http://localhost:6755/api/course/add",course);
+    return this.myHttp.post("http://localhost:54345/api/course/add",course);
   }
 
   update(course){
@@ -45,7 +50,7 @@ export class CourseService {
       headers: new HttpHeaders(this.authService.getCookie())
     };
 
-    return this.myHttp.get(`http://localhost:6755/api/course/delete/${ID}`,httpOptions);
+    return this.myHttp.get(`http://localhost:54345/api/course/delete/${ID}`,httpOptions);
   }
 
   test(image: File){
@@ -56,11 +61,11 @@ export class CourseService {
       headers: new HttpHeaders(this.authService.getCookie())
     };
     
-    return this.myHttp.get("http://localhost:6755/test/test",httpOptions)
+    return this.myHttp.get("http://localhost:54345/test/test",httpOptions)
   }
 
   getCourseExams(courseID){
-    return this.myHttp.get(`http://localhost:6755/api/exam/getCourseExams/${courseID}`)
+    return this.myHttp.get(`http://localhost:54345/api/exam/getCourseExams/${courseID}`)
   }
 
   joinCourse(student_course){
