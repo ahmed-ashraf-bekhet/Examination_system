@@ -81,5 +81,15 @@ export class UserService {
     return this.myHttp.get("http://localhost:54345/api/getStudentsNumber");
   }
 
+  getStudentCoursesReport(studentID){
+    console.log(studentID)
+    //املو هنا
+  }
+
+  getTeacherCoursesReport(teacherID){
+    console.log(teacherID)
+    //املو هنا
+  }
+
 }
 

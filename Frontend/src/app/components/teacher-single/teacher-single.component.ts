@@ -45,5 +45,10 @@ export class TeacherSingleComponent implements OnInit {
       }
     )
   }
+  
+  reportClick(teacherID){
+    console.log(teacherID);
+    this.myService.getTeacherCoursesReport(teacherID);
+  }
 
 }
