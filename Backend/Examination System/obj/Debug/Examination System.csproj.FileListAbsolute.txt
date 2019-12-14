@@ -381,3 +381,5 @@ F:\GP\Backend\Examination System\bin\roslyn\System.Net.Http.dll
 F:\GP\Backend\Examination System\bin\roslyn\System.Net.Sockets.dll
 F:\GP\Backend\Examination System\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
 F:\GP\Backend\Examination System\bin\roslyn\System.Threading.Tasks.Extensions.dll
+F:\GP\Backend\Examination System\bin\CrystalDecisions.CrystalReports.Engine.dll
+F:\GP\Backend\Examination System\bin\CrystalDecisions.ReportSource.dll

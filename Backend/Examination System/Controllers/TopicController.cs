@@ -8,7 +8,10 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using CrystalDecisions.CrystalReports.Engine;
 using Examination_System.Models;
+using Examination_System.Reports;
+using Newtonsoft.Json.Linq;
 
 namespace Examination_System.Controllers
 {
@@ -123,6 +126,35 @@ namespace Examination_System.Controllers
         private bool TopicExists(int id)
         {
             return db.Topics.Count(e => e.ID == id) > 0;
+        }
+
+        //DownLoad a Report for all Topics in specific cource
+        [HttpPost]
+        [Route("api/Student/ListTopics/{id}")]
+        public HttpResponseMessage Export_get_topics_by_courseid(int? id, Object Location)
+        {
+            var Report1 = db.get_topics_by_courseid(id).ToList();
+            if (Report1.Count == 0)
+            {
+                var Message = string.Format("Report Failed ");
+                HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.NotFound, Message);
+                return res;
+            }
+            else
+            {
+                CrystalReportget_topics_by_courseid obj = new CrystalReportget_topics_by_courseid();
+                ReportDocument rd = new ReportDocument();
+                string date = DateTime.Now.ToString();
+                obj.SetDataSource(Report1.Select(t => new { ID = t.ID, Name = t.Name ?? "No Value" }));
+                var loc = JObject.Parse(Location.ToString());
+                //Trace.WriteLine(loc.SelectToken("Location"));
+                string path = loc.SelectToken("Location").ToString() + "List_Topics_" + DateTime.Now.ToString("HH_mm_ss") + ".pdf";
+                //Trace.WriteLine(path);
+                obj.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, path);
+                var Message = string.Format("Report DownLoaded ");
+                var res = Request.CreateResponse(HttpStatusCode.OK, Message);
+                return res;
+            }
         }
     }
 }

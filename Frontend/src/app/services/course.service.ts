@@ -53,19 +53,27 @@ export class CourseService {
     return this.myHttp.get(`http://localhost:54345/api/course/delete/${ID}`,httpOptions);
   }
 
-  test(image: File){
-    const formData = new FormData();
-    formData.append('image', image);
+  test(deptID:number){
+    // const formData = new FormData();
+    // formData.append('image', image);
     
-    const httpOptions = {
-      headers: new HttpHeaders(this.authService.getCookie())
-    };
+    // const httpOptions = {
+    //   headers: new HttpHeaders(this.authService.getCookie())
+    // };
     
-    return this.myHttp.get("http://localhost:54345/test/test",httpOptions)
+    // return this.myHttp.get("http://localhost:54345/test/test",httpOptions)
+
+
+
+    return this.myHttp.post(`http://localhost:54345/api/Student/StudentsExport/${deptID}`,{"Location":"E:\\"});
   }
 
   joinCourse(student_course){
     return this.myHttp.post("http://localhost:54345/api/joincourse",student_course);
+  }
+
+  getTopicsReport(courseID){
+    return this.myHttp.post(`http://localhost:54345/api/Student/ListTopics/${courseID}`,{"Location":"E:\\"});
   }
 
 }
