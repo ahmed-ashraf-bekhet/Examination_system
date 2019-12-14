@@ -17,6 +17,14 @@
 
                     <p class="text-muted text-center">{{student.DeptName}}</p>
 
+                    <ul class="list-group list-group-unbordered mb-3">
+                        <li class="list-group-item">
+                            <b>#Course</b> <a class="float-right">#Grade</a>
+                        </li>
+                        <li class="list-group-item" *ngFor="let course of student.courses">
+                            <b>{{course.Name}}</b> <a class="float-right">{{course.Grade}}</a>
+                        </li>
+                    </ul>
 
                     <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#updateModal">
                         Update
@@ -32,7 +40,7 @@
         <!-- /.col -->
         <div class="col-md-9">
             <div class="card">
-                <div class="card-header p-2">
+                <div class="card-header p-3">
                     <ul class="nav nav-pills">
                         <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a>
                         </li>

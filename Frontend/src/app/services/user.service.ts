@@ -6,8 +6,8 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 })
 
 export class UserService {
-  url : string = "http://localhost:6755/api/student/update"
-  teacherUrl : string = "http://localhost:6755/api/instructor/update"
+  url : string = "http://localhost:54345/api/student/update"
+  teacherUrl : string = "http://localhost:54345/api/instructor/update"
   basic = ''
   
   headers = new HttpHeaders({
@@ -32,7 +32,7 @@ export class UserService {
       Username : username,
       Password : password 
     }
-    return this.myHttp.post("http://localhost:6755/api/instructor/login",teacher)
+    return this.myHttp.post("http://localhost:54345/api/instructor/login",teacher)
   }
 
   LoginAsStudent(username,password){

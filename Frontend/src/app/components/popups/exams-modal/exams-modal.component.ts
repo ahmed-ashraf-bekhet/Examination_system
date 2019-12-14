@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CourseService } from 'src/app/services/course.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ExamService } from 'src/app/services/exam.service';
 
 @Component({
   selector: 'app-exams-modal',
@@ -10,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ExamsModalComponent implements OnInit {
   @Input() courseID;
   exams
-  constructor(public router:Router,public webService:CourseService,public activatedRoute:ActivatedRoute) { }
+  constructor(public router:Router,public webService:ExamService,public activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
     this.webService.getCourseExams(this.courseID).subscribe(
