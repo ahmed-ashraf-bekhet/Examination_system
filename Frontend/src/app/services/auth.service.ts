@@ -10,7 +10,7 @@ export class AuthService {
 
   getCookie() {
     // for testing
-    //this.setCookie(1,1,1);
+    this.setCookie(1,1,1);
     if (this.cookie.get('userID')) {
       return {
         'userID': this.cookie.get('userID'),

@@ -46,13 +46,19 @@
                 </ul>
             </div>
 
-            <div class="col-lg-2 col-5 text-xl-right mb-4 mb-xl-0" [hidden] = "hidden">
+            <div class="col-lg-4 col-12 text-lg-right mb-4 mb-xl-0" [hidden] = "!isTeacher">
+                <button class="btn btn-primary" (click)="getStudentsReport()" >Get Students Report</button>
+            </div>
+
+            <div class="col-lg-10 col-5 text-xl-right mb-0 mt-2" [hidden] = "!isAdmin">
                 <a href="#" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#' + update_modal">Update</a>
             </div>
 
-            <div class="col-lg-2 col-7 text-xl-right mb-4 mb-xl-0" [hidden] = "hidden">
+            <div class="col-lg-2 col-7 text-xl-right mb-0 mt-2" [hidden] = "!isAdmin">
                 <button class="btn btn-primary" (click)="delete()" >Delete</button>
             </div>
+
+            
 
             <!-- border -->
             <div class="col-12 mt-4">

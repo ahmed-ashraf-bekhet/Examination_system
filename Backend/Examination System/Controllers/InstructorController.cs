@@ -8,7 +8,10 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using CrystalDecisions.CrystalReports.Engine;
 using Examination_System.Models;
+using Examination_System.Reports;
+using Newtonsoft.Json.Linq;
 
 namespace Examination_System.Controllers
 {
@@ -125,6 +128,35 @@ namespace Examination_System.Controllers
         private bool InstructorExists(int id)
         {
             return db.Instructors.Count(e => e.ID == id) > 0;
+        }
+
+        //DownLoad a Report for all Cources and Num of Student in each cource for specific instractor
+        [HttpPost]
+        [Route("api/Student/ListCources/{id}")]
+        public HttpResponseMessage Export_get_courses_students_number_by_instructorid(int? id, Object Location)
+        {
+            var Report1 = db.get_courses_students_number_by_instructorid(id).ToList();
+            if (Report1.Count == 0)
+            {
+                var Message = string.Format("Report Failed ");
+                HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.NotFound, Message);
+                return res;
+            }
+            else
+            {
+                CrystalReportget_courses_students_number_by_instructorid obj = new CrystalReportget_courses_students_number_by_instructorid();
+                ReportDocument rd = new ReportDocument();
+                string date = DateTime.Now.ToString();
+                obj.SetDataSource(Report1.Select(c => new { Name = c.Name ?? "No Value", Number_of_Student = c.Number_of_Student ?? 0 }));
+                var loc = JObject.Parse(Location.ToString());
+                //Trace.WriteLine(loc.SelectToken("Location"));
+                string path = loc.SelectToken("Location").ToString() + "List_Cources_" + DateTime.Now.ToString("HH_mm_ss") + ".pdf";
+                //Trace.WriteLine(path);
+                obj.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, path);
+                var Message = string.Format("Report DownLoaded ");
+                var res = Request.CreateResponse(HttpStatusCode.OK, Message);
+                return res;
+            }
         }
     }
 }
