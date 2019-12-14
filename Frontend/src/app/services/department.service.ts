@@ -44,4 +44,8 @@ export class DepartmentService {
   update(department){
     return this.myHttp.post("http://localhost:6755/api/department/update",department);
   }
+
+  getStudentsReport(deptID){
+    return this.myHttp.post(`http://localhost:54345/api/Student/StudentsExport/${deptID}`,{"Location":"E:\\"});
+  }
 }

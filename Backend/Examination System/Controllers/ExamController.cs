@@ -72,7 +72,7 @@ namespace Examination_System.Controllers
                 return Unauthorized();
             }
 
-            var exam = db.Exams.Where(e=>e.ID == id).Select(e=> new { e.ID, e.Questions, e.Duration, e.CreationDateTime, e.Title, e.TFQuestionsNumber, e.MCQQuestionsNumber });
+            var exam = db.Exams.Where(e=>e.ID == id).Select(e=> new { e.ID, e.Duration, e.CreationDateTime, e.Title, e.TFQuestionsNumber, e.MCQQuestionsNumber });
             bool solved = false;
 
             if (exam == null)
@@ -80,8 +80,8 @@ namespace Examination_System.Controllers
                 return NotFound();
             }
 
-            // if user is instructor or if student has already solved this exam before, then show exam as solved exam 
-            if(userTypeID == (int) UserType.Instructor || 
+            //if user is instructor or if student has already solved this exam before, then show exam as solved exam
+            if (userTypeID == (int)UserType.Instructor ||
                 db.Students_Exams_Answers.FirstOrDefault(sea => sea.ExamID == id && sea.StudentID == userID) != null)
             {
                 solved = true;

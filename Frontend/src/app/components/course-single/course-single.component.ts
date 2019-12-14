@@ -40,6 +40,16 @@ export class CourseSingleComponent implements OnInit {
     this.getCourse(this.courseID)
   }
 
+  getTopicsReport(){
+    this.courseService.getTopicsReport(this.courseID).subscribe(
+      (success)=>{
+        console.log(success);
+      },
+      (error) =>{
+        console.log(error);
+      }
+    )
+  }
 
 
   AddQuestion(courseItemIndex,courseID):void {

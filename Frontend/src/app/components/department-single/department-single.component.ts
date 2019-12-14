@@ -15,23 +15,37 @@ export class DepartmentSingleComponent implements OnInit {
   teachers_number: number;
   courses_number: number;
   departmentID: number;
-  hidden:boolean;
+  isAdmin:boolean = false;
+  isTeacher:boolean = false;
   update_modal = "updateDepartmentModal";
 
   constructor(private deptService:DepartmentService, private authService:AuthService, public myRouter: ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
     var cookie = this.authService.getCookie();
-    if(cookie && cookie.isAdmin == "1")
-      this.hidden = false;
-    else
-      this.hidden = true;
+    if(cookie && cookie.isAdmin == "1"){
+      this.isAdmin = true;
+      this.isTeacher = true;
+    }
+    else if(cookie && cookie.userTypeID == "1")
+      this.isTeacher = true;
 
     this.departmentID = this.myRouter.snapshot.params['id'];
     this.getDepartment(this.departmentID)
     this.getCoursesNumber(this.departmentID);
     this.getStudentsNumber(this.departmentID);
     this.getTeachersNumber(this.departmentID);
+  }
+
+  getStudentsReport(){
+    this.deptService.getStudentsReport(this.departmentID).subscribe(
+      (success)=>{
+        console.log(success);
+      },
+      (error) =>{
+        console.log(error);
+      }
+    )
   }
 
   getDepartment(ID:number): void{

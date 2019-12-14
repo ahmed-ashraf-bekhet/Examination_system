@@ -25,7 +25,7 @@ export class AddDepartmentModalComponent implements OnInit {
 
     this.deptService.save(this.department.value).subscribe(
       (success)=>{
-        location.href = '/departments'
+        console.log(success);
       },
       (error)=>{
         console.log(error);
