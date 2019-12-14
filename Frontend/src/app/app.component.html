@@ -1,7 +1,9 @@
 <!-- header -->
 <header class="fixed-top header">
     <app-guest-header></app-guest-header>
-    <app-navbar [course_modal] = "course_modal" [department_modal] = "department_modal" [student_modal]="student_modal" [teacher_modal]="teacher_modal"></app-navbar>
+    <app-navbar [course_modal] = "course_modal" [department_modal] = "department_modal" 
+                [student_modal]="student_modal" [teacher_modal]="teacher_modal"
+                [joincourse_modal] = "joincourse_modal" [topic_modal]="topic_modal"></app-navbar>
 </header>
 <!-- /header -->
 
@@ -11,6 +13,8 @@
 <app-add-department-modal [modal_name]="department_modal"></app-add-department-modal>
 <app-add-student-modal [modal_name]="student_modal"></app-add-student-modal>
 <app-add-teacher-modal [modal_name]="teacher_modal"></app-add-teacher-modal>
+<app-assign-student-modal [modal_name]="joincourse_modal"></app-assign-student-modal>
+<app-add-topic-modal [modal_name]="topic_modal"></app-add-topic-modal>
 <!-- /popups -->
 
 <router-outlet></router-outlet>

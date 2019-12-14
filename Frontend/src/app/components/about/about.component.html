@@ -1,1 +1,73 @@
+<<<<<<< HEAD
 
+=======
+<app-secondary-header title="About"></app-secondary-header>
+
+
+<!-- about -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <img class="img-fluid w-100 mb-4" src="../../../assets/images/about/about-page.jpg" alt="about image">
+        <h2 class="section-title">ABOUT OUR JOURNY</h2>
+        <p>We have seen a lot in the various educational organizations 
+          that we went through throughout our life, 
+          whether in school or university or other, 
+          several problems in the educational system due to the lack of programability of its operations
+          and one of the most important of these operations is the system for developing, conducting and correcting the exam, 
+          so we decided to try to help with this system as a first experiment to solve some educational problems, 
+          we started with the examination process, to solve at least this problem
+          and it is now available to any educational organization that wants to use it to facilitate it</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /about -->
+
+<!-- funfacts -->
+<!--Start-->
+<section class="section-sm bg-primary">
+  <div class="container">
+    <div class="row">
+      <!-- funfacts item -->
+      <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
+        <div class="text-center">
+          <h2 class="count text-white">{{Count_Of_teachers}}</h2>
+          <h5 class="text-white">TEACHERS</h5>
+        </div>
+      </div>
+      <!-- funfacts item -->
+      <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
+        <div class="text-center">
+          <h2 class="count text-white">{{Count_Of_Cources}}</h2>
+          <h5 class="text-white">COURSES</h5>
+        </div>
+      </div>
+      <!-- funfacts item -->
+      <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
+        <div class="text-center">
+          <h2 class="count text-white">{{Count_Of_Students}}</h2>
+          <h5 class="text-white">STUDENTS</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /funfacts -->
+
+<!-- teachers -->
+<section class="section-sm">
+  <div class="container">
+      <app-see-all-header title="Our Teachers" link="/teachers"></app-see-all-header>
+
+      <app-teachers-list teachers_number=3></app-teachers-list>
+      <!-- mobile see all button -->
+      <div class="row">
+          <div class="col-12 text-center">
+              <a routerLink="/teachers" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">see all</a>
+          </div>
+      </div>
+  </div>
+</section>
+>>>>>>> master

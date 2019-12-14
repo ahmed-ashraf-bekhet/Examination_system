@@ -14,7 +14,7 @@ namespace Examination_System.Controllers
 {
     public class ExamController : ApiController
     {
-        private ExaminationSystemDBEntities db = new ExaminationSystemDBEntities();
+        private DBEntities db = new DBEntities();
 
         [HttpGet]
         [Route("api/exam/getCourseExams/{courseID}")]

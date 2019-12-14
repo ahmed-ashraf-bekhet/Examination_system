@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
+=======
+import { EmailService } from 'src/app/services/email.service';
+>>>>>>> master
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +11,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
+<<<<<<< HEAD
   constructor() { }
 
   ngOnInit() {
+=======
+  constructor(public webService:EmailService) { }
+  mail
+  ngOnInit() {}
+  clicked(name,email,subject,message){
+    this.mail = {
+      "to": "lool98439@gmail.com",
+      "from": "ahmedashrafhero@gmail.com",
+      "subject": subject,
+      "body": "sender name : "+name+" , his/her Email : "+email+" , his/her message : "+message
+    }
+    this.webService.sendEmail(this.mail).subscribe(
+      (res)=>{
+        console.log(res)
+        alert("Your mail sent successfully");
+      },
+      (error)=>{
+        console.log(error);
+        alert("Ooh , something wrong please try send your mail again ..");
+      }
+    )
+>>>>>>> master
   }
 
 }

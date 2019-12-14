@@ -55,6 +55,13 @@ export class UserService {
 
   getAllTeachers(){
     return this.myHttp.get("http://localhost:54345/api/Instructor");
+<<<<<<< HEAD
+=======
+  }
+
+  getAllStudents(){
+    return this.myHttp.get("http://localhost:54345/api/Student");
+>>>>>>> master
   }
 
   getDepartmentTeachers(ID:number){
@@ -67,6 +74,17 @@ export class UserService {
 
   addTeacher(teacher){
     return this.myHttp.post("http://localhost:54345/api/instructor/add",teacher)
+<<<<<<< HEAD
+=======
+  }
+
+  getInstructorsNumber(){
+    return this.myHttp.get("http://localhost:54345/api/getInstructorsNumber");
+  }
+
+  getCountOfStudent(){
+    return this.myHttp.get("http://localhost:54345/api/getStudentsNumber");
+>>>>>>> master
   }
 
 }

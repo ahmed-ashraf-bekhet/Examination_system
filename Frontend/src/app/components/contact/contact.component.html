@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <!-- Modal -->
 <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -107,3 +108,28 @@
 <!-- /contact -->
 
 
+=======
+<!-- contact -->
+<section class="section bg-gray mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="section-title">Contact Us</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-7 mb-4 mb-lg-0">
+          <form action="#">
+            <input #name type="text" class="form-control mb-3" id="name" name="name" placeholder="Your Name">
+            <input #email type="email" class="form-control mb-3" id="mail" name="mail" placeholder="Your Email">
+            <input #subject type="text" class="form-control mb-3" id="subject" name="subject" placeholder="Subject">
+            <input #message name="message" id="message" class="form-control mb-3" placeholder="Your Message">
+            <button (click)="clicked(name.value,email.value,subject.value,message.value)" type="button" value="send" class="btn btn-primary">SEND MESSAGE</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /contact -->
+  
+>>>>>>> master
