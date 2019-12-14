@@ -19,11 +19,34 @@ namespace Examination_System.Controllers
 {
     public class StudentController : ApiController
     {
-        private ExaminationSystemDBEntities db = new ExaminationSystemDBEntities();
+        private DBEntities db = new DBEntities();
+
+        // GET: api/Student
+        [HttpGet]
+        [Route("api/getStudentsNumber")]
+        public IHttpActionResult GetCount()
+        {
+            int Students = db.Students.Count();
+            if (Students == 0)
+                return NotFound();
+            else
+                return Ok(Students);
+        }
+
+
+        // GET: api/Student
+        [HttpGet]
+        public IHttpActionResult GetInstructors()
+        {
+            var students = db.Students.Select(s => new { s.ID, s.Name });
+
+            return Ok(students);
+        }
 
         // GET: api/Student/5
         [HttpGet]
-        public IHttpActionResult GetStudent(int id)
+        [Route("api/Student/{id}")]
+        public IHttpActionResult GetStudent(int? id)
         {
             var student = db.Students.Where(s => s.ID == id).Select(s => new { s.ID, s.Name, s.Username, s.Password, s.Photo, deptName = s.Department.Name, courses = s.Courses_Students.Select(c => new { c.Cours.ID, c.Cours.Name, c.Grade }) }).SingleOrDefault();
             if (student == null)
