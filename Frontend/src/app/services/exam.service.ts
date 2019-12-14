@@ -16,4 +16,9 @@ export class ExamService {
     return this.myHttp.post("http://localhost:54345/api/exam/add",exam);
   }
 
+  getExamQuestionsReport(examID){
+    console.log(examID)
+    //املو هنا بقا
+  }
+
 }

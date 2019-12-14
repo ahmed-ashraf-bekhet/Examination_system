@@ -15,6 +15,6 @@ export class EmailService {
       "subject": "sample string 333",
       "body": "sample string 333"
     }
-    return this.myHttp.post("http://localhost:6755/api/Email",maiiiil);
+    return this.myHttp.post("http://localhost:54345/api/Email",maiiiil);
   }
 }
