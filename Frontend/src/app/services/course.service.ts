@@ -64,10 +64,6 @@ export class CourseService {
     return this.myHttp.get("http://localhost:54345/test/test",httpOptions)
   }
 
-  getCourseExams(courseID){
-    return this.myHttp.get(`http://localhost:54345/api/exam/getCourseExams/${courseID}`)
-  }
-
   joinCourse(student_course){
     return this.myHttp.post("http://localhost:54345/api/joincourse",student_course);
   }
