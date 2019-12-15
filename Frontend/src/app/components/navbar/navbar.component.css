@@ -12,3 +12,13 @@
   left: 100%;
   margin-top: -1px;
 }
+
+#logout{
+  width: 80px;
+  border: none;
+  padding: 10px 5px 10px 0;
+  margin:0;
+  display: block;
+  background: transparent;
+  color: #ffbc3b;
+}
