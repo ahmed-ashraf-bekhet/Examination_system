@@ -32,7 +32,7 @@ export class UserService {
       Username : username,
       Password : password 
     }
-    return this.myHttp.post("http://localhost:6755/api/instructor/login",teacher)
+    return this.myHttp.post("http://localhost:54345/api/instructor/login",teacher)
   }
 
   LoginAsStudent(username,password){
@@ -55,6 +55,13 @@ export class UserService {
 
   getAllTeachers(){
     return this.myHttp.get("http://localhost:54345/api/Instructor");
+<<<<<<< HEAD
+=======
+  }
+
+  getAllStudents(){
+    return this.myHttp.get("http://localhost:54345/api/Student");
+>>>>>>> master
   }
 
   getDepartmentTeachers(ID:number){
@@ -74,7 +81,15 @@ export class UserService {
   }
 
   getCountOfStudent(){
-    return this.myHttp.get("http://localhost:54345/api/Student");
+    return this.myHttp.get("http://localhost:54345/api/getStudentsNumber");
+  }
+
+  getStudentCoursesReport(studentID){
+    return this.myHttp.post(`http://localhost:54345/api/Student/GradesExport/${studentID}`,{Location:"E:\\"});
+  }
+
+  getTeacherCoursesReport(teacherID){
+    return this.myHttp.post(`http://localhost:54345/api/Instructor/ListCources/${teacherID}`,{Location:"E:\\"});
   }
 
 }

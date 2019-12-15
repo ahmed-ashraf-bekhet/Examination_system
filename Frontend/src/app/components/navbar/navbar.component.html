@@ -10,7 +10,7 @@
             <div class="collapse navbar-collapse" id="navigation">
                 <ul class="navbar-nav ml-auto text-center">
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="" appActiveLink>Home</a>
+                        <a class="nav-link" routerLink="" appActiveLink id="home">Home</a>
                     </li>
                     <li class="nav-item @@about">
                         <a class="nav-link" routerLink="/about" appActiveLink>About</a>
@@ -36,8 +36,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <div *ngIf="teacher">
-                                <li style="margin-bottom: 10px;"><a
-                                        [routerLink]="['/teachers',teacher.userID ]"><i
+                                <li style="margin-bottom: 10px;"><a [routerLink]="['/teachers',teacher.userID ]"><i
                                             class="fa fa-user fa-fw"></i> Profile </a>
                                 </li>
                             </div>
@@ -47,17 +46,16 @@
                                             class="fa fa-user fa-fw"></i> Profile </a>
                                 </li>
                             </div>
-                            <li style="margin-bottom: 10px;" class="dropdown-submenu">
+                            <li style="margin-bottom: 10px;" class="dropdown-submenu" [hidden]="!isAdmin">
                                 <a class="test" tabindex="-1" href="#"><i class="fa fa-plus fa-fw"></i> New<span
                                         class="caret"></span></a>
                                 <ul class="dropdown-menu" style="left: -180px;display: none;">
-                                    <a tabindex="-1" href="#" data-toggle="modal" [attr.data-target]="'#' + course_modal">
-                                        <li style="margin-bottom: 10px;">Topic</li>
-                                    </a>
-                                    <a tabindex="-1" href="#" data-toggle="modal" [attr.data-target]="'#' + department_modal">
+                                    <a tabindex="-1" href="#" data-toggle="modal"
+                                        [attr.data-target]="'#' + department_modal">
                                         <li style="margin-bottom: 10px;">Department</li>
                                     </a>
-                                    <a tabindex="-1" href="#" data-toggle="modal" [attr.data-target]="'#' + teacher_modal">
+                                    <a tabindex="-1" href="#" data-toggle="modal"
+                                        [attr.data-target]="'#' + teacher_modal">
                                         <li style="margin-bottom: 10px;">Teacher</li>
                                     </a>
                                     <a href="#" data-toggle="modal" [attr.data-target]="'#' + student_modal">
@@ -66,16 +64,19 @@
                                     <a href="#" data-toggle="modal" [attr.data-target]="'#' + course_modal">
                                         <li style="margin-bottom: 10px;">Course</li>
                                     </a>
-
+                                    <a tabindex="-1" data-toggle="modal" [attr.data-target]="'#' + topic_modal">
+                                        <li style="margin-bottom: 10px;">Topic</li>
+                                    </a>
                                 </ul>
                             </li>
-                            <li style="margin-bottom: 10px;" class="dropdown-submenu">
-                                <a class="" tabindex="-1" href="#" data-toggle="modal" data-target="#exampleModal"><i
-                                        class="fa fa-plus fa-fw"></i> Assign Student <span class="caret"></span></a>
+                            <li style="margin-bottom: 10px;" class="dropdown-submenu" [hidden]="!isTeacher">
+                                <a class="" tabindex="-1" href="#" data-toggle="modal"
+                                    [attr.data-target]="'#' + joincourse_modal"><i class="fa fa-plus fa-fw"></i> Assign
+                                    Student <span class="caret"></span></a>
                             </li>
-                            <li style="margin-bottom: 10px;"><a routerLink="/" (click)="logout()"><i
-                                        class="fa fa-sign-out fa-fw"></i>
-                                    Logout</a>
+                            <li style="margin-bottom: 10px;">
+                                    <button id="logout" (click)="logout()"><i
+                                        class="fa fa-sign-out fa-fw"></i> Logout</button>
                             </li>
                         </ul>
                     </li>

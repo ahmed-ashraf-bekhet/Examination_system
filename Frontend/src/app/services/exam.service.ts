@@ -19,10 +19,24 @@ export class ExamService {
     return Math.floor(this.seconds / 3600) + ':' + Math.floor(this.seconds / 60) + ':' + Math.floor(this.seconds % 60);
   }
 
+  getCourseExams(courseID){
+    return this.myHttp.get(`http://localhost:54345/api/exam/getCourseExams/${courseID}`)
+  }
+
+  getAllExams(){
+    return this.myHttp.get("http://localhost:54345/api/exam/getExams");
+  }
+
+  getStudentAnswers(studentExam){
+    studentExam.Location = "E:\\";
+    return this.myHttp.post("http://localhost:54345/api/Exam/AnswerStudent",studentExam);
+  }
+
   save(exam){
     return this.myHttp.post("http://localhost:54345/api/exam/add",exam);
   }
 
+<<<<<<< HEAD
 
   GetExam(ID:number){
     const httpOptions = {
@@ -45,6 +59,10 @@ export class ExamService {
   AddStudentAnswer(exam:StudentAnswerExam){
     console.log(exam);
     return this.myHttp.post("http://localhost:54345/api/StudentAnswer",exam);
+=======
+  getExamQuestionsReport(examID){
+    return this.myHttp.post(`http://localhost:54345/api/Exam/ListQues/${examID}`,{Location:"E:\\"});
+>>>>>>> master
   }
 
 }

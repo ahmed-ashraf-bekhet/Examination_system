@@ -27,6 +27,8 @@ export class AuthService {
   }
 
   deleteCookie(){
-    this.cookie.deleteAll();
+    this.cookie.delete('userID');
+    this.cookie.delete('userTypeID');
+    this.cookie.delete('isAdmin');
   }
 }

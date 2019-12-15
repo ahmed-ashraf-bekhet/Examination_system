@@ -8,18 +8,19 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body text-center">
+            <div class="modal-body">
                 <form [formGroup]="department" (ngSubmit)="update()" class="row">
                     <div class="col-12">
                         <div class="form-group">
-                            <input type="text" class="form-control mb-3" formControlName="Name" placeholder="Name">
+                            <label for="Name">Name</label>
+                            <input type="text" class="form-control mb-3" formControlName="Name" id="Name">
                             <span class="error-msg"
                                 *ngIf="department.get('Name').invalid && department.get('Name').touched">
                                 Name is required
                             </span>
                         </div>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 text-center">
                         <input type="submit" class="btn btn-primary" value="Save" />
                     </div>
                 </form>

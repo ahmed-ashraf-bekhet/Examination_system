@@ -25,17 +25,21 @@
                 </button>
             </div>
 
-            <div class="col-lg-3 col-5 mt-4 mb-4 mb-xl-0" [hidden]="hidden">
+            <div class="col-lg-3 text-lg-right col-5 mt-4 mb-4 mb-xl-0" [hidden]="hidden">
                 <a href="#" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#' + generate_exam_modal">Generate
                     Exam</a>
             </div>
-            <div class="col-lg-3 col-7 text-lg-right mt-4 mb-4 mb-xl-0">
+            <div class="col-lg-6 col-7 text-lg-center mt-4 mb-4 mb-xl-0" [hidden]="hidden">
                 <a  class="btn btn-primary" (click)="AddQuestion(null,courseID)">Create Question</a>
             </div>
-            <div class="col-lg-3 col-5 mt-4 text-lg-center mb-4 mb-xl-0" [hidden]="!isAdmin">
+            <div class="col-lg-3 col-12 mt-4 mb-4 mb-xl-0" [hidden]="hidden">
+                <button class="btn btn-primary" (click)="getTopicsReport()">Get topics report</button>
+            </div>
+            
+            <div class="col-lg-10 col-5 mt-4 text-lg-right mb-4 mb-xl-0" [hidden]="!isAdmin">
                 <a href="#" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#' + update_modal">Update</a>
             </div>
-            <div class="col-lg-3 col-7 mt-4 mb-4 mb-xl-0 text-lg-right" [hidden]="!isAdmin">
+            <div class="col-lg-2 col-7 mt-4 mb-4 mb-xl-0 text-lg-right" [hidden]="!isAdmin">
                 <button class="btn btn-primary" (click)="delete()">Delete</button>
             </div>
 

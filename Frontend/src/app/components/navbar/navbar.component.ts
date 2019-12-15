@@ -12,11 +12,15 @@ export class NavbarComponent implements OnInit {
   @Input() student_modal:string;
   @Input() teacher_modal:string;
   @Input() department_modal:string;
+  @Input() joincourse_modal:string;  
+  @Input() topic_modal:string;
 
   hidden:boolean;
   user;
   teacher;
   student;
+  isAdmin:boolean = false;
+  isTeacher:boolean = false;
 
   constructor(private authService:AuthService) { }
 
@@ -24,8 +28,13 @@ export class NavbarComponent implements OnInit {
     if(this.authService.getCookie()){
       this.hidden = false;
       this.user = this.authService.getCookie();
+
+      if(this.user.isAdmin == 1)
+        this.isAdmin = true;
+
       console.log(this.user)
       if(this.user.userTypeID==1){
+        this.isTeacher = true;
         this.teacher = this.authService.getCookie()
         console.log(this.teacher)
         console.log(this.student)
@@ -42,7 +51,7 @@ export class NavbarComponent implements OnInit {
 
   logout(){
     this.authService.deleteCookie();
-    location.href = "/"
+    location.href = "/";
   }
 
 }

@@ -41,6 +41,11 @@ export class StudentSingleComponent implements OnInit {
       }
     )
   }
+
+  reportClick(studentID){
+    console.log(studentID);
+    this.myService.getStudentCoursesReport(studentID);
+  }
   
 
 }

@@ -6,7 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using CrystalDecisions.CrystalReports.Engine;
 using Examination_System.Models;
+using Examination_System.Reports;
+using Newtonsoft.Json.Linq;
 
 namespace Pro_Test3_API.Controllers
 {
@@ -113,6 +116,8 @@ namespace Pro_Test3_API.Controllers
             else
                 return Ok(Types);
         }
+
+        
 
     }
 }

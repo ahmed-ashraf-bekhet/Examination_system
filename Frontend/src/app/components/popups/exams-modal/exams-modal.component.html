@@ -8,6 +8,7 @@
                         <th scope="col">Exam Title</th>
                         <th scope="col">Duration</th>
                         <th scope="col">Show Exam</th>
+                        <th scope="col">Show Report</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -15,8 +16,13 @@
                         <td>{{exam.Title}}</td>
                         <td>{{exam.Duration}} Hours</td>
                         <td>
-                            <a data-dismiss="modal" [routerLink]="['/exams',exam.ID]">
+                            <a data-dismiss="modal" class="btn btn-primary btn-sm active" role="button" aria-pressed="true" [routerLink]="['/exams',exam.ID]">
                                 Show
+                            </a>
+                        </td>
+                        <td>
+                            <a data-dismiss="modal" class="btn btn-primary btn-sm active" role="button" aria-pressed="true" (click)="clicked(exam.ID)">
+                                Exam Questions 
                             </a>
                         </td>
                     </tr>
