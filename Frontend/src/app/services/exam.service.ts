@@ -18,11 +18,15 @@ export class ExamService {
 
   getStudentAnswers(studentExam){
     studentExam.Location = "E:\\";
-    return this.myHttp.post("http://localhost:54345/api/Student/AnswerStudent",studentExam);
+    return this.myHttp.post("http://localhost:54345/api/Exam/AnswerStudent",studentExam);
   }
 
   save(exam){
     return this.myHttp.post("http://localhost:54345/api/exam/add",exam);
+  }
+
+  getExamQuestionsReport(examID){
+    return this.myHttp.post(`http://localhost:54345/api/Exam/ListQues/${examID}`,{Location:"E:\\"});
   }
 
 }

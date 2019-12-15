@@ -81,5 +81,13 @@ export class UserService {
     return this.myHttp.get("http://localhost:54345/api/getStudentsNumber");
   }
 
+  getStudentCoursesReport(studentID){
+    return this.myHttp.post(`http://localhost:54345/api/Student/GradesExport/${studentID}`,{Location:"E:\\"});
+  }
+
+  getTeacherCoursesReport(teacherID){
+    return this.myHttp.post(`http://localhost:54345/api/Instructor/ListCources/${teacherID}`,{Location:"E:\\"});
+  }
+
 }
 

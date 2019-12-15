@@ -140,9 +140,38 @@ namespace Examination_System.Controllers
             base.Dispose(disposing);
         }
 
+        //DownLoad a Report for all Questions in specific Exam
+        [HttpPost]
+        [Route("api/Exam/ListQues/{id}")]
+        public HttpResponseMessage Export_get_questions_by_ExamID(int? id, Object Location)
+        {
+            var Report1 = db.get_questions_by_ExamID(id).ToList();
+            if (Report1.Count == 0)
+            {
+                var Message = string.Format("Report Failed ");
+                HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.NotFound, Message);
+                return res;
+            }
+            else
+            {
+                CrystalReportget_questions_by_ExamID obj = new CrystalReportget_questions_by_ExamID();
+                ReportDocument rd = new ReportDocument();
+                string date = DateTime.Now.ToString();
+                obj.SetDataSource(Report1.Select(q => new { Body = q.Body ?? "No Value" }));
+                var loc = JObject.Parse(Location.ToString());
+                //Trace.WriteLine(loc.SelectToken("Location"));
+                string path = loc.SelectToken("Location").ToString() + "Exam_Questions_" + DateTime.Now.ToString("HH_mm_ss") + ".pdf";
+                //Trace.WriteLine(path);
+                obj.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, path);
+                var Message = string.Format("Report DownLoaded ");
+                var res = Request.CreateResponse(HttpStatusCode.OK, Message);
+                return res;
+            }
+        }
+
         //DownLoad a Report for all Questions and Answers for a student in specific Exam
         [HttpPost]
-        [Route("api/Student/AnswerStudent")]
+        [Route("api/Exam/AnswerStudent")]
         public HttpResponseMessage Export_get_student_answers(Object Info)
         {
             var info = JObject.Parse(Info.ToString());
