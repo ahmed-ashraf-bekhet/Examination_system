@@ -28,6 +28,13 @@ export class ExamsModalComponent implements OnInit {
 
   clicked(examID){
     console.log(examID)
-    this.webService.getExamQuestionsReport(examID);
+    this.webService.getExamQuestionsReport(examID).subscribe(
+      (success)=>{
+        console.log(success)
+      },
+      (error)=>{
+        console.log(error);
+      }
+    );
   }  
 }

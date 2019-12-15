@@ -51,15 +51,13 @@ import { UpdateDepartmentModalComponent } from './components/popups/update-depar
 import { UpdateCourseModalComponent } from './components/popups/update-course-modal/update-course-modal.component';
 import { AddStudentModalComponent } from './components/popups/add-student-modal/add-student-modal.component';
 import { AddTeacherModalComponent } from './components/popups/add-teacher-modal/add-teacher-modal.component';
-<<<<<<< HEAD
+
 import { ExamsComponent } from './components/exams/exams.component';
-=======
 import { AssignStudentModalComponent } from './components/popups/assign-student-modal/assign-student-modal.component';
 import { AddTopicModalComponent } from './components/popups/add-topic-modal/add-topic-modal.component';
 import { HomeAboutComponent } from './components/home-about/home-about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { StudentAnswersModalComponent } from './components/popups/student-answers-modal/student-answers-modal.component';
->>>>>>> master
 
 const AppRoutes = [
   { path: '', component: HomeComponent },
@@ -116,15 +114,12 @@ const AppRoutes = [
     UpdateCourseModalComponent,
     AddStudentModalComponent,
     AddTeacherModalComponent,
-<<<<<<< HEAD
-    ExamsComponent
-=======
+    ExamsComponent,
     AssignStudentModalComponent,
     AddTopicModalComponent,
     HomeAboutComponent,
     ContactComponent,
     StudentAnswersModalComponent
->>>>>>> master
   ],
   imports: [
     BrowserModule,

@@ -55,13 +55,10 @@ export class UserService {
 
   getAllTeachers(){
     return this.myHttp.get("http://localhost:54345/api/Instructor");
-<<<<<<< HEAD
-=======
   }
 
   getAllStudents(){
     return this.myHttp.get("http://localhost:54345/api/Student");
->>>>>>> master
   }
 
   getDepartmentTeachers(ID:number){

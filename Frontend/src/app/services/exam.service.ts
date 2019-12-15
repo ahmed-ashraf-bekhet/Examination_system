@@ -36,7 +36,7 @@ export class ExamService {
     return this.myHttp.post("http://localhost:54345/api/exam/add",exam);
   }
 
-<<<<<<< HEAD
+
 
   GetExam(ID:number){
     const httpOptions = {
@@ -57,12 +57,12 @@ export class ExamService {
   }
 
   AddStudentAnswer(exam:StudentAnswerExam){
-    console.log(exam);
+    //console.log(exam);
     return this.myHttp.post("http://localhost:54345/api/StudentAnswer",exam);
-=======
-  getExamQuestionsReport(examID){
+  }
+
+  getExamQuestionsReport(examID:number){
     return this.myHttp.post(`http://localhost:54345/api/Exam/ListQues/${examID}`,{Location:"E:\\"});
->>>>>>> master
   }
 
 }
