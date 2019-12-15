@@ -1,11 +1,12 @@
 .carousell{
     background-color: black;
-    background-image: url('https://images.unsplash.com/photo-1566827886072-417be1953f36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
-    margin-top: 116px;
-    height: 326px;
+    background-image: linear-gradient(rgba(26, 26, 55,0.87), rgba(26, 26, 55, 0.87)), url('/assets/images/banner/banner-1.jpg');
+    margin-top: -98px;
+    height: 512px;
     padding-left: 15%;
     background-repeat-x: no-repeat;
     background-size: 100%;
+    
   } 
   #carouselExampleIndicators{
     margin-top: 144px;
@@ -16,6 +17,10 @@
     font-size: 55px;
   }
 
+  .h11{
+    margin-top: 146px;
+    line-height: 79px;
+  }
   .div1{
     height: 302px;
   }
