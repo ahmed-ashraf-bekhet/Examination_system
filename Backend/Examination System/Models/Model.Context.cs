@@ -274,6 +274,15 @@ namespace Examination_System.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<get_exams_questions_Result>("get_exams_questions");
         }
     
+        public virtual ObjectResult<get_questions_Answers_by_ExamID_Result> get_questions_Answers_by_ExamID(Nullable<int> exam_id)
+        {
+            var exam_idParameter = exam_id.HasValue ?
+                new ObjectParameter("exam_id", exam_id) :
+                new ObjectParameter("exam_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<get_questions_Answers_by_ExamID_Result>("get_questions_Answers_by_ExamID", exam_idParameter);
+        }
+    
         public virtual ObjectResult<get_questions_by_ExamID_Result> get_questions_by_ExamID(Nullable<int> exam_id)
         {
             var exam_idParameter = exam_id.HasValue ?
@@ -438,6 +447,27 @@ namespace Examination_System.Models
                 new ObjectParameter("departmentid", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insert_Student", nameParameter, usernameParameter, passwordParameter, departmentidParameter);
+        }
+    
+        public virtual int insert_Student_Exam_Answer(Nullable<int> studentid, Nullable<int> questionID, Nullable<int> examID, Nullable<int> answerID)
+        {
+            var studentidParameter = studentid.HasValue ?
+                new ObjectParameter("studentid", studentid) :
+                new ObjectParameter("studentid", typeof(int));
+    
+            var questionIDParameter = questionID.HasValue ?
+                new ObjectParameter("QuestionID", questionID) :
+                new ObjectParameter("QuestionID", typeof(int));
+    
+            var examIDParameter = examID.HasValue ?
+                new ObjectParameter("ExamID", examID) :
+                new ObjectParameter("ExamID", typeof(int));
+    
+            var answerIDParameter = answerID.HasValue ?
+                new ObjectParameter("AnswerID", answerID) :
+                new ObjectParameter("AnswerID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insert_Student_Exam_Answer", studentidParameter, questionIDParameter, examIDParameter, answerIDParameter);
         }
     
         public virtual int insert_topic(string name, Nullable<int> courseid)

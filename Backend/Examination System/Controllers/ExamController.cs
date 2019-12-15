@@ -63,7 +63,7 @@ namespace Examination_System.Controllers
 
             try
             {
-                userTypeID = Int32.Parse(Request.Headers.GetValues("userTypeID").FirstOrDefault());
+                userTypeID =  Int32.Parse(Request.Headers.GetValues("userTypeID").FirstOrDefault());
                 userID = Int32.Parse(Request.Headers.GetValues("userID").FirstOrDefault());
             }
             catch (Exception e)
@@ -72,7 +72,7 @@ namespace Examination_System.Controllers
                 return Unauthorized();
             }
 
-            var exam = db.Exams.Where(e=>e.ID == id).Select(e=> new { e.ID, e.Questions, e.Duration, e.CreationDateTime, e.Title, e.TFQuestionsNumber, e.MCQQuestionsNumber });
+            var exam = db.Exams.Where(e=>e.ID == id).Select(e=> new { e.ID, e.Duration, e.CreationDateTime, e.Title, e.TFQuestionsNumber, e.MCQQuestionsNumber });
             bool solved = false;
 
             if (exam == null)
@@ -88,6 +88,69 @@ namespace Examination_System.Controllers
             }
 
             return Ok(new { solved, exam });
+        }
+
+        [HttpGet]
+        [Route("api/examquestion/{id}")]
+        public IHttpActionResult GetExamQuestions(int id)
+        {
+            var exq = db.get_questions_Answers_by_ExamID(id);
+
+            var updated = exq.AsEnumerable()
+                .Select(x => new
+                {
+                    QnID = x.QID,
+                    Qn = x.Question,
+                    Options = new string[] {
+                        x.option1,
+                        x.option2,
+                        x.option3,
+                        x.option4
+                    },
+                    Options_ID = new object[] {
+                        x.Answer_ID1,
+                        x.Answer_ID2,
+                        x.Answer_ID3,
+                        x.Answer_ID4
+                    },
+                    QtypeId = x.TypeID
+                }).ToList();
+
+            if (updated == null)
+                return NotFound();
+            else
+                return Ok(updated);
+        }
+
+        //[HttpPost]
+        //[Route("api/Answers/{id}")]
+        //public HttpResponseMessage GetAnswers(int? id,int[] qIDs)
+        //{
+        //    using (DBEntities db = new DBEntities())
+        //    {
+        //        var result = db.get_questions_Answers_by_ExamID(id)
+        //             .AsEnumerable()
+        //             .Where(y => qIDs.Contains(y.ID))
+        //             .OrderBy(x => { return Array.IndexOf(qIDs, x.ID); })
+        //             .Select(z => z.Right_AnswerID)
+        //             .ToArray();
+        //        return this.Request.CreateResponse(HttpStatusCode.OK, result);
+        //    }
+        //}
+
+        [HttpPost]
+        [Route("api/StudentAnswer")]
+        public IHttpActionResult InsertStudentAnswer(Students_Exams_AnswersView sea)
+        {
+            
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            db.insert_Student_Exam_Answer(sea.StudentID,sea.QuetionID,sea.ExamID,sea.ANserID);
+
+            return StatusCode(HttpStatusCode.Created);
         }
 
         [HttpPost]
@@ -134,6 +197,13 @@ namespace Examination_System.Controllers
     {
         public int ExamID { get; set; }
         public int StudentID { get; set; }
+    }
+    public class Students_Exams_AnswersView
+    {
+        public int StudentID { get; set; }
+        public int QuetionID { get; set; }
+        public int ExamID { get; set; }
+        public int ANserID { get; set; }
     }
 
 }

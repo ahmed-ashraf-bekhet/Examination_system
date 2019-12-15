@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ExaminationSystemDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Answer">
     <Key>
       <PropertyRef Name="ID" />
@@ -485,43 +485,46 @@
       <Parameter Name="duration" Mode="In" Type="Int32" />
       <Parameter Name="title" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="get_Courses_by_departmentid" ReturnType="Collection(ExaminationSystemDBModel.get_Courses_by_departmentid_Result)">
+    <FunctionImport Name="get_Courses_by_departmentid" ReturnType="Collection(DBModel.get_Courses_by_departmentid_Result)">
       <Parameter Name="departmentid" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="get_Courses_by_instructorid" ReturnType="Collection(ExaminationSystemDBModel.get_Courses_by_instructorid_Result)">
+    <FunctionImport Name="get_Courses_by_instructorid" ReturnType="Collection(DBModel.get_Courses_by_instructorid_Result)">
       <Parameter Name="instructorid" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="get_courses_students" ReturnType="Collection(Int32)">
       <Parameter Name="courseid" Mode="In" Type="Int32" />
       <Parameter Name="studentid" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="get_courses_students_by_StudentID" ReturnType="Collection(ExaminationSystemDBModel.get_courses_students_by_StudentID_Result)">
+    <FunctionImport Name="get_courses_students_by_StudentID" ReturnType="Collection(DBModel.get_courses_students_by_StudentID_Result)">
       <Parameter Name="studentid" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="get_courses_students_number_by_instructorid" ReturnType="Collection(ExaminationSystemDBModel.get_courses_students_number_by_instructorid_Result)">
+    <FunctionImport Name="get_courses_students_number_by_instructorid" ReturnType="Collection(DBModel.get_courses_students_number_by_instructorid_Result)">
       <Parameter Name="instructorid" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="get_department" ReturnType="Collection(ExaminationSystemDBModel.get_department_Result)" />
-    <FunctionImport Name="get_exams" ReturnType="Collection(ExaminationSystemDBModel.get_exams_Result)" />
-    <FunctionImport Name="get_exams_questions" ReturnType="Collection(ExaminationSystemDBModel.get_exams_questions_Result)" />
-    <FunctionImport Name="get_questions_by_ExamID" ReturnType="Collection(ExaminationSystemDBModel.get_questions_by_ExamID_Result)">
+    <FunctionImport Name="get_department" ReturnType="Collection(DBModel.get_department_Result)" />
+    <FunctionImport Name="get_exams" ReturnType="Collection(DBModel.get_exams_Result)" />
+    <FunctionImport Name="get_exams_questions" ReturnType="Collection(DBModel.get_exams_questions_Result)" />
+    <FunctionImport Name="get_questions_Answers_by_ExamID" ReturnType="Collection(DBModel.get_questions_Answers_by_ExamID_Result)">
       <Parameter Name="exam_id" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="get_questionsTypes" ReturnType="Collection(ExaminationSystemDBModel.get_questionsTypes_Result)" />
-    <FunctionImport Name="get_student_answers" ReturnType="Collection(ExaminationSystemDBModel.get_student_answers_Result)">
+    <FunctionImport Name="get_questions_by_ExamID" ReturnType="Collection(DBModel.get_questions_by_ExamID_Result)">
+      <Parameter Name="exam_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="get_questionsTypes" ReturnType="Collection(DBModel.get_questionsTypes_Result)" />
+    <FunctionImport Name="get_student_answers" ReturnType="Collection(DBModel.get_student_answers_Result)">
       <Parameter Name="exam_id" Mode="In" Type="Int32" />
       <Parameter Name="student_id" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="get_student_info_by_departmentid" ReturnType="Collection(ExaminationSystemDBModel.get_student_info_by_departmentid_Result)">
+    <FunctionImport Name="get_student_info_by_departmentid" ReturnType="Collection(DBModel.get_student_info_by_departmentid_Result)">
       <Parameter Name="departmentid" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="get_Students_by_departmentid" ReturnType="Collection(ExaminationSystemDBModel.get_Students_by_departmentid_Result)">
+    <FunctionImport Name="get_Students_by_departmentid" ReturnType="Collection(DBModel.get_Students_by_departmentid_Result)">
       <Parameter Name="departmentid" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="get_Students_by_studentid" ReturnType="Collection(ExaminationSystemDBModel.get_Students_by_studentid_Result)">
+    <FunctionImport Name="get_Students_by_studentid" ReturnType="Collection(DBModel.get_Students_by_studentid_Result)">
       <Parameter Name="studentid" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="get_topics_by_courseid" ReturnType="Collection(ExaminationSystemDBModel.get_topics_by_courseid_Result)">
+    <FunctionImport Name="get_topics_by_courseid" ReturnType="Collection(DBModel.get_topics_by_courseid_Result)">
       <Parameter Name="courseid" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="insert_Course">
@@ -555,6 +558,12 @@
       <Parameter Name="password" Mode="In" Type="String" />
       <Parameter Name="departmentid" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="insert_Student_Exam_Answer">
+      <Parameter Name="studentid" Mode="In" Type="Int32" />
+      <Parameter Name="QuestionID" Mode="In" Type="Int32" />
+      <Parameter Name="ExamID" Mode="In" Type="Int32" />
+      <Parameter Name="AnswerID" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="insert_topic">
       <Parameter Name="name" Mode="In" Type="String" />
       <Parameter Name="courseid" Mode="In" Type="Int32" />
@@ -575,11 +584,11 @@
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ExaminationSystemDBModel.sp_helpdiagramdefinition_Result)">
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(DBModel.sp_helpdiagramdefinition_Result)">
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ExaminationSystemDBModel.sp_helpdiagrams_Result)">
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(DBModel.sp_helpdiagrams_Result)">
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
     </FunctionImport>
@@ -666,6 +675,20 @@
   <ComplexType Name="get_exams_questions_Result">
     <Property Type="Int32" Name="ExamID" Nullable="false" />
     <Property Type="Int32" Name="QuestionID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="get_questions_Answers_by_ExamID_Result">
+    <Property Type="Int32" Name="QID" Nullable="true" />
+    <Property Type="String" Name="Question" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="TypeID" Nullable="true" />
+    <Property Type="Int32" Name="R_AnswerID" Nullable="true" />
+    <Property Type="Int32" Name="Answer_ID1" Nullable="true" />
+    <Property Type="String" Name="option1" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="Answer_ID2" Nullable="true" />
+    <Property Type="String" Name="option2" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="Answer_ID3" Nullable="true" />
+    <Property Type="String" Name="option3" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="Answer_ID4" Nullable="true" />
+    <Property Type="String" Name="option4" Nullable="true" MaxLength="255" />
   </ComplexType>
   <ComplexType Name="get_questions_by_ExamID_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />

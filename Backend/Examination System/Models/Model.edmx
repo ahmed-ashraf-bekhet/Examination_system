@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ExaminationSystemDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Answers">
           <Key>
             <PropertyRef Name="ID" />
@@ -431,6 +431,9 @@
         <Function Name="get_department" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="get_exams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="get_exams_questions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="get_questions_Answers_by_ExamID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="exam_id" Type="int" Mode="In" />
+        </Function>
         <Function Name="get_questions_by_ExamID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="exam_id" Type="int" Mode="In" />
         </Function>
@@ -481,6 +484,12 @@
           <Parameter Name="username" Type="varchar" Mode="In" />
           <Parameter Name="password" Type="varchar" Mode="In" />
           <Parameter Name="departmentid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="insert_Student_Exam_Answer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="studentid" Type="int" Mode="In" />
+          <Parameter Name="QuestionID" Type="int" Mode="In" />
+          <Parameter Name="ExamID" Type="int" Mode="In" />
+          <Parameter Name="AnswerID" Type="int" Mode="In" />
         </Function>
         <Function Name="insert_topic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="name" Type="varchar" Mode="In" />
@@ -551,7 +560,7 @@
           <Parameter Name="courseid" Type="int" Mode="In" />
           <Parameter Name="topicid" Type="int" Mode="In" />
         </Function>
-        <EntityContainer Name="ExaminationSystemDBModelStoreContainer">
+        <EntityContainer Name="DBModelStoreContainer">
           <EntitySet Name="Answers" EntityType="Self.Answers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Courses_Students" EntityType="Self.Courses_Students" Schema="dbo" store:Type="Tables" />
@@ -638,7 +647,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ExaminationSystemDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Answer">
           <Key>
             <PropertyRef Name="ID" />
@@ -1124,43 +1133,46 @@
             <Parameter Name="duration" Mode="In" Type="Int32" />
             <Parameter Name="title" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="get_Courses_by_departmentid" ReturnType="Collection(ExaminationSystemDBModel.get_Courses_by_departmentid_Result)">
+          <FunctionImport Name="get_Courses_by_departmentid" ReturnType="Collection(DBModel.get_Courses_by_departmentid_Result)">
             <Parameter Name="departmentid" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="get_Courses_by_instructorid" ReturnType="Collection(ExaminationSystemDBModel.get_Courses_by_instructorid_Result)">
+          <FunctionImport Name="get_Courses_by_instructorid" ReturnType="Collection(DBModel.get_Courses_by_instructorid_Result)">
             <Parameter Name="instructorid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="get_courses_students" ReturnType="Collection(Int32)">
             <Parameter Name="courseid" Mode="In" Type="Int32" />
             <Parameter Name="studentid" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="get_courses_students_by_StudentID" ReturnType="Collection(ExaminationSystemDBModel.get_courses_students_by_StudentID_Result)">
+          <FunctionImport Name="get_courses_students_by_StudentID" ReturnType="Collection(DBModel.get_courses_students_by_StudentID_Result)">
             <Parameter Name="studentid" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="get_courses_students_number_by_instructorid" ReturnType="Collection(ExaminationSystemDBModel.get_courses_students_number_by_instructorid_Result)">
+          <FunctionImport Name="get_courses_students_number_by_instructorid" ReturnType="Collection(DBModel.get_courses_students_number_by_instructorid_Result)">
             <Parameter Name="instructorid" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="get_department" ReturnType="Collection(ExaminationSystemDBModel.get_department_Result)" />
-          <FunctionImport Name="get_exams" ReturnType="Collection(ExaminationSystemDBModel.get_exams_Result)" />
-          <FunctionImport Name="get_exams_questions" ReturnType="Collection(ExaminationSystemDBModel.get_exams_questions_Result)" />
-          <FunctionImport Name="get_questions_by_ExamID" ReturnType="Collection(ExaminationSystemDBModel.get_questions_by_ExamID_Result)">
+          <FunctionImport Name="get_department" ReturnType="Collection(DBModel.get_department_Result)" />
+          <FunctionImport Name="get_exams" ReturnType="Collection(DBModel.get_exams_Result)" />
+          <FunctionImport Name="get_exams_questions" ReturnType="Collection(DBModel.get_exams_questions_Result)" />
+          <FunctionImport Name="get_questions_Answers_by_ExamID" ReturnType="Collection(DBModel.get_questions_Answers_by_ExamID_Result)">
             <Parameter Name="exam_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="get_questionsTypes" ReturnType="Collection(ExaminationSystemDBModel.get_questionsTypes_Result)" />
-          <FunctionImport Name="get_student_answers" ReturnType="Collection(ExaminationSystemDBModel.get_student_answers_Result)">
+          <FunctionImport Name="get_questions_by_ExamID" ReturnType="Collection(DBModel.get_questions_by_ExamID_Result)">
+            <Parameter Name="exam_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="get_questionsTypes" ReturnType="Collection(DBModel.get_questionsTypes_Result)" />
+          <FunctionImport Name="get_student_answers" ReturnType="Collection(DBModel.get_student_answers_Result)">
             <Parameter Name="exam_id" Mode="In" Type="Int32" />
             <Parameter Name="student_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="get_student_info_by_departmentid" ReturnType="Collection(ExaminationSystemDBModel.get_student_info_by_departmentid_Result)">
+          <FunctionImport Name="get_student_info_by_departmentid" ReturnType="Collection(DBModel.get_student_info_by_departmentid_Result)">
             <Parameter Name="departmentid" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="get_Students_by_departmentid" ReturnType="Collection(ExaminationSystemDBModel.get_Students_by_departmentid_Result)">
+          <FunctionImport Name="get_Students_by_departmentid" ReturnType="Collection(DBModel.get_Students_by_departmentid_Result)">
             <Parameter Name="departmentid" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="get_Students_by_studentid" ReturnType="Collection(ExaminationSystemDBModel.get_Students_by_studentid_Result)">
+          <FunctionImport Name="get_Students_by_studentid" ReturnType="Collection(DBModel.get_Students_by_studentid_Result)">
             <Parameter Name="studentid" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="get_topics_by_courseid" ReturnType="Collection(ExaminationSystemDBModel.get_topics_by_courseid_Result)">
+          <FunctionImport Name="get_topics_by_courseid" ReturnType="Collection(DBModel.get_topics_by_courseid_Result)">
             <Parameter Name="courseid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="insert_Course">
@@ -1194,6 +1206,12 @@
             <Parameter Name="password" Mode="In" Type="String" />
             <Parameter Name="departmentid" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="insert_Student_Exam_Answer">
+            <Parameter Name="studentid" Mode="In" Type="Int32" />
+            <Parameter Name="QuestionID" Mode="In" Type="Int32" />
+            <Parameter Name="ExamID" Mode="In" Type="Int32" />
+            <Parameter Name="AnswerID" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="insert_topic">
             <Parameter Name="name" Mode="In" Type="String" />
             <Parameter Name="courseid" Mode="In" Type="Int32" />
@@ -1214,11 +1232,11 @@
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ExaminationSystemDBModel.sp_helpdiagramdefinition_Result)">
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(DBModel.sp_helpdiagramdefinition_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ExaminationSystemDBModel.sp_helpdiagrams_Result)">
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(DBModel.sp_helpdiagrams_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1306,6 +1324,20 @@
           <Property Type="Int32" Name="ExamID" Nullable="false" />
           <Property Type="Int32" Name="QuestionID" Nullable="false" />
         </ComplexType>
+        <ComplexType Name="get_questions_Answers_by_ExamID_Result">
+          <Property Type="Int32" Name="QID" Nullable="true" />
+          <Property Type="String" Name="Question" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="TypeID" Nullable="true" />
+          <Property Type="Int32" Name="R_AnswerID" Nullable="true" />
+          <Property Type="Int32" Name="Answer_ID1" Nullable="true" />
+          <Property Type="String" Name="option1" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="Answer_ID2" Nullable="true" />
+          <Property Type="String" Name="option2" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="Answer_ID3" Nullable="true" />
+          <Property Type="String" Name="option3" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="Answer_ID4" Nullable="true" />
+          <Property Type="String" Name="option4" Nullable="true" MaxLength="255" />
+        </ComplexType>
         <ComplexType Name="get_questions_by_ExamID_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="Body" Nullable="false" MaxLength="500" />
@@ -1366,9 +1398,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ExaminationSystemDBModelStoreContainer" CdmEntityContainer="DBEntities">
+        <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="DBEntities">
           <EntitySetMapping Name="Answers">
-            <EntityTypeMapping TypeName="ExaminationSystemDBModel.Answer">
+            <EntityTypeMapping TypeName="DBModel.Answer">
               <MappingFragment StoreEntitySet="Answers">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Body" ColumnName="Body" />
@@ -1377,7 +1409,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Courses">
-            <EntityTypeMapping TypeName="ExaminationSystemDBModel.Cours">
+            <EntityTypeMapping TypeName="DBModel.Cours">
               <MappingFragment StoreEntitySet="Courses">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1389,7 +1421,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Courses_Students">
-            <EntityTypeMapping TypeName="ExaminationSystemDBModel.Courses_Students">
+            <EntityTypeMapping TypeName="DBModel.Courses_Students">
               <MappingFragment StoreEntitySet="Courses_Students">
                 <ScalarProperty Name="CourseID" ColumnName="CourseID" />
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
@@ -1398,7 +1430,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Departments">
-            <EntityTypeMapping TypeName="ExaminationSystemDBModel.Department">
+            <EntityTypeMapping TypeName="DBModel.Department">
               <MappingFragment StoreEntitySet="Departments">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1407,7 +1439,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Exams">
-            <EntityTypeMapping TypeName="ExaminationSystemDBModel.Exam">
+            <EntityTypeMapping TypeName="DBModel.Exam">
               <MappingFragment StoreEntitySet="Exams">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -1420,7 +1452,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Instructors">
-            <EntityTypeMapping TypeName="ExaminationSystemDBModel.Instructor">
+            <EntityTypeMapping TypeName="DBModel.Instructor">
               <MappingFragment StoreEntitySet="Instructors">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1434,7 +1466,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Question_Types">
-            <EntityTypeMapping TypeName="ExaminationSystemDBModel.Question_Types">
+            <EntityTypeMapping TypeName="DBModel.Question_Types">
               <MappingFragment StoreEntitySet="Question_Types">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1442,7 +1474,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Questions">
-            <EntityTypeMapping TypeName="ExaminationSystemDBModel.Question">
+            <EntityTypeMapping TypeName="DBModel.Question">
               <MappingFragment StoreEntitySet="Questions">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Body" ColumnName="Body" />
@@ -1453,7 +1485,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="ExaminationSystemDBModel.Student">
+            <EntityTypeMapping TypeName="DBModel.Student">
               <MappingFragment StoreEntitySet="Students">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1465,7 +1497,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Students_Exams_Answers">
-            <EntityTypeMapping TypeName="ExaminationSystemDBModel.Students_Exams_Answers">
+            <EntityTypeMapping TypeName="DBModel.Students_Exams_Answers">
               <MappingFragment StoreEntitySet="Students_Exams_Answers">
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
@@ -1476,7 +1508,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="ExaminationSystemDBModel.sysdiagram">
+            <EntityTypeMapping TypeName="DBModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1487,7 +1519,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Topics">
-            <EntityTypeMapping TypeName="ExaminationSystemDBModel.Topic">
+            <EntityTypeMapping TypeName="DBModel.Topic">
               <MappingFragment StoreEntitySet="Topics">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1495,7 +1527,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Exams_Questions" TypeName="ExaminationSystemDBModel.Exams_Questions" StoreEntitySet="Exams_Questions">
+          <AssociationSetMapping Name="Exams_Questions" TypeName="DBModel.Exams_Questions" StoreEntitySet="Exams_Questions">
             <EndProperty Name="Exams">
               <ScalarProperty Name="ID" ColumnName="ExamID" />
             </EndProperty>
@@ -1503,23 +1535,23 @@
               <ScalarProperty Name="ID" ColumnName="QuestionID" />
             </EndProperty>
           </AssociationSetMapping>
-          <FunctionImportMapping FunctionImportName="correct_exam" FunctionName="ExaminationSystemDBModel.Store.correct_exam" />
-          <FunctionImportMapping FunctionImportName="CreateQuestion" FunctionName="ExaminationSystemDBModel.Store.CreateQuestion" />
-          <FunctionImportMapping FunctionImportName="delete_answer" FunctionName="ExaminationSystemDBModel.Store.delete_answer" />
-          <FunctionImportMapping FunctionImportName="delete_Courses" FunctionName="ExaminationSystemDBModel.Store.delete_Courses" />
-          <FunctionImportMapping FunctionImportName="delete_courses_students" FunctionName="ExaminationSystemDBModel.Store.delete_courses_students" />
-          <FunctionImportMapping FunctionImportName="delete_department" FunctionName="ExaminationSystemDBModel.Store.delete_department" />
-          <FunctionImportMapping FunctionImportName="delete_exams" FunctionName="ExaminationSystemDBModel.Store.delete_exams" />
-          <FunctionImportMapping FunctionImportName="delete_instructor" FunctionName="ExaminationSystemDBModel.Store.delete_instructor" />
-          <FunctionImportMapping FunctionImportName="delete_question" FunctionName="ExaminationSystemDBModel.Store.delete_question" />
-          <FunctionImportMapping FunctionImportName="delete_questionsTypes" FunctionName="ExaminationSystemDBModel.Store.delete_questionsTypes" />
-          <FunctionImportMapping FunctionImportName="delete_Students" FunctionName="ExaminationSystemDBModel.Store.delete_Students" />
-          <FunctionImportMapping FunctionImportName="delete_students_exams_answers" FunctionName="ExaminationSystemDBModel.Store.delete_students_exams_answers" />
-          <FunctionImportMapping FunctionImportName="delete_topics" FunctionName="ExaminationSystemDBModel.Store.delete_topics" />
-          <FunctionImportMapping FunctionImportName="generate_exam" FunctionName="ExaminationSystemDBModel.Store.generate_exam" />
-          <FunctionImportMapping FunctionImportName="get_Courses_by_departmentid" FunctionName="ExaminationSystemDBModel.Store.get_Courses_by_departmentid">
+          <FunctionImportMapping FunctionImportName="correct_exam" FunctionName="DBModel.Store.correct_exam" />
+          <FunctionImportMapping FunctionImportName="CreateQuestion" FunctionName="DBModel.Store.CreateQuestion" />
+          <FunctionImportMapping FunctionImportName="delete_answer" FunctionName="DBModel.Store.delete_answer" />
+          <FunctionImportMapping FunctionImportName="delete_Courses" FunctionName="DBModel.Store.delete_Courses" />
+          <FunctionImportMapping FunctionImportName="delete_courses_students" FunctionName="DBModel.Store.delete_courses_students" />
+          <FunctionImportMapping FunctionImportName="delete_department" FunctionName="DBModel.Store.delete_department" />
+          <FunctionImportMapping FunctionImportName="delete_exams" FunctionName="DBModel.Store.delete_exams" />
+          <FunctionImportMapping FunctionImportName="delete_instructor" FunctionName="DBModel.Store.delete_instructor" />
+          <FunctionImportMapping FunctionImportName="delete_question" FunctionName="DBModel.Store.delete_question" />
+          <FunctionImportMapping FunctionImportName="delete_questionsTypes" FunctionName="DBModel.Store.delete_questionsTypes" />
+          <FunctionImportMapping FunctionImportName="delete_Students" FunctionName="DBModel.Store.delete_Students" />
+          <FunctionImportMapping FunctionImportName="delete_students_exams_answers" FunctionName="DBModel.Store.delete_students_exams_answers" />
+          <FunctionImportMapping FunctionImportName="delete_topics" FunctionName="DBModel.Store.delete_topics" />
+          <FunctionImportMapping FunctionImportName="generate_exam" FunctionName="DBModel.Store.generate_exam" />
+          <FunctionImportMapping FunctionImportName="get_Courses_by_departmentid" FunctionName="DBModel.Store.get_Courses_by_departmentid">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ExaminationSystemDBModel.get_Courses_by_departmentid_Result">
+              <ComplexTypeMapping TypeName="DBModel.get_Courses_by_departmentid_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -1529,9 +1561,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_Courses_by_instructorid" FunctionName="ExaminationSystemDBModel.Store.get_Courses_by_instructorid">
+          <FunctionImportMapping FunctionImportName="get_Courses_by_instructorid" FunctionName="DBModel.Store.get_Courses_by_instructorid">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ExaminationSystemDBModel.get_Courses_by_instructorid_Result">
+              <ComplexTypeMapping TypeName="DBModel.get_Courses_by_instructorid_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -1541,35 +1573,35 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_courses_students" FunctionName="ExaminationSystemDBModel.Store.get_courses_students" />
-          <FunctionImportMapping FunctionImportName="get_courses_students_by_StudentID" FunctionName="ExaminationSystemDBModel.Store.get_courses_students_by_StudentID">
+          <FunctionImportMapping FunctionImportName="get_courses_students" FunctionName="DBModel.Store.get_courses_students" />
+          <FunctionImportMapping FunctionImportName="get_courses_students_by_StudentID" FunctionName="DBModel.Store.get_courses_students_by_StudentID">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ExaminationSystemDBModel.get_courses_students_by_StudentID_Result">
+              <ComplexTypeMapping TypeName="DBModel.get_courses_students_by_StudentID_Result">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Grade" ColumnName="Grade" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_courses_students_number_by_instructorid" FunctionName="ExaminationSystemDBModel.Store.get_courses_students_number_by_instructorid">
+          <FunctionImportMapping FunctionImportName="get_courses_students_number_by_instructorid" FunctionName="DBModel.Store.get_courses_students_number_by_instructorid">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ExaminationSystemDBModel.get_courses_students_number_by_instructorid_Result">
+              <ComplexTypeMapping TypeName="DBModel.get_courses_students_number_by_instructorid_Result">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Number_of_Student" ColumnName="Number of Student" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_department" FunctionName="ExaminationSystemDBModel.Store.get_department">
+          <FunctionImportMapping FunctionImportName="get_department" FunctionName="DBModel.Store.get_department">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ExaminationSystemDBModel.get_department_Result">
+              <ComplexTypeMapping TypeName="DBModel.get_department_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_exams" FunctionName="ExaminationSystemDBModel.Store.get_exams">
+          <FunctionImportMapping FunctionImportName="get_exams" FunctionName="DBModel.Store.get_exams">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ExaminationSystemDBModel.get_exams_Result">
+              <ComplexTypeMapping TypeName="DBModel.get_exams_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Duration" ColumnName="Duration" />
@@ -1580,17 +1612,35 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_exams_questions" FunctionName="ExaminationSystemDBModel.Store.get_exams_questions">
+          <FunctionImportMapping FunctionImportName="get_exams_questions" FunctionName="DBModel.Store.get_exams_questions">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ExaminationSystemDBModel.get_exams_questions_Result">
+              <ComplexTypeMapping TypeName="DBModel.get_exams_questions_Result">
                 <ScalarProperty Name="ExamID" ColumnName="ExamID" />
                 <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_questions_by_ExamID" FunctionName="ExaminationSystemDBModel.Store.get_questions_by_ExamID">
+          <FunctionImportMapping FunctionImportName="get_questions_Answers_by_ExamID" FunctionName="DBModel.Store.get_questions_Answers_by_ExamID">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ExaminationSystemDBModel.get_questions_by_ExamID_Result">
+              <ComplexTypeMapping TypeName="DBModel.get_questions_Answers_by_ExamID_Result">
+                <ScalarProperty Name="QID" ColumnName="QID" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="R_AnswerID" ColumnName="R_AnswerID" />
+                <ScalarProperty Name="Answer_ID1" ColumnName="Answer_ID1" />
+                <ScalarProperty Name="option1" ColumnName="option1" />
+                <ScalarProperty Name="Answer_ID2" ColumnName="Answer_ID2" />
+                <ScalarProperty Name="option2" ColumnName="option2" />
+                <ScalarProperty Name="Answer_ID3" ColumnName="Answer_ID3" />
+                <ScalarProperty Name="option3" ColumnName="option3" />
+                <ScalarProperty Name="Answer_ID4" ColumnName="Answer_ID4" />
+                <ScalarProperty Name="option4" ColumnName="option4" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_questions_by_ExamID" FunctionName="DBModel.Store.get_questions_by_ExamID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBModel.get_questions_by_ExamID_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Body" ColumnName="Body" />
                 <ScalarProperty Name="CourseID" ColumnName="CourseID" />
@@ -1601,35 +1651,35 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_questionsTypes" FunctionName="ExaminationSystemDBModel.Store.get_questionsTypes">
+          <FunctionImportMapping FunctionImportName="get_questionsTypes" FunctionName="DBModel.Store.get_questionsTypes">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ExaminationSystemDBModel.get_questionsTypes_Result">
+              <ComplexTypeMapping TypeName="DBModel.get_questionsTypes_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_student_answers" FunctionName="ExaminationSystemDBModel.Store.get_student_answers">
+          <FunctionImportMapping FunctionImportName="get_student_answers" FunctionName="DBModel.Store.get_student_answers">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ExaminationSystemDBModel.get_student_answers_Result">
+              <ComplexTypeMapping TypeName="DBModel.get_student_answers_Result">
                 <ScalarProperty Name="Question" ColumnName="Question" />
                 <ScalarProperty Name="Answer" ColumnName="Answer" />
                 <ScalarProperty Name="Right_Answer" ColumnName="Right_Answer" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_student_info_by_departmentid" FunctionName="ExaminationSystemDBModel.Store.get_student_info_by_departmentid">
+          <FunctionImportMapping FunctionImportName="get_student_info_by_departmentid" FunctionName="DBModel.Store.get_student_info_by_departmentid">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ExaminationSystemDBModel.get_student_info_by_departmentid_Result">
+              <ComplexTypeMapping TypeName="DBModel.get_student_info_by_departmentid_Result">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Department" ColumnName="Department" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_Students_by_departmentid" FunctionName="ExaminationSystemDBModel.Store.get_Students_by_departmentid">
+          <FunctionImportMapping FunctionImportName="get_Students_by_departmentid" FunctionName="DBModel.Store.get_Students_by_departmentid">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ExaminationSystemDBModel.get_Students_by_departmentid_Result">
+              <ComplexTypeMapping TypeName="DBModel.get_Students_by_departmentid_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
@@ -1639,9 +1689,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_Students_by_studentid" FunctionName="ExaminationSystemDBModel.Store.get_Students_by_studentid">
+          <FunctionImportMapping FunctionImportName="get_Students_by_studentid" FunctionName="DBModel.Store.get_Students_by_studentid">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ExaminationSystemDBModel.get_Students_by_studentid_Result">
+              <ComplexTypeMapping TypeName="DBModel.get_Students_by_studentid_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
@@ -1651,37 +1701,38 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="get_topics_by_courseid" FunctionName="ExaminationSystemDBModel.Store.get_topics_by_courseid">
+          <FunctionImportMapping FunctionImportName="get_topics_by_courseid" FunctionName="DBModel.Store.get_topics_by_courseid">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ExaminationSystemDBModel.get_topics_by_courseid_Result">
+              <ComplexTypeMapping TypeName="DBModel.get_topics_by_courseid_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CourseID" ColumnName="CourseID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="insert_Course" FunctionName="ExaminationSystemDBModel.Store.insert_Course" />
-          <FunctionImportMapping FunctionImportName="insert_courses_students" FunctionName="ExaminationSystemDBModel.Store.insert_courses_students" />
-          <FunctionImportMapping FunctionImportName="insert_department" FunctionName="ExaminationSystemDBModel.Store.insert_department" />
-          <FunctionImportMapping FunctionImportName="insert_exam" FunctionName="ExaminationSystemDBModel.Store.insert_exam" />
-          <FunctionImportMapping FunctionImportName="insert_ListOFAnswers" FunctionName="ExaminationSystemDBModel.Store.insert_ListOFAnswers" />
-          <FunctionImportMapping FunctionImportName="insert_questionsTypes" FunctionName="ExaminationSystemDBModel.Store.insert_questionsTypes" />
-          <FunctionImportMapping FunctionImportName="insert_Student" FunctionName="ExaminationSystemDBModel.Store.insert_Student" />
-          <FunctionImportMapping FunctionImportName="insert_topic" FunctionName="ExaminationSystemDBModel.Store.insert_topic" />
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ExaminationSystemDBModel.Store.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="ExaminationSystemDBModel.Store.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="ExaminationSystemDBModel.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="ExaminationSystemDBModel.Store.sp_helpdiagramdefinition">
+          <FunctionImportMapping FunctionImportName="insert_Course" FunctionName="DBModel.Store.insert_Course" />
+          <FunctionImportMapping FunctionImportName="insert_courses_students" FunctionName="DBModel.Store.insert_courses_students" />
+          <FunctionImportMapping FunctionImportName="insert_department" FunctionName="DBModel.Store.insert_department" />
+          <FunctionImportMapping FunctionImportName="insert_exam" FunctionName="DBModel.Store.insert_exam" />
+          <FunctionImportMapping FunctionImportName="insert_ListOFAnswers" FunctionName="DBModel.Store.insert_ListOFAnswers" />
+          <FunctionImportMapping FunctionImportName="insert_questionsTypes" FunctionName="DBModel.Store.insert_questionsTypes" />
+          <FunctionImportMapping FunctionImportName="insert_Student" FunctionName="DBModel.Store.insert_Student" />
+          <FunctionImportMapping FunctionImportName="insert_Student_Exam_Answer" FunctionName="DBModel.Store.insert_Student_Exam_Answer" />
+          <FunctionImportMapping FunctionImportName="insert_topic" FunctionName="DBModel.Store.insert_topic" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="DBModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="DBModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="DBModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="DBModel.Store.sp_helpdiagramdefinition">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ExaminationSystemDBModel.sp_helpdiagramdefinition_Result">
+              <ComplexTypeMapping TypeName="DBModel.sp_helpdiagramdefinition_Result">
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="ExaminationSystemDBModel.Store.sp_helpdiagrams">
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="DBModel.Store.sp_helpdiagrams">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ExaminationSystemDBModel.sp_helpdiagrams_Result">
+              <ComplexTypeMapping TypeName="DBModel.sp_helpdiagrams_Result">
                 <ScalarProperty Name="Database" ColumnName="Database" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -1690,15 +1741,15 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ExaminationSystemDBModel.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ExaminationSystemDBModel.Store.sp_upgraddiagrams" />
-          <FunctionImportMapping FunctionImportName="update_Courses" FunctionName="ExaminationSystemDBModel.Store.update_Courses" />
-          <FunctionImportMapping FunctionImportName="update_courses_students" FunctionName="ExaminationSystemDBModel.Store.update_courses_students" />
-          <FunctionImportMapping FunctionImportName="update_department" FunctionName="ExaminationSystemDBModel.Store.update_department" />
-          <FunctionImportMapping FunctionImportName="update_exam" FunctionName="ExaminationSystemDBModel.Store.update_exam" />
-          <FunctionImportMapping FunctionImportName="update_questionsTypes" FunctionName="ExaminationSystemDBModel.Store.update_questionsTypes" />
-          <FunctionImportMapping FunctionImportName="update_Student" FunctionName="ExaminationSystemDBModel.Store.update_Student" />
-          <FunctionImportMapping FunctionImportName="update_topic" FunctionName="ExaminationSystemDBModel.Store.update_topic" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DBModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DBModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="update_Courses" FunctionName="DBModel.Store.update_Courses" />
+          <FunctionImportMapping FunctionImportName="update_courses_students" FunctionName="DBModel.Store.update_courses_students" />
+          <FunctionImportMapping FunctionImportName="update_department" FunctionName="DBModel.Store.update_department" />
+          <FunctionImportMapping FunctionImportName="update_exam" FunctionName="DBModel.Store.update_exam" />
+          <FunctionImportMapping FunctionImportName="update_questionsTypes" FunctionName="DBModel.Store.update_questionsTypes" />
+          <FunctionImportMapping FunctionImportName="update_Student" FunctionName="DBModel.Store.update_Student" />
+          <FunctionImportMapping FunctionImportName="update_topic" FunctionName="DBModel.Store.update_topic" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -217,6 +217,9 @@
     <Compile Include="Models\get_questionsTypes_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\get_questions_Answers_by_ExamID_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\get_questions_by_ExamID_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

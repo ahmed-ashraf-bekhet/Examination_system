@@ -10,7 +10,7 @@ export class TopicService {
   constructor(private myHttp: HttpClient, private authService:AuthService) { }
 
   getTopics(courseID:number){
-    return this.myHttp.get(`http://localhost:6755/api/topic/getTopics/${courseID}`)
+    return this.myHttp.get(`http://localhost:54345/api/topic/getTopics/${courseID}`)
   }
 
   delete(ID:number){

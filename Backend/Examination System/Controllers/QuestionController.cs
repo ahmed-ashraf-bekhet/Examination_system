@@ -24,6 +24,7 @@ namespace Pro_Test3_API.Controllers
             else
                 return Ok(crs.Questions.Select(q => new { q.ID, q.Body, q.Right_AnswerID, answers = q.Answers.Select(a => new { a.ID, a.Body }) }));
         }
+
         [HttpGet]
         [Route("api/questiontype")]
         public IHttpActionResult GetQuestionType()
