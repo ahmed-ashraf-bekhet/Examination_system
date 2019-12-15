@@ -274,6 +274,15 @@ namespace Part_Of_Project.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<get_exams_questions_Result>("get_exams_questions");
         }
     
+        public virtual ObjectResult<get_Question_answer_Result> get_Question_answer(Nullable<int> exam_id)
+        {
+            var exam_idParameter = exam_id.HasValue ?
+                new ObjectParameter("exam_id", exam_id) :
+                new ObjectParameter("exam_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<get_Question_answer_Result>("get_Question_answer", exam_idParameter);
+        }
+    
         public virtual ObjectResult<get_questions_Answers_by_ExamID_Result> get_questions_Answers_by_ExamID(Nullable<int> exam_id)
         {
             var exam_idParameter = exam_id.HasValue ?

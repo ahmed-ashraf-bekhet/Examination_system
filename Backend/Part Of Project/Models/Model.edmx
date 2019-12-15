@@ -431,6 +431,9 @@
         <Function Name="get_department" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="get_exams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="get_exams_questions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="get_Question_answer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="exam_id" Type="int" Mode="In" />
+        </Function>
         <Function Name="get_questions_Answers_by_ExamID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="exam_id" Type="int" Mode="In" />
         </Function>
@@ -1152,6 +1155,9 @@
           <FunctionImport Name="get_department" ReturnType="Collection(DBModel.get_department_Result)" />
           <FunctionImport Name="get_exams" ReturnType="Collection(DBModel.get_exams_Result)" />
           <FunctionImport Name="get_exams_questions" ReturnType="Collection(DBModel.get_exams_questions_Result)" />
+          <FunctionImport Name="get_Question_answer" ReturnType="Collection(DBModel.get_Question_answer_Result)">
+            <Parameter Name="exam_id" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="get_questions_Answers_by_ExamID" ReturnType="Collection(DBModel.get_questions_Answers_by_ExamID_Result)">
             <Parameter Name="exam_id" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1323,6 +1329,10 @@
         <ComplexType Name="get_exams_questions_Result">
           <Property Type="Int32" Name="ExamID" Nullable="false" />
           <Property Type="Int32" Name="QuestionID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="get_Question_answer_Result">
+          <Property Type="String" Name="Question" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="Right_Answer" Nullable="true" />
         </ComplexType>
         <ComplexType Name="get_questions_Answers_by_ExamID_Result">
           <Property Type="Int32" Name="QID" Nullable="true" />
@@ -1617,6 +1627,14 @@
               <ComplexTypeMapping TypeName="DBModel.get_exams_questions_Result">
                 <ScalarProperty Name="ExamID" ColumnName="ExamID" />
                 <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_Question_answer" FunctionName="DBModel.Store.get_Question_answer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBModel.get_Question_answer_Result">
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Right_Answer" ColumnName="Right_Answer" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

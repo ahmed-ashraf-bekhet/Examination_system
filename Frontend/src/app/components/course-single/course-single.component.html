@@ -26,11 +26,10 @@
             </div>
 
             <div class="col-lg-3 text-lg-right col-5 mt-4 mb-4 mb-xl-0" [hidden]="hidden">
-                <a href="#" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#' + generate_exam_modal">Generate
-                    Exam</a>
+                <a href="#" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#' + generate_exam_modal">Generate Exam</a>
             </div>
             <div class="col-lg-6 col-7 text-lg-center mt-4 mb-4 mb-xl-0" [hidden]="hidden">
-                <a  class="btn btn-primary" (click)="AddQuestion(null,courseID)">Create Question</a>
+                <button  class="btn btn-primary" (click)="AddQuestion(null,courseID)">Create Question</button>
             </div>
             <div class="col-lg-3 col-12 mt-4 mb-4 mb-xl-0" [hidden]="hidden">
                 <button class="btn btn-primary" (click)="getTopicsReport()">Get topics report</button>

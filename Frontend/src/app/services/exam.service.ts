@@ -61,6 +61,10 @@ export class ExamService {
     return this.myHttp.post("http://localhost:54345/api/StudentAnswer",exam);
   }
 
+  getQuestionsAnser(examID:number){
+    return this.myHttp.get(`http://localhost:54345/api/Student/AnswerStudent/${examID}`);
+  }
+
   getExamQuestionsReport(examID:number){
     return this.myHttp.post(`http://localhost:54345/api/Exam/ListQues/${examID}`,{Location:"E:\\"});
   }

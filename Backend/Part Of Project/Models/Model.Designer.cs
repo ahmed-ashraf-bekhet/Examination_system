@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'E:\ITI_Web _Net\ITI_GP\For Testing Api\My Project\Part Of Project\Part Of Project\Models\Model.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\ITI_Web _Net\ITI_GP\GP\Backend\Part Of Project\Models\Model.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

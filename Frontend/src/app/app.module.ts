@@ -58,6 +58,8 @@ import { AddTopicModalComponent } from './components/popups/add-topic-modal/add-
 import { HomeAboutComponent } from './components/home-about/home-about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { StudentAnswersModalComponent } from './components/popups/student-answers-modal/student-answers-modal.component';
+import { ExamAndRightAnswerComponent } from './components/exam-and-right-answer/exam-and-right-answer.component';
+import { ExamHeaderComponent } from './components/exam-header/exam-header.component';
 
 const AppRoutes = [
   { path: '', component: HomeComponent },
@@ -73,6 +75,7 @@ const AppRoutes = [
   { path: 'contact', component: ContactComponent },
   { path: 'questions/:id', component: QuestionsComponent },
   { path: 'exams/:id', component: ExamsComponent },
+  { path: 'result/:id', component: ExamAndRightAnswerComponent },
   { path: '**', component: ErrorComponent }
 ]
 
@@ -119,7 +122,9 @@ const AppRoutes = [
     AddTopicModalComponent,
     HomeAboutComponent,
     ContactComponent,
-    StudentAnswersModalComponent
+    StudentAnswersModalComponent,
+    ExamAndRightAnswerComponent,
+    ExamHeaderComponent
   ],
   imports: [
     BrowserModule,

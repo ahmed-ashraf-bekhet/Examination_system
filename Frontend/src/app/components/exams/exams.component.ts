@@ -20,6 +20,7 @@ export class ExamsComponent implements OnInit {
   show:boolean;
   StudentID:number;
   formdata: StudentAnswerExam;
+  UserType:number;
 
   constructor(private router:Router, public myRouter: ActivatedRoute, private authService:AuthService, private ExamService:ExamService) { }
 
@@ -38,12 +39,14 @@ export class ExamsComponent implements OnInit {
    this.AnswerBody=[''];
    this.object=new Object();
    this.StudentID =parseInt(this.authService.getCookie().userID);
+   this.UserType =parseInt(this.authService.getCookie().userTypeID);
    this.examID = this.myRouter.snapshot.params['id'];
-   this.ExamService.GetExam(this.examID).subscribe(
+   if(this.UserType==2){
+    this.ExamService.GetExam(this.examID).subscribe(
       (data:any)=>{
         //console.log("yes");
         this.solve=data.solved
-        //console.log(this.solve,data);
+        console.log(this.solve,data);
         if(!this.solve){
           this.ExamService.GetExamQuestions(this.examID).subscribe(
             (data:any)=>{
@@ -60,11 +63,18 @@ export class ExamsComponent implements OnInit {
             }
           );
         }
+        else{
+          this.router.navigate(['/result',this.examID]);
+        }
       },
       (error)=>{
         console.log(error);
       }
     );
+   }else{
+    this.router.navigate(['/result',this.examID]);
+   }
+
 
     }
 
@@ -130,6 +140,7 @@ export class ExamsComponent implements OnInit {
     this.ExamService.CorrectExamQuestions(this.examID).subscribe(
       (success) => {
         console.log(success);
+        this.router.navigate(['courses']);
       },
       (error) => {
         console.log(error);

@@ -1,0 +1,24 @@
+<app-exam-header title="EXAM & Answer"></app-exam-header>
+
+<section class="section">
+    <div class="container">
+        <div id="quiz">  
+            <div *ngIf="QandA != null">
+                <div > 
+                    <div class="row text-left options" *ngFor="let item of QandA;let i=index">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>{{i+1}}. <span>{{item.Question}}</span></h4><br>
+                                <h6>Right Answer. <span>{{item.Right_Answer}}</span></h6>
+                                <hr>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -222,6 +222,14 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_Question_answer" FunctionName="DBModel.Store.get_Question_answer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.get_Question_answer_Result">
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Right_Answer" ColumnName="Right_Answer" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="get_questions_Answers_by_ExamID" FunctionName="DBModel.Store.get_questions_Answers_by_ExamID">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DBModel.get_questions_Answers_by_ExamID_Result">

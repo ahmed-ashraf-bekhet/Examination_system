@@ -55,7 +55,7 @@ export class CourseSingleComponent implements OnInit {
   AddQuestion(courseItemIndex,courseID):void {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
-    dialogConfig.disableClose = true;  
+    dialogConfig.closeOnNavigation=false;  
     dialogConfig.width = "50%";
     dialogConfig.height="50%";
     dialogConfig.position={

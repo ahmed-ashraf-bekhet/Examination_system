@@ -71,8 +71,8 @@ namespace Part_Of_Project.Controllers
 
             try
             {
-                userTypeID = Int32.Parse(Request.Headers.GetValues("userTypeID").FirstOrDefault());
-                userID = Int32.Parse(Request.Headers.GetValues("userID").FirstOrDefault());
+                userTypeID =  Int32.Parse(Request.Headers.GetValues("userTypeID").FirstOrDefault());
+                userID =  Int32.Parse(Request.Headers.GetValues("userID").FirstOrDefault());
             }
             catch (Exception e)
             {
@@ -130,21 +130,16 @@ namespace Part_Of_Project.Controllers
                 return Ok(updated);
         }
 
-        //[HttpPost]
-        //[Route("api/Answers/{id}")]
-        //public HttpResponseMessage GetAnswers(int? id,int[] qIDs)
-        //{
-        //    using (DBEntities db = new DBEntities())
-        //    {
-        //        var result = db.get_questions_Answers_by_ExamID(id)
-        //             .AsEnumerable()
-        //             .Where(y => qIDs.Contains(y.ID))
-        //             .OrderBy(x => { return Array.IndexOf(qIDs, x.ID); })
-        //             .Select(z => z.Right_AnswerID)
-        //             .ToArray();
-        //        return this.Request.CreateResponse(HttpStatusCode.OK, result);
-        //    }
-        //}
+        [HttpGet]
+        [Route("api/Student/AnswerStudent/{examID}")]
+        public IHttpActionResult get_Question_answer(int? examID)
+        {
+            var QuestionAndAns = db.get_Question_answer(examID).ToList();
+            if (QuestionAndAns == null)
+                return NotFound();
+            else
+                return Ok(QuestionAndAns);
+        }
 
         [HttpPost]
         [Route("api/StudentAnswer")]
