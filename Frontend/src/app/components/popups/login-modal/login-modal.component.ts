@@ -22,14 +22,14 @@ export class LoginModalComponent implements OnInit {
       this.myService.LoginAsTeacher(username,password).subscribe(
         (response)=>{
           console.log(response)
-          this.myService.getTeacherByID(response).subscribe(
+          this.myService.getTeacherByID(response['ID']).subscribe(
             (res)=>{
               teacher = res
 
               this.authService.setCookie(teacher.ID,"1",teacher.IsAdmin)
 
               teacher = res
-              location.href = `/teachers/${response}`
+              location.href = `/teachers/${response['ID']}`
 
             },
             (error)=>{
