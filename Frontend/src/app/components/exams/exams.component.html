@@ -1,0 +1,39 @@
+
+<section class="section-sm bg-primary">
+    <div class="container">
+        <div id="quiz">  
+            <div *ngIf="ExamService.qns && this.ExamService.qnProgress != 10">
+                <div >
+                    <span>Time Elapsed : {{ExamService.displayTimeElapsed()}}</span>
+                    <div class="progress">
+                        <div class="determinate progress-bar progress-bar-striped bg-success" [style.width.%]="(ExamService.qnProgress+1)*10" role="progressbar"  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="label label-warning">Question {{ExamService.qnProgress+1}} of {{totalItems}}.</div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>{{ExamService.qnProgress+1}}. <span>{{ExamService.qns[ExamService.qnProgress].Qn}}</span></h2>
+                        </div>
+                    </div>
+                    <div class="row text-left options">
+                        <div class="col-md-6" *ngFor="let option of object | keyvalue;let i = index">
+                            <div class="option">
+                                <label class="" for="{{option.key}}">
+                                    <input *ngIf="option != null" id="{{option.key}}" type="checkbox"  (click)="Answer(ExamService.qns[ExamService.qnProgress].QnID,option.key,$event)" />
+                                    {{option.value}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+            </div>
+          
+            <div *ngIf="show">
+                <button class="btn btn-primary" (click)="onSubmit()">Submit Quiz</button>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+
+

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetget_topics_by_courseid" targetNamespace="http://tempuri.org/DataSetget_topics_by_courseid.xsd" xmlns:mstns="http://tempuri.org/DataSetget_topics_by_courseid.xsd" xmlns="http://tempuri.org/DataSetget_topics_by_courseid.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetget_topics_by_courseid" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetget_topics_by_courseid" msprop:Generator_UserDSName="DataSetget_topics_by_courseid">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="List_x0020_Of_x0020_Topics" msprop:Generator_TableClassName="List_Of_TopicsDataTable" msprop:Generator_TableVarName="tableList_Of_Topics" msprop:Generator_TablePropName="List_Of_Topics" msprop:Generator_RowDeletingName="List_Of_TopicsRowDeleting" msprop:Generator_RowChangingName="List_Of_TopicsRowChanging" msprop:Generator_RowEvHandlerName="List_Of_TopicsRowChangeEventHandler" msprop:Generator_RowDeletedName="List_Of_TopicsRowDeleted" msprop:Generator_UserTableName="List Of Topics" msprop:Generator_RowChangedName="List_Of_TopicsRowChanged" msprop:Generator_RowEvArgName="List_Of_TopicsRowChangeEvent" msprop:Generator_RowClassName="List_Of_TopicsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

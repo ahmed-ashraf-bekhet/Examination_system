@@ -51,6 +51,8 @@ import { UpdateDepartmentModalComponent } from './components/popups/update-depar
 import { UpdateCourseModalComponent } from './components/popups/update-course-modal/update-course-modal.component';
 import { AddStudentModalComponent } from './components/popups/add-student-modal/add-student-modal.component';
 import { AddTeacherModalComponent } from './components/popups/add-teacher-modal/add-teacher-modal.component';
+
+import { ExamsComponent } from './components/exams/exams.component';
 import { AssignStudentModalComponent } from './components/popups/assign-student-modal/assign-student-modal.component';
 import { AddTopicModalComponent } from './components/popups/add-topic-modal/add-topic-modal.component';
 import { HomeAboutComponent } from './components/home-about/home-about.component';
@@ -70,6 +72,7 @@ const AppRoutes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'questions/:id', component: QuestionsComponent },
+  { path: 'exams/:id', component: ExamsComponent },
   { path: '**', component: ErrorComponent }
 ]
 
@@ -111,6 +114,7 @@ const AppRoutes = [
     UpdateCourseModalComponent,
     AddStudentModalComponent,
     AddTeacherModalComponent,
+    ExamsComponent,
     AssignStudentModalComponent,
     AddTopicModalComponent,
     HomeAboutComponent,
