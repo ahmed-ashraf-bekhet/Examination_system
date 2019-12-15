@@ -55,6 +55,7 @@ import { AssignStudentModalComponent } from './components/popups/assign-student-
 import { AddTopicModalComponent } from './components/popups/add-topic-modal/add-topic-modal.component';
 import { HomeAboutComponent } from './components/home-about/home-about.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { StudentAnswersModalComponent } from './components/popups/student-answers-modal/student-answers-modal.component';
 
 const AppRoutes = [
   { path: '', component: HomeComponent },
@@ -113,7 +114,8 @@ const AppRoutes = [
     AssignStudentModalComponent,
     AddTopicModalComponent,
     HomeAboutComponent,
-    ContactComponent
+    ContactComponent,
+    StudentAnswersModalComponent
   ],
   imports: [
     BrowserModule,

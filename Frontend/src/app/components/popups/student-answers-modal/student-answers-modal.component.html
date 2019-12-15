@@ -1,0 +1,45 @@
+<!-- add course Modal -->
+<div class="modal fade" id={{modal_name}} role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content rounded-0 border-0 p-4">
+            <div class="modal-header border-0">
+                <h3>Student Answers Report</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <form [formGroup]="form" (ngSubmit)="getReport()" class="row">
+
+                    <div class="col-12 col-sm-6">
+                        <label for="StudentID">Student</label>
+                        <select formControlName="StudentID" class="custom-select">
+                            <option [value]="student.ID" *ngFor="let student of students">{{student.Name}}
+                            </option>
+                        </select>
+                        <span class="error-msg"
+                            *ngIf="form.get('StudentID').invalid && form.get('StudentID').touched">
+                            Student is required
+                        </span>
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                        <label for="ExamID">Exam</label>
+                        <select formControlName="ExamID" class="custom-select">
+                            <option [value]="exam.ID" *ngFor="let exam of exams">{{exam.Title}}
+                            </option>
+                        </select>
+                        <span class="error-msg"
+                            *ngIf="form.get('ExamID').invalid && form.get('ExamID').touched">
+                            Exam is required
+                        </span>
+                    </div>
+
+                    <div class="col-12 mt-2">
+                        <input type="submit" class="btn btn-primary mt-3" value="Get Report" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

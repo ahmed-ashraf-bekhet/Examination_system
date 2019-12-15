@@ -10,7 +10,7 @@
             <div class="collapse navbar-collapse" id="navigation">
                 <ul class="navbar-nav ml-auto text-center">
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="" appActiveLink>Home</a>
+                        <a class="nav-link" routerLink="" appActiveLink id="home">Home</a>
                     </li>
                     <li class="nav-item @@about">
                         <a class="nav-link" routerLink="/about" appActiveLink>About</a>
@@ -74,7 +74,7 @@
                                     [attr.data-target]="'#' + joincourse_modal"><i class="fa fa-plus fa-fw"></i> Assign
                                     Student <span class="caret"></span></a>
                             </li>
-                            <li style="margin-bottom: 10px;"><a routerLink="/" (click)="logout()"><i
+                            <li style="margin-bottom: 10px;"><a routerLink="#" (click)="logout()"><i
                                         class="fa fa-sign-out fa-fw"></i>
                                     Logout</a>
                             </li>

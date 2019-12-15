@@ -145,36 +145,5 @@ namespace Pro_Test3_API.Controllers
             }
         }
 
-        //DownLoad a Report for all Questions and Answers for a student in specific Exam
-        [HttpPost]
-        [Route("api/Student/AnswerStudent")]
-        public HttpResponseMessage Export_get_student_answers(Object Info)
-        {
-            var info = JObject.Parse(Info.ToString());
-            int ExamID = int.Parse(info.SelectToken("ExamID").ToString());
-            int StudentID = int.Parse(info.SelectToken("StudentID").ToString());
-            var Report1 = db.get_student_answers(ExamID, StudentID).ToList();
-            if (Report1.Count == 0)
-            {
-                var Message = string.Format("Report Failed ");
-                HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.NotFound, Message);
-                return res;
-            }
-            else
-            {
-                CrystalReportget_student_answers obj = new CrystalReportget_student_answers();
-                ReportDocument rd = new ReportDocument();
-                string date = DateTime.Now.ToString();
-                obj.SetDataSource(Report1.Select(qs => new { Question = qs.Question ?? "No Value", Answer = qs.Answer ?? "No Value", Right_Answer = qs.Right_Answer ?? "No Value" }));
-
-                string path = info.SelectToken("Location").ToString() + "Student_Answers_" + DateTime.Now.ToString("HH_mm_ss") + ".pdf";
-                //Trace.WriteLine(path);
-                obj.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, path);
-                var Message = string.Format("Report DownLoaded ");
-                var res = Request.CreateResponse(HttpStatusCode.OK, Message);
-                return res;
-            }
-        }
-
     }
 }

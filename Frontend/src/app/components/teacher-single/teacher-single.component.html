@@ -1,7 +1,7 @@
 <app-secondary-header title="Our Teachers >" [minor_title]="teacher.Name"></app-secondary-header>
 
 <!-- new template -->
-<div class="mt-4">
+<div class="mt-4 mb-5">
     <div class="row">
         <div class="col-md-3">
 
@@ -20,6 +20,10 @@
 
                     <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#updateModal">
                         Update
+                    </button>
+
+                    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" [attr.data-target]="'#'+student_answers_modal">
+                        Students answers report
                     </button>
                 </div>
                 <!-- /.card-body -->
@@ -47,6 +51,9 @@
 </div>
 
 <!-- end template -->
+
+<!-- popups -->
+<app-student-answers-modal [modal_name] = "student_answers_modal"></app-student-answers-modal>
 <div *ngIf="teacher">
     <app-pop-ups [teacher]="teacher"></app-pop-ups>
-</div> -->
+</div>
