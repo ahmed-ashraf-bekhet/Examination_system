@@ -12,13 +12,21 @@ export class ExamService {
     return this.myHttp.get(`http://localhost:54345/api/exam/getCourseExams/${courseID}`)
   }
 
+  getAllExams(){
+    return this.myHttp.get("http://localhost:54345/api/exam/getExams");
+  }
+
+  getStudentAnswers(studentExam){
+    studentExam.Location = "E:\\";
+    return this.myHttp.post("http://localhost:54345/api/Exam/AnswerStudent",studentExam);
+  }
+
   save(exam){
     return this.myHttp.post("http://localhost:54345/api/exam/add",exam);
   }
 
   getExamQuestionsReport(examID){
-    console.log(examID)
-    //املو هنا بقا
+    return this.myHttp.post(`http://localhost:54345/api/Exam/ListQues/${examID}`,{Location:"E:\\"});
   }
 
 }
