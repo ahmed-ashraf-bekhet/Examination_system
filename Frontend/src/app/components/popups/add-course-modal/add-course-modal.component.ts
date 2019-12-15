@@ -65,9 +65,11 @@ export class AddCourseModalComponent implements OnInit {
     this.courseService.save(this.course.value).subscribe(
       (success) => {
         console.log(success);
+        alert("You Added New Course successfully , Thanks");
       },
       (error) => {
         console.log(error);
+        alert("Some Thing Wrong , Please Try Again ..");
       }
     )
   }

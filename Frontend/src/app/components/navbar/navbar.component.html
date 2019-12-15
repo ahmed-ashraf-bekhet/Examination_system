@@ -46,7 +46,7 @@
                                             class="fa fa-user fa-fw"></i> Profile </a>
                                 </li>
                             </div>
-                            <li style="margin-bottom: 10px;" class="dropdown-submenu" >
+                            <li style="margin-bottom: 10px;" class="dropdown-submenu" [hidden]="!isAdmin">
                                 <a class="test" tabindex="-1" href="#"><i class="fa fa-plus fa-fw"></i> New<span
                                         class="caret"></span></a>
                                 <ul class="dropdown-menu" style="left: -180px;display: none;">

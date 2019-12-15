@@ -36,9 +36,11 @@ console.log(this.topic.value)
     this.topicService.save(this.topic.value).subscribe(
       (success) => {
         console.log(success);
+        alert("You Added New Topic successfully , Thanks");
       },
       (error) => {
         console.log(error);
+        alert("Some Thing Wrong , Please Try Again ..");
       }
     )
   }

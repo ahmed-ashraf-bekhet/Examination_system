@@ -29,9 +29,9 @@ export class UpdateUserModalComponent implements OnInit {
   clicked(username, password) {
     if (this.student) {
       console.log(this.user.ID)
-      this.user.Username = username;
+      this.user.Name = username;
       this.user.Password = password;
-      console.log(this.user.Username)
+      console.log(this.user.Name)
       console.log(this.user.Password)
       console.log(this.user)
       this.myService.updateInfo(this.user).subscribe(
@@ -48,9 +48,9 @@ export class UpdateUserModalComponent implements OnInit {
 
     else if (this.teacher) {
       console.log(this.user.ID)
-      this.user.Username = username;
+      this.user.Name = username;
       this.user.Password = password;
-      console.log(this.user.Username)
+      console.log(this.user.Name)
       console.log(this.user.Password)
       console.log(this.user)
       this.myService.updateTeacherInfo(this.user).subscribe(
