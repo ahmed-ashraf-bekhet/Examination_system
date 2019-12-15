@@ -9,9 +9,11 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./teacher-single.component.css']
 })
 export class TeacherSingleComponent implements OnInit {
-  teacher 
-  ID
+  teacher; 
+  ID;
+  student_answers_modal:string = "students_answers_modal";
   @Input() title:string;
+
   constructor(public authService:AuthService,public myService:UserService,public myActivatedRoute:ActivatedRoute) { 
     this.ID = this.myActivatedRoute.snapshot.params['id'] 
   }

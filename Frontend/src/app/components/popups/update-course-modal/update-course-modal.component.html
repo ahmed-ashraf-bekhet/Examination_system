@@ -8,11 +8,12 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body text-center">
+            <div class="modal-body ">
                 <form [formGroup]="course" (ngSubmit)="update()" class="row">
                     <div class="col-12">
                         <div class="form-group">
-                            <input type="text" class="form-control mb-3" formControlName="Name" placeholder="Name">
+                            <label for="Name">Name</label>
+                            <input type="text" class="form-control mb-3" formControlName="Name" id="Name">
                             <span class="error-msg" *ngIf="course.get('Name').invalid && course.get('Name').touched">
                                 Name is required
                             </span>
@@ -20,8 +21,9 @@
                     </div>
                     <div class="col-12">
                         <div class="form-group">
-                            <textarea type="text" class="form-control mb-3" formControlName="Description"
-                                placeholder="Description"></textarea>
+                            <label for="Description">Description</label>
+                            <textarea type="text" id="Description" class="form-control mb-3" formControlName="Description"
+                                ></textarea>
                             <span class="error-msg"
                                 *ngIf="course.get('Description').invalid && course.get('Description').touched">
                                 Description is required
@@ -29,7 +31,7 @@
                         </div>
                     </div>
 
-                    <div class="col-12 col-sm-6">
+                    <div class="col-12 col-sm-6 text-center">
                         <label for="DepartmentID">Department</label>
                         <select formControlName="DepartmentID" class="custom-select">
                             <option [value]="dept.ID" *ngFor="let dept of departments">{{dept.Name}}
@@ -41,7 +43,7 @@
                         </span>
                     </div>
 
-                    <div class="col-12 col-sm-6">
+                    <div class="col-12 col-sm-6 text-center">
                         <label for="InstructorID">Teacher</label>
                         <select formControlName="InstructorID" class="custom-select">
                             <option [value]="teacher.ID" *ngFor="let teacher of teachers">{{teacher.Name}}
@@ -53,7 +55,7 @@
                         </span>
                     </div>
 
-                    <div class="col-12">
+                    <div class="col-12 text-center">
                         <input type="submit" class="btn btn-primary mt-3" value="Update" />
                     </div>
                 </form>
