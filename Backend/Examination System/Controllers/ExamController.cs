@@ -8,13 +8,24 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using CrystalDecisions.CrystalReports.Engine;
 using Examination_System.Models;
+using Examination_System.Reports;
+using Newtonsoft.Json.Linq;
 
 namespace Examination_System.Controllers
 {
     public class ExamController : ApiController
     {
         private DBEntities db = new DBEntities();
+
+        [HttpGet]
+        [Route("api/exam/getExams")]
+        public IHttpActionResult GetExams()
+        {
+            var exams = db.Exams.Select(e => new { e.ID, e.Title, e.Duration, e.CreationDateTime });
+            return Ok(exams);
+        }
 
         [HttpGet]
         [Route("api/exam/getCourseExams/{courseID}")]
@@ -127,6 +138,66 @@ namespace Examination_System.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        //DownLoad a Report for all Questions in specific Exam
+        [HttpPost]
+        [Route("api/Exam/ListQues/{id}")]
+        public HttpResponseMessage Export_get_questions_by_ExamID(int? id, Object Location)
+        {
+            var Report1 = db.get_questions_by_ExamID(id).ToList();
+            if (Report1.Count == 0)
+            {
+                var Message = string.Format("Report Failed ");
+                HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.NotFound, Message);
+                return res;
+            }
+            else
+            {
+                CrystalReportget_questions_by_ExamID obj = new CrystalReportget_questions_by_ExamID();
+                ReportDocument rd = new ReportDocument();
+                string date = DateTime.Now.ToString();
+                obj.SetDataSource(Report1.Select(q => new { Body = q.Body ?? "No Value" }));
+                var loc = JObject.Parse(Location.ToString());
+                //Trace.WriteLine(loc.SelectToken("Location"));
+                string path = loc.SelectToken("Location").ToString() + "Exam_Questions_" + DateTime.Now.ToString("HH_mm_ss") + ".pdf";
+                //Trace.WriteLine(path);
+                obj.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, path);
+                var Message = string.Format("Report DownLoaded ");
+                var res = Request.CreateResponse(HttpStatusCode.OK, Message);
+                return res;
+            }
+        }
+
+        //DownLoad a Report for all Questions and Answers for a student in specific Exam
+        [HttpPost]
+        [Route("api/Exam/AnswerStudent")]
+        public HttpResponseMessage Export_get_student_answers(Object Info)
+        {
+            var info = JObject.Parse(Info.ToString());
+            int ExamID = int.Parse(info.SelectToken("ExamID").ToString());
+            int StudentID = int.Parse(info.SelectToken("StudentID").ToString());
+            var Report1 = db.get_student_answers(ExamID, StudentID).ToList();
+            if (Report1.Count == 0)
+            {
+                var Message = string.Format("Report Failed ");
+                HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.NotFound, Message);
+                return res;
+            }
+            else
+            {
+                CrystalReportget_student_answers obj = new CrystalReportget_student_answers();
+                ReportDocument rd = new ReportDocument();
+                string date = DateTime.Now.ToString();
+                obj.SetDataSource(Report1.Select(qs => new { Question = qs.Question ?? "No Value", Answer = qs.Answer ?? "No Value", Right_Answer = qs.Right_Answer ?? "No Value" }));
+
+                string path = info.SelectToken("Location").ToString() + "Student_Answers_" + DateTime.Now.ToString("HH_mm_ss") + ".pdf";
+                //Trace.WriteLine(path);
+                obj.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, path);
+                var Message = string.Format("Report DownLoaded ");
+                var res = Request.CreateResponse(HttpStatusCode.OK, Message);
+                return res;
+            }
         }
     }
 

@@ -132,7 +132,7 @@ namespace Examination_System.Controllers
 
         //DownLoad a Report for all Cources and Num of Student in each cource for specific instractor
         [HttpPost]
-        [Route("api/Student/ListCources/{id}")]
+        [Route("api/Instructor/ListCources/{id}")]
         public HttpResponseMessage Export_get_courses_students_number_by_instructorid(int? id, Object Location)
         {
             var Report1 = db.get_courses_students_number_by_instructorid(id).ToList();

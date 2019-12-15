@@ -82,13 +82,11 @@ export class UserService {
   }
 
   getStudentCoursesReport(studentID){
-    console.log(studentID)
-    //املو هنا
+    return this.myHttp.post(`http://localhost:54345/api/Student/GradesExport/${studentID}`,{Location:"E:\\"});
   }
 
   getTeacherCoursesReport(teacherID){
-    console.log(teacherID)
-    //املو هنا
+    return this.myHttp.post(`http://localhost:54345/api/Instructor/ListCources/${teacherID}`,{Location:"E:\\"});
   }
 
 }
