@@ -115,3 +115,116 @@ E:\ITI_Web _Net\ITI_GP\For Testing Api\My Project\Part Of Project\Part Of Projec
 E:\ITI_Web _Net\ITI_GP\For Testing Api\My Project\Part Of Project\Part Of Project\obj\Debug\Part Of Project.dll
 E:\ITI_Web _Net\ITI_GP\For Testing Api\My Project\Part Of Project\Part Of Project\obj\Debug\Part Of Project.pdb
 E:\ITI_Web _Net\ITI_GP\For Testing Api\My Project\Part Of Project\Part Of Project\obj\Debug\Part Of Project.csprojAssemblyReference.cache
+F:\GP\Backend\Part Of Project\bin\ApplicationInsights.config
+F:\GP\Backend\Part Of Project\bin\Part Of Project.dll.config
+F:\GP\Backend\Part Of Project\bin\Part Of Project.dll
+F:\GP\Backend\Part Of Project\bin\Part Of Project.pdb
+F:\GP\Backend\Part Of Project\bin\roslyn\csc.exe
+F:\GP\Backend\Part Of Project\bin\roslyn\csc.exe.config
+F:\GP\Backend\Part Of Project\bin\roslyn\csc.rsp
+F:\GP\Backend\Part Of Project\bin\roslyn\csi.exe
+F:\GP\Backend\Part Of Project\bin\roslyn\csi.exe.config
+F:\GP\Backend\Part Of Project\bin\roslyn\csi.rsp
+F:\GP\Backend\Part Of Project\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\GP\Backend\Part Of Project\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\Microsoft.Managed.Core.targets
+F:\GP\Backend\Part Of Project\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\GP\Backend\Part Of Project\bin\roslyn\System.AppContext.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.Collections.Immutable.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.Console.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.IO.Compression.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.IO.FileSystem.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.IO.Pipes.AccessControl.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.IO.Pipes.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.Reflection.Metadata.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.Security.AccessControl.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.Security.Claims.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.Security.Cryptography.Encoding.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.Security.Cryptography.Primitives.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.Security.Principal.Windows.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.Text.Encoding.CodePages.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.ValueTuple.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.Xml.ReaderWriter.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.Xml.XmlDocument.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.Xml.XPath.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\System.Xml.XPath.XDocument.dll
+F:\GP\Backend\Part Of Project\bin\roslyn\vbc.exe
+F:\GP\Backend\Part Of Project\bin\roslyn\vbc.exe.config
+F:\GP\Backend\Part Of Project\bin\roslyn\vbc.rsp
+F:\GP\Backend\Part Of Project\bin\roslyn\VBCSCompiler.exe
+F:\GP\Backend\Part Of Project\bin\roslyn\VBCSCompiler.exe.config
+F:\GP\Backend\Part Of Project\bin\Antlr3.Runtime.dll
+F:\GP\Backend\Part Of Project\bin\EntityFramework.dll
+F:\GP\Backend\Part Of Project\bin\EntityFramework.SqlServer.dll
+F:\GP\Backend\Part Of Project\bin\Microsoft.AI.Agent.Intercept.dll
+F:\GP\Backend\Part Of Project\bin\Microsoft.AI.DependencyCollector.dll
+F:\GP\Backend\Part Of Project\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\GP\Backend\Part Of Project\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\GP\Backend\Part Of Project\bin\Microsoft.AI.Web.dll
+F:\GP\Backend\Part Of Project\bin\Microsoft.AI.WindowsServer.dll
+F:\GP\Backend\Part Of Project\bin\Microsoft.ApplicationInsights.dll
+F:\GP\Backend\Part Of Project\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+F:\GP\Backend\Part Of Project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\GP\Backend\Part Of Project\bin\Microsoft.Web.Infrastructure.dll
+F:\GP\Backend\Part Of Project\bin\Newtonsoft.Json.dll
+F:\GP\Backend\Part Of Project\bin\System.Diagnostics.DiagnosticSource.dll
+F:\GP\Backend\Part Of Project\bin\System.Net.Http.Formatting.dll
+F:\GP\Backend\Part Of Project\bin\System.Web.Helpers.dll
+F:\GP\Backend\Part Of Project\bin\System.Web.Http.dll
+F:\GP\Backend\Part Of Project\bin\System.Web.Http.WebHost.dll
+F:\GP\Backend\Part Of Project\bin\System.Web.Mvc.dll
+F:\GP\Backend\Part Of Project\bin\System.Web.Optimization.dll
+F:\GP\Backend\Part Of Project\bin\System.Web.Razor.dll
+F:\GP\Backend\Part Of Project\bin\System.Web.WebPages.Deployment.dll
+F:\GP\Backend\Part Of Project\bin\System.Web.WebPages.dll
+F:\GP\Backend\Part Of Project\bin\System.Web.WebPages.Razor.dll
+F:\GP\Backend\Part Of Project\bin\WebGrease.dll
+F:\GP\Backend\Part Of Project\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+F:\GP\Backend\Part Of Project\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+F:\GP\Backend\Part Of Project\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+F:\GP\Backend\Part Of Project\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+F:\GP\Backend\Part Of Project\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+F:\GP\Backend\Part Of Project\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+F:\GP\Backend\Part Of Project\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+F:\GP\Backend\Part Of Project\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+F:\GP\Backend\Part Of Project\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+F:\GP\Backend\Part Of Project\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+F:\GP\Backend\Part Of Project\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+F:\GP\Backend\Part Of Project\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+F:\GP\Backend\Part Of Project\bin\stdole.dll
+F:\GP\Backend\Part Of Project\bin\EntityFramework.xml
+F:\GP\Backend\Part Of Project\bin\EntityFramework.SqlServer.xml
+F:\GP\Backend\Part Of Project\bin\Newtonsoft.Json.xml
+F:\GP\Backend\Part Of Project\bin\System.Net.Http.Formatting.xml
+F:\GP\Backend\Part Of Project\bin\System.Web.Helpers.xml
+F:\GP\Backend\Part Of Project\bin\System.Web.Http.xml
+F:\GP\Backend\Part Of Project\bin\System.Web.Http.WebHost.xml
+F:\GP\Backend\Part Of Project\bin\System.Web.Mvc.xml
+F:\GP\Backend\Part Of Project\bin\System.Web.Optimization.xml
+F:\GP\Backend\Part Of Project\bin\System.Web.Razor.xml
+F:\GP\Backend\Part Of Project\bin\System.Web.WebPages.xml
+F:\GP\Backend\Part Of Project\bin\System.Web.WebPages.Deployment.xml
+F:\GP\Backend\Part Of Project\bin\System.Web.WebPages.Razor.xml
+F:\GP\Backend\Part Of Project\bin\Antlr3.Runtime.pdb
+F:\GP\Backend\Part Of Project\bin\System.Diagnostics.DiagnosticSource.xml
+F:\GP\Backend\Part Of Project\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+F:\GP\Backend\Part Of Project\bin\Microsoft.AI.DependencyCollector.xml
+F:\GP\Backend\Part Of Project\bin\Microsoft.AI.WindowsServer.xml
+F:\GP\Backend\Part Of Project\bin\Microsoft.AI.Web.xml
+F:\GP\Backend\Part Of Project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\GP\Backend\Part Of Project\obj\Debug\Part Of Project.csprojAssemblyReference.cache
+F:\GP\Backend\Part Of Project\obj\Debug\Part Of Project.csproj.CopyComplete
+F:\GP\Backend\Part Of Project\obj\Debug\Part Of Project.dll
+F:\GP\Backend\Part Of Project\obj\Debug\Part Of Project.pdb
