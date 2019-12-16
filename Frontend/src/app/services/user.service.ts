@@ -50,7 +50,7 @@ export class UserService {
   }
 
   getTeacherByID(ID){
-    return this.myHttp.get(`http://localhost:54345/api/instructor/${ID}`)
+    return this.myHttp.get(`http://localhost:54345/api/Instructor/GetInstructor/${ID}`)
   }
 
   getAllTeachers(){

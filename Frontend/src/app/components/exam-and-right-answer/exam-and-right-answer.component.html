@@ -1,24 +1,29 @@
-<app-exam-header title="EXAM & Answer"></app-exam-header>
+<!DOCTYPE html>
+<html lang="en">
 
-<section class="section">
-    <div class="container">
-        <div id="quiz">  
-            <div *ngIf="QandA != null">
-                <div > 
-                    <div class="row text-left options" *ngFor="let item of QandA;let i=index">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h4>{{i+1}}. <span>{{item.Question}}</span></h4><br>
-                                <h6>Right Answer. <span>{{item.Right_Answer}}</span></h6>
-                                <hr>
-                                <br>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr />
-            </div>
-        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <br><br><br><br><br><br><br><br><br><br>
+
+    <div style="border: 4px solid rgb(247, 167, 62); border-radius: 20px; width: 70%; margin-left: 15%;">
+    <div style="margin: 3%;" *ngFor="let item of QandA;let i=index">
+        <h4>{{i+1}}. <span>{{item.Question}}</span></h4><br>
+        <ol type="1">
+            <li style="margin: 1%;">
+                <h6>Right Answer.   <span>{{item.Right_Answer}}</span></h6>
+            </li>
+        </ol>
+        <hr style=" border-width: 2px;">
     </div>
-</section>
+</div>
 
+</body>
+
+</html>

@@ -1,13 +1,18 @@
 .containerr {
     position: relative;
     width: 50%;
-    height: 240px;
+    height: 250px;
     padding-right: 5%;
+    padding-top: 30px;
+}
+
+.Topicc {
+    line-height: 26px;
 }
 
 .containerr .overlay {
     position: absolute;
-    bottom: 90px;
+    top: 23px;
     left: 0;
     right: 0;
     background-color: #008CBA;
@@ -18,7 +23,7 @@
 }
 
 .containerr:hover .overlay {
-    height: 29%;
+    height: 41%;
     margin-bottom: 46px;
     border-radius: 40px;
     background-color: #e0a12761;
@@ -46,11 +51,11 @@
 
 .buttondu {
     padding: 3px;
-    margin-top: 3px;
+    margin-top: 12px;
     border-radius: 21px;
 }
 
 .topics {
-    margin-bottom: -100px;
-    margin-top: -70px;
+    margin-bottom: -136px;
+    margin-top: -31px;
 }

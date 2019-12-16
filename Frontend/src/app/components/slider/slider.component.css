@@ -1,6 +1,27 @@
 .carousell{
-    background-color: black;
-    margin-top: 116px;
-    padding: 5%;
-    padding-left: 15%;
-  } 
+  background-color: black;
+  background-image: linear-gradient(rgba(26, 26, 55,0.87), rgba(26, 26, 55, 0.87)), url('/assets/images/banner/banner-1.jpg');
+  margin-top: -98px;
+  height: 612px;
+  padding-left: 15%;
+  background-repeat-x: no-repeat;
+  background-size: 100%;
+  
+} 
+#carouselExampleIndicators{
+  margin-top: 144px;
+  margin-bottom: 50px;
+}
+
+.text-white{
+  font-size: 55px;
+}
+
+.h11{
+  margin-top: 146px;
+  line-height: 79px;
+}
+.div1{
+  height: 302px;
+}
+

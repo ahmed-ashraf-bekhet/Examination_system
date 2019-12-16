@@ -36,6 +36,7 @@ namespace Part_Of_Project.Controllers
 
         // GET: api/Instructor/5
         [HttpGet]
+        [Route("api/Instructor/GetInstructor/{id}")]
         public IHttpActionResult GetInstructor(int id)
         {
             var instructor = db.Instructors.Where(s => s.ID == id).Select(i => new { i.ID, i.Name, i.Username, i.Password, i.IsAdmin, DeptName = i.Department.Name }).SingleOrDefault();
