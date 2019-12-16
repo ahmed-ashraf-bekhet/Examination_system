@@ -52,9 +52,11 @@ export class AddStudentModalComponent implements OnInit {
     this.userService.addStudent(this.student.value).subscribe(
       (success) => {
         console.log(success);
+        alert("You Added New Student successfully , Thanks");
       },
       (error) => {
         console.log(error);
+        alert("Some Thing Wrong , Please Try Again ..");
       }
     )
   }
