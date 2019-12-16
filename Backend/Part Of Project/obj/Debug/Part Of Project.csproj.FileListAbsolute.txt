@@ -110,6 +110,7 @@ E:\ITI_Web _Net\ITI_GP\GP\Backend\Part Of Project\bin\Microsoft.AI.DependencyCol
 E:\ITI_Web _Net\ITI_GP\GP\Backend\Part Of Project\bin\Microsoft.AI.WindowsServer.xml
 E:\ITI_Web _Net\ITI_GP\GP\Backend\Part Of Project\bin\Microsoft.AI.Web.xml
 E:\ITI_Web _Net\ITI_GP\GP\Backend\Part Of Project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\ITI_Web _Net\ITI_GP\GP\Backend\Part Of Project\obj\Debug\Part Of Project.csprojAssemblyReference.cache
 E:\ITI_Web _Net\ITI_GP\GP\Backend\Part Of Project\obj\Debug\Part Of Project.csproj.CoreCompileInputs.cache
 E:\ITI_Web _Net\ITI_GP\GP\Backend\Part Of Project\obj\Debug\Part Of Project.csproj.CopyComplete
 E:\ITI_Web _Net\ITI_GP\GP\Backend\Part Of Project\obj\Debug\Part Of Project.dll

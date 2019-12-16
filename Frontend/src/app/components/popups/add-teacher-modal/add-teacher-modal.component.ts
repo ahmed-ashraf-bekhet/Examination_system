@@ -54,9 +54,11 @@ export class AddTeacherModalComponent implements OnInit {
     this.userService.addTeacher(this.teacher.value).subscribe(
       (success) => {
         console.log(success);
+        alert("You Added New Teacher successfully , Thanks");
       },
       (error) => {
         console.log(error);
+        alert("Some Thing Wrong , Please Try Again ..");
       }
     )
   }

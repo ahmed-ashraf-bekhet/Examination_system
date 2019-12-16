@@ -26,9 +26,11 @@ export class AddDepartmentModalComponent implements OnInit {
     this.deptService.save(this.department.value).subscribe(
       (success)=>{
         console.log(success);
+        alert("You Added New Department successfully , Thanks");
       },
       (error)=>{
         console.log(error);
+        alert("Some Thing Wrong , Please Try Again ..");
       }
     )
   }
